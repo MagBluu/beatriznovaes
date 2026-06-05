@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beatriz Novaes — Design & Palavra / Design & Word</title>
+<meta name="description" content="Beatriz Novaes — designer gráfica e escritora em Maceió. Identidade visual, branding, e-commerce, Amazon A+ e design editorial.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Archivo:wght@400;500;700;900&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4efe6;--paper-dark:#e8e0d2;--ink:#1f1b16;--ink-soft:#4a4239;
+  --rust:#b5482e;--ochre:#d99a4e;--teal:#2f5d57;--blush:#dba9a0;--tape:rgba(217,154,78,.35);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'Archivo',sans-serif;overflow-x:hidden;position:relative}
+body::before{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+  mix-blend-mode:multiply}
+.wrap{position:relative;z-index:2}
+.serif{font-family:'Fraunces',serif}.hand{font-family:'Caveat',cursive}
+[data-en]{display:none}
+body.en [data-pt]{display:none}
+body.en [data-en]{display:inline}
+body.en [data-en].block{display:block}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:16px 5vw;background:linear-gradient(var(--paper),transparent)}
+nav .logo{font-family:'Fraunces',serif;font-weight:900;font-size:1.3rem;letter-spacing:-.02em;cursor:pointer}
+nav .logo span{color:var(--rust)}
+nav .right{display:flex;align-items:center;gap:26px}
+nav ul{display:flex;gap:26px;list-style:none}
+nav a{color:var(--ink);text-decoration:none;font-size:.82rem;font-weight:500;text-transform:uppercase;letter-spacing:.12em;position:relative;padding-bottom:3px;cursor:pointer}
+nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--rust);transition:width .3s}
+nav a:hover::after{width:100%}
+.lang{display:flex;border:1.5px solid var(--ink);font-size:.72rem;font-weight:700;letter-spacing:.05em;overflow:hidden}
+.lang button{background:none;border:none;padding:6px 10px;cursor:pointer;font-family:inherit;font-weight:700;color:var(--ink);transition:.2s}
+.lang button.active{background:var(--ink);color:var(--paper)}
+.nav-toggle{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--ink)}
+@media(max-width:760px){nav ul{display:none;position:absolute;top:100%;right:5vw;background:var(--paper);flex-direction:column;gap:14px;padding:20px 28px;border:1.5px solid var(--ink);box-shadow:6px 6px 0 var(--ink)}nav ul.open{display:flex}.nav-toggle{display:block}}
+
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 5vw 60px;position:relative}
+.hero .kicker{font-size:.8rem;text-transform:uppercase;letter-spacing:.35em;color:var(--ink-soft);margin-bottom:18px;opacity:0;animation:fadeUp .8s .2s forwards}
+.hero h1{font-family:'Fraunces',serif;font-weight:900;line-height:.92;font-size:clamp(3.2rem,12vw,9.5rem);letter-spacing:-.03em;max-width:14ch}
+.hero h1 .line{display:block;overflow:hidden}
+.hero h1 .line span{display:block;transform:translateY(110%);animation:slideUp .9s cubic-bezier(.2,.8,.2,1) forwards}
+.hero h1 .line:nth-child(2) span{animation-delay:.12s}
+.hero h1 em{font-style:italic;color:var(--rust)}
+.hero .sub{margin-top:30px;max-width:48ch;font-size:1.05rem;line-height:1.6;color:var(--ink-soft);opacity:0;animation:fadeUp .8s .8s forwards}
+.hero .poem{font-family:'Caveat',cursive;font-size:1.6rem;color:var(--teal);transform:rotate(-4deg);margin-top:8px;display:inline-block}
+.hero .avail{position:absolute;top:120px;right:5vw;font-family:'Caveat',cursive;font-size:1.35rem;color:var(--rust);transform:rotate(5deg);opacity:0;animation:fadeUp .8s 1s forwards}
+.hero .avail::before{content:"● ";color:#3a7d3a;font-size:.7rem;vertical-align:middle}
+@media(max-width:760px){.hero .avail{display:none}}
+
+.scrap{position:absolute;z-index:0;box-shadow:3px 5px 14px rgba(31,27,22,.18)}
+.scrap.s1{width:170px;height:210px;top:26%;right:8%;background-image:linear-gradient(135deg,var(--rust),#8f3320);transform:rotate(7deg)}
+.scrap.s2{width:120px;height:120px;top:62%;right:22%;background:var(--ochre);transform:rotate(-9deg);border-radius:50%}
+.scrap.s3{width:140px;height:90px;bottom:12%;right:6%;background:var(--teal);transform:rotate(4deg)}
+.tape{position:absolute;width:90px;height:28px;background:var(--tape);backdrop-filter:blur(1px);box-shadow:0 1px 3px rgba(0,0,0,.1)}
+@media(max-width:760px){.scrap{opacity:.5}.scrap.s2{display:none}}
+
+.marquee{border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);padding:14px 0;overflow:hidden;background:var(--ink);color:var(--paper)}
+.marquee div{display:inline-block;white-space:nowrap;animation:scroll 26s linear infinite;font-family:'Fraunces',serif;font-style:italic;font-size:1.4rem}
+.marquee span{margin:0 28px}.marquee span::after{content:"✦";margin-left:56px;color:var(--ochre)}
+
+section{padding:100px 5vw;position:relative}
+.sec-label{font-size:.8rem;text-transform:uppercase;letter-spacing:.3em;color:var(--rust);font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:12px}
+.sec-label::before{content:"";width:38px;height:2px;background:var(--rust)}
+.sec-title{font-family:'Fraunces',serif;font-weight:800;font-size:clamp(2rem,5vw,3.4rem);line-height:1.02;letter-spacing:-.02em;margin-bottom:50px;max-width:20ch}
+
+.about{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.about-text p{font-size:1.08rem;line-height:1.75;color:var(--ink-soft);margin-bottom:20px;max-width:54ch}
+.about-text strong{color:var(--ink);font-weight:700}
+.about-card{position:relative;background:var(--paper-dark);padding:18px 18px 0;border:1.5px solid var(--ink);box-shadow:8px 8px 0 var(--ink)}
+.about-card .photo{width:100%;aspect-ratio:2/3;overflow:hidden}
+.about-card .photo img{width:100%;height:100%;object-fit:cover;display:block}
+.about-card .tape{top:-14px;left:50%;transform:translateX(-50%) rotate(-3deg);width:130px}
+.about-card .note{font-family:'Caveat',cursive;font-size:1.25rem;color:var(--teal);margin:14px 0 18px;line-height:1.2;text-align:center}
+@media(max-width:780px){.about{grid-template-columns:1fr;gap:40px}}
+.tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.tags span{border:1.5px solid var(--ink);padding:7px 15px;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;font-weight:500;background:var(--paper);transition:.2s}
+.tags span:hover{background:var(--ink);color:var(--paper);transform:translateY(-2px)}
+
+.services{background:var(--paper-dark);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:20px}
+.svc{padding:34px 26px;border-right:1.5px dashed var(--ink-soft)}
+.svc:last-child{border-right:none}
+.svc .no{font-family:'Fraunces',serif;font-style:italic;font-size:1.1rem;color:var(--rust);margin-bottom:14px}
+.svc h3{font-family:'Fraunces',serif;font-size:1.35rem;font-weight:700;margin-bottom:10px;line-height:1.1}
+.svc p{font-size:.92rem;color:var(--ink-soft);line-height:1.55}
+@media(max-width:860px){.svc-grid{grid-template-columns:1fr 1fr}.svc{border-bottom:1.5px dashed var(--ink-soft)}.svc:nth-child(2n){border-right:none}}
+@media(max-width:480px){.svc-grid{grid-template-columns:1fr}.svc{border-right:none}}
+
+.work-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
+.card{position:relative;border:1.5px solid var(--ink);background:var(--paper-dark);overflow:hidden;cursor:pointer;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s;text-decoration:none;color:inherit;display:block}
+.card:hover{transform:translateY(-6px) rotate(-.5deg);box-shadow:10px 12px 0 var(--ink)}
+.card .thumb{width:100%;aspect-ratio:4/3;position:relative;overflow:hidden;background:var(--ink)}
+.card .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.card:hover .thumb img{transform:scale(1.06)}
+.card .thumb::after{content:"↗";position:absolute;top:14px;right:16px;font-size:1.3rem;opacity:0;transition:.3s;color:#fff;z-index:2;text-shadow:0 1px 4px rgba(0,0,0,.4)}
+.card:hover .thumb::after{opacity:1;transform:translate(3px,-3px)}
+.card .meta{padding:16px 18px 20px;background:var(--paper)}
+.card .meta h3{font-family:'Fraunces',serif;font-size:1.25rem;font-weight:700;letter-spacing:-.01em}
+.card .meta p{font-size:.8rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.1em;margin-top:5px}
+.t6{background:linear-gradient(150deg,#7d8a5c,#56603d);display:flex;align-items:flex-end;padding:18px}
+.card .thumb .badge{font-family:'Caveat',cursive;color:#fff;font-size:1.5rem;line-height:1;position:relative;z-index:2}
+.c-lg{grid-column:span 6}.c-md{grid-column:span 4}.c-sm{grid-column:span 4}
+@media(max-width:880px){.c-lg{grid-column:span 12}.c-md,.c-sm{grid-column:span 6}}
+@media(max-width:560px){.c-md,.c-sm,.c-lg{grid-column:span 12}}
+
+.writer{background:var(--ink);color:var(--paper);text-align:center}
+.writer .sec-label{justify-content:center;color:var(--ochre)}.writer .sec-label::before{display:none}
+.writer blockquote{font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:clamp(1.6rem,4vw,2.8rem);line-height:1.3;max-width:22ch;margin:0 auto;letter-spacing:-.01em}
+.writer blockquote span{color:var(--ochre)}
+.writer .attr{font-family:'Caveat',cursive;font-size:1.4rem;margin-top:24px;color:var(--blush)}
+.writer .ig{display:inline-block;margin-top:30px;font-size:.82rem;text-transform:uppercase;letter-spacing:.15em;border:1.5px solid var(--paper);padding:11px 22px;text-decoration:none;color:var(--paper);transition:.25s}
+.writer .ig:hover{background:var(--paper);color:var(--ink)}
+
+.contact{text-align:center;padding-bottom:60px}
+.contact h2{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(2.4rem,8vw,6rem);line-height:.95;letter-spacing:-.03em;margin-bottom:30px}
+.contact h2 em{font-style:italic;color:var(--rust)}
+.contact .mail{font-size:1.3rem;font-weight:700;text-decoration:none;color:var(--ink);border-bottom:3px solid var(--ochre);padding-bottom:3px;transition:.25s}
+.contact .mail:hover{color:var(--rust)}
+.links{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;margin-top:38px}
+.links a{font-size:.82rem;text-transform:uppercase;letter-spacing:.12em;font-weight:500;text-decoration:none;color:var(--ink-soft);transition:.2s}
+.links a:hover{color:var(--rust)}
+footer{text-align:center;padding:30px 5vw 50px;font-size:.78rem;color:var(--ink-soft);letter-spacing:.05em}
+footer .hand{font-size:1.1rem;color:var(--teal)}
+
+/* DETAIL OVERLAY */
+.detail{position:fixed;inset:0;z-index:100;background:var(--paper);overflow-y:auto;display:none;opacity:0;transition:opacity .4s}
+.detail.open{display:block;opacity:1}
+.detail::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");mix-blend-mode:multiply}
+.detail-inner{position:relative;z-index:2;max-width:1040px;margin:0 auto;padding:90px 5vw 80px}
+.detail .close{position:fixed;top:24px;right:5vw;z-index:10;background:var(--ink);color:var(--paper);border:none;width:48px;height:48px;border-radius:50%;font-size:1.4rem;cursor:pointer;transition:.25s;box-shadow:3px 3px 0 var(--rust)}
+.detail .close:hover{transform:rotate(90deg)}
+.detail .d-label{font-size:.8rem;text-transform:uppercase;letter-spacing:.3em;color:var(--rust);font-weight:700;margin-bottom:14px}
+.detail h2{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(2.2rem,6vw,4rem);line-height:1;letter-spacing:-.02em;margin-bottom:24px}
+.detail .lead{font-size:1.15rem;line-height:1.7;color:var(--ink-soft);max-width:62ch;margin-bottom:30px}
+.d-info{display:flex;gap:40px;flex-wrap:wrap;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);padding:22px 0;margin-bottom:50px}
+.d-info div .k{font-size:.72rem;text-transform:uppercase;letter-spacing:.15em;color:var(--rust);font-weight:700;margin-bottom:5px}
+.d-info div .v{font-family:'Fraunces',serif;font-size:1.05rem}
+.d-gallery{display:flex;flex-direction:column;gap:28px}
+.d-gallery img{width:100%;border:1.5px solid var(--ink);box-shadow:6px 6px 0 var(--ink-soft);display:block;opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s}
+.d-gallery img.in{opacity:1;transform:translateY(0)}
+.d-back{display:inline-block;margin-top:50px;font-size:.85rem;text-transform:uppercase;letter-spacing:.12em;font-weight:600;color:var(--ink);text-decoration:none;border-bottom:2px solid var(--ochre);padding-bottom:3px;cursor:pointer}
+
+@keyframes slideUp{to{transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .8s,transform .8s}
+.reveal.in{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav>
+  <div class="logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">b<span>.</span>novaes</div>
+  <button class="nav-toggle" aria-label="menu">☰</button>
+  <div class="right">
+    <ul>
+      <li><a href="#sobre"><span data-pt>Sobre</span><span data-en>About</span></a></li>
+      <li><a href="#servicos"><span data-pt>Serviços</span><span data-en>Services</span></a></li>
+      <li><a href="#trabalho"><span data-pt>Trabalho</span><span data-en>Work</span></a></li>
+      <li><a href="#palavra"><span data-pt>Palavra</span><span data-en>Word</span></a></li>
+      <li><a href="#contato"><span data-pt>Contato</span><span data-en>Contact</span></a></li>
+    </ul>
+    <div class="lang">
+      <button id="bt-pt" class="active" onclick="setLang('pt')">PT</button>
+      <button id="bt-en" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="scrap s1"><span class="tape" style="top:-12px;left:30px;transform:rotate(-6deg)"></span></div>
+  <div class="scrap s2"></div>
+  <div class="scrap s3"><span class="tape" style="top:-12px;right:20px;transform:rotate(8deg)"></span></div>
+  <p class="avail"><span data-pt>disponível para freelance!</span><span data-en>available for freelance!</span></p>
+  <p class="kicker"><span data-pt>Designer Gráfica · Escritora · Maceió, Brasil</span><span data-en>Graphic Designer · Writer · Maceió, Brazil</span></p>
+  <h1>
+    <span class="line"><span>Beatriz</span></span>
+    <span class="line"><span>Novaes</span></span>
+  </h1>
+  <p class="sub">
+    <span data-pt>Identidade visual, social media, e-commerce e design editorial. Eu desenho marcas e escrevo entrelinhas — aquilo que nasce quando <em>imagem e palavra</em> se sobrepõem como uma colagem.</span>
+    <span data-en>Visual identity, social media, e-commerce and editorial design. I design brands and write between the lines — what emerges when <em>image and word</em> overlap like a collage.</span>
+  </p>
+  <p class="poem"><span data-pt>— recorto, colo, dou sentido.</span><span data-en>— I cut, I paste, I make meaning.</span></p>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div><span>Identidade Visual</span><span>Branding</span><span>Amazon A+ Content</span><span>Social Media</span><span>Design Editorial</span><span>Colagem</span><span>Identidade Visual</span><span>Branding</span><span>Amazon A+ Content</span><span>Social Media</span><span>Design Editorial</span><span>Colagem</span></div>
+</div>
+
+<section id="sobre">
+  <div class="about">
+    <div class="about-text reveal">
+      <p class="sec-label"><span data-pt>Quem recorta</span><span data-en>Who cuts & pastes</span></p>
+      <h2 class="sec-title"><span data-pt>Onde o traço encontra a palavra.</span><span data-en>Where the line meets the word.</span></h2>
+      <p>
+        <span data-pt>Sou <strong>Beatriz Novaes</strong>, designer gráfica baseada em Maceió, com olhar de escritora. Atuo com <strong>identidade visual, social media, design para e-commerce e Amazon A+ content</strong> — sempre buscando a frase certa que a imagem ainda não disse.</span>
+        <span data-en>I'm <strong>Beatriz Novaes</strong>, a graphic designer based in Maceió, Brazil, with a writer's eye. I work with <strong>visual identity, social media, e-commerce design and Amazon A+ content</strong> — always searching for the right phrase the image hasn't said yet.</span>
+      </p>
+      <p>
+        <span data-pt>Trabalho com marcas que querem soar autênticas: do rebranding completo ao design de produto. E, fora do expediente, escrevo poesia — o que me ensinou que <strong>todo bom design conta uma história</strong>.</span>
+        <span data-en>I work with brands that want to feel authentic: from full rebrands to product design. And after hours, I write poetry — which taught me that <strong>every good design tells a story</strong>.</span>
+      </p>
+      <div class="tags">
+        <span>Identidade Visual</span><span>Branding</span><span>Amazon A+</span><span>Social Media</span><span data-pt>Design Editorial</span><span data-en>Editorial</span><span>Storytelling</span>
+      </div>
+    </div>
+    <div class="about-card reveal">
+      <span class="tape"></span>
+      <div class="photo"><img src="imagens/bea-retrato.jpg" alt="Beatriz Novaes" loading="lazy"></div>
+      <p class="note"><span data-pt>Beatriz Novaes<br>Maceió · AL</span><span data-en class="block">Beatriz Novaes<br>Maceió · Brazil</span></p>
+    </div>
+  </div>
+</section>
+
+<section id="servicos" class="services">
+  <p class="sec-label"><span data-pt>No que posso ajudar</span><span data-en>How I can help</span></p>
+  <h2 class="sec-title" style="margin-bottom:10px"><span data-pt>Serviços & especialidades.</span><span data-en>Services & expertise.</span></h2>
+  <div class="svc-grid">
+    <div class="svc reveal"><div class="no">01</div><h3><span data-pt>Identidade Visual</span><span data-en>Visual Identity</span></h3><p><span data-pt>Logo, sistema de marca, papelaria e manual — a base visual completa de um negócio.</span><span data-en>Logo, brand system, stationery and guidelines — the full visual foundation of a business.</span></p></div>
+    <div class="svc reveal"><div class="no">02</div><h3><span data-pt>E-commerce & Amazon A+</span><span data-en>E-commerce & Amazon A+</span></h3><p><span data-pt>Listings, storefronts e conteúdo A+ que vendem com clareza e estética.</span><span data-en>Listings, storefronts and A+ content that sell with clarity and beauty.</span></p></div>
+    <div class="svc reveal"><div class="no">03</div><h3>Social Media</h3><p><span data-pt>Direção de arte e templates para redes — consistência visual que engaja.</span><span data-en>Art direction and templates for social — visual consistency that engages.</span></p></div>
+    <div class="svc reveal"><div class="no">04</div><h3><span data-pt>Design Editorial</span><span data-en>Editorial Design</span></h3><p><span data-pt>Capas de livro, diagramação e peças onde tipografia e palavra são protagonistas.</span><span data-en>Book covers, layout and pieces where typography and word take the lead.</span></p></div>
+  </div>
+</section>
+
+<section id="trabalho">
+  <p class="sec-label"><span data-pt>Portfólio selecionado</span><span data-en>Selected work</span></p>
+  <h2 class="sec-title"><span data-pt>Trabalhos recortados do mundo real.</span><span data-en>Work cut from the real world.</span></h2>
+  <div class="work-grid">
+    <div class="card c-lg reveal" onclick="openDetail('danielle')">
+      <div class="thumb"><img src="imagens/danielle-01.jpg" alt="Danielle Diniz" loading="lazy"></div>
+      <div class="meta"><h3><span data-pt>Galeria Danielle Diniz</span><span data-en>Danielle Diniz Gallery</span></h3><p><span data-pt>Identidade Visual · Rebranding</span><span data-en>Visual Identity · Rebranding</span></p></div>
+    </div>
+    <div class="card c-md reveal" onclick="openDetail('mighty')">
+      <div class="thumb"><img src="imagens/mighty-02.jpg" alt="Mighty Bounce" loading="lazy"></div>
+      <div class="meta"><h3>Joyberri — Mighty Bounce</h3><p><span data-pt>E-commerce · Amazon A+</span><span data-en>E-commerce · Amazon A+</span></p></div>
+    </div>
+    <div class="card c-md reveal" onclick="openDetail('upsurge')">
+      <div class="thumb"><img src="imagens/upsurge-01.jpg" alt="Upsurge" loading="lazy"></div>
+      <div class="meta"><h3>Joyberri — Upsurge</h3><p><span data-pt>E-commerce · Amazon A+</span><span data-en>E-commerce · Amazon A+</span></p></div>
+    </div>
+    <div class="card c-md reveal" onclick="openDetail('lifepro')">
+      <div class="thumb"><img src="imagens/lifepro-01.jpg" alt="Lifepro" loading="lazy"></div>
+      <div class="meta"><h3>Lifepro — Fitness Listings</h3><p><span data-pt>E-commerce · Redesign</span><span data-en>E-commerce · Redesign</span></p></div>
+    </div>
+    <a class="card c-md reveal" href="https://www.behance.net/Beatriz_Novaes" target="_blank" rel="noopener">
+      <div class="thumb t6"><span class="badge"><span data-pt>ver tudo →</span><span data-en>see all →</span></span></div>
+      <div class="meta"><h3><span data-pt>Arquivo completo</span><span data-en>Full archive</span></h3><p>Behance</p></div>
+    </a>
+  </div>
+</section>
+
+<section id="palavra" class="writer">
+  <p class="sec-label"><span data-pt>A outra metade</span><span data-en>The other half</span></p>
+  <blockquote>
+    <span data-pt>Designer de dia, <span>poeta nas entrelinhas</span>. Escrevo sobre tudo que habita em mim.</span>
+    <span data-en>Designer by day, <span>poet between the lines</span>. I write about everything that lives in me.</span>
+  </blockquote>
+  <p class="attr"><span data-pt>— leia minha poesia no Instagram</span><span data-en>— read my poetry on Instagram</span></p>
+  <br>
+  <a class="ig" href="https://www.instagram.com/bnpoesia/" target="_blank" rel="noopener"><span data-pt>@bnpoesia ↗</span><span data-en>@bnpoesia ↗</span></a>
+</section>
+
+<section id="contato" class="contact">
+  <p class="sec-label" style="justify-content:center"><span data-pt>Vamos criar</span><span data-en>Let's create</span></p>
+  <h2><span data-pt>Que tal um <em>projeto</em><br>com alma?</span><span data-en class="block">How about a project<br>with <em>soul</em>?</span></h2>
+  <a class="mail" href="mailto:beatriz.acnovaes@gmail.com">beatriz.acnovaes@gmail.com</a>
+  <div class="links">
+    <a href="https://www.behance.net/Beatriz_Novaes" target="_blank" rel="noopener">Behance</a>
+    <a href="https://www.linkedin.com/in/beatriz-novaes19" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://www.instagram.com/bnpoesia/" target="_blank" rel="noopener">Instagram</a>
+  </div>
+</section>
+
+<footer>
+  <p class="hand"><span data-pt>feito com papel, tinta e pixels ✦</span><span data-en>made with paper, ink and pixels ✦</span></p>
+  <p style="margin-top:8px">© 2026 Beatriz Novaes — Maceió, AL</p>
+</footer>
+
+</div>
+
+<div class="detail" id="detail">
+  <button class="close" onclick="closeDetail()" aria-label="fechar">✕</button>
+  <div class="detail-inner">
+    <p class="d-label" id="d-label"></p>
+    <h2 id="d-title"></h2>
+    <p class="lead" id="d-lead"></p>
+    <div class="d-info" id="d-info"></div>
+    <div class="d-gallery" id="d-gallery"></div>
+    <a class="d-back" onclick="closeDetail()"><span data-pt>← voltar ao portfólio</span><span data-en>← back to portfolio</span></a>
+  </div>
+</div>
+
+<script>
+/* ---- LANG ---- */
+function setLang(l){
+  document.body.classList.toggle('en', l==='en');
+  document.documentElement.lang = l==='en'?'en-US':'pt-BR';
+  document.getElementById('bt-pt').classList.toggle('active', l==='pt');
+  document.getElementById('bt-en').classList.toggle('active', l==='en');
+  if(curId) renderDetail(curId); // re-render open detail in new lang
+}
+/* ---- NAV ---- */
+const tog=document.querySelector('.nav-toggle'),menu=document.querySelector('nav ul');
+tog.addEventListener('click',()=>menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*.08)+'s';io.observe(el)});
+
+/* ---- PROJECTS ---- */
+const img=n=>`imagens/${n}`;
+const PROJECTS={
+  danielle:{
+    label:{pt:'Identidade Visual · Rebranding',en:'Visual Identity · Rebranding'},
+    title:'Galeria Danielle Diniz',
+    lead:{pt:'Rebranding completo de uma galeria de arte nascida de uma família criativa. A marca, antes "Aldraba de Entrada", renasceu mais moderna e dinâmica como Galeria Danielle Diniz. Projeto 100% meu: criação do ícone, estudo de concorrência, paleta e aplicações.',
+          en:'Full rebrand of an art gallery born from a creative family. Once "Aldraba de Entrada", the brand was reborn as the more modern, dynamic Galeria Danielle Diniz. A 100% solo project: icon design, competitor study, palette and applications.'},
+    info:{pt:[['Cliente','Galeria Danielle Diniz'],['Atuação','Identidade · Ícone · Aplicações'],['Ano','2024']],
+          en:[['Client','Galeria Danielle Diniz'],['Role','Identity · Icon · Applications'],['Year','2024']]},
+    images:['danielle-01.jpg','danielle-02.jpg','danielle-03.jpg','danielle-04.jpg','danielle-05.jpg','danielle-06.jpg','danielle-07.jpg','danielle-08.jpg','danielle-09.jpg','danielle-10.jpg','danielle-11.jpg']
+  },
+  mighty:{
+    label:{pt:'E-commerce · Amazon A+',en:'E-commerce · Amazon A+'},
+    title:'Joyberri — Mighty Bounce',
+    lead:{pt:'Listing e conteúdo A+ para o pula-pula inflável Mighty Bounce, da marca Joyberri. O conceito foi estudado junto à estrategista de e-commerce; o design foi inteiramente criado e construído por mim, com apoio de IA na geração de algumas imagens.',
+          en:'Listing and A+ content for the Mighty Bounce inflatable bounce house by Joyberri. The concept was developed together with the e-commerce strategist; the design was entirely created and built by me, with AI support for some image generation.'},
+    info:{pt:[['Cliente','Joyberri'],['Atuação','Listing · Amazon A+'],['Ano','2025']],
+          en:[['Client','Joyberri'],['Role','Listing · Amazon A+'],['Year','2025']]},
+    images:['mighty-01.jpg','mighty-02.jpg','mighty-03.jpg','mighty-04.jpg','mighty-05.jpg','mighty-06.jpg','mighty-07.jpg','mighty-08.jpg','mighty-09.jpg','mighty-10.jpg']
+  },
+  upsurge:{
+    label:{pt:'E-commerce · Amazon A+',en:'E-commerce · Amazon A+'},
+    title:'Joyberri — Upsurge',
+    lead:{pt:'Listing e conteúdo A+ para a linha Upsurge da Joyberri, incluindo variações de produto. Conceito estudado com a estrategista de e-commerce e design criado e construído por mim, com apoio de IA na construção de imagens.',
+          en:'Listing and A+ content for Joyberri\'s Upsurge line, including product variations. Concept developed with the e-commerce strategist and design created and built by me, with AI support in image building.'},
+    info:{pt:[['Cliente','Joyberri'],['Atuação','Listing · Amazon A+'],['Ano','2025']],
+          en:[['Client','Joyberri'],['Role','Listing · Amazon A+'],['Year','2025']]},
+    images:['upsurge-01.jpg','upsurge-02.jpg','upsurge-03.jpg','upsurge-04.jpg','upsurge-05.jpg','upsurge-06.jpg','upsurge-07.jpg','upsurge-08.jpg','upsurge-09.jpg','upsurge-10.jpg','upsurge-11.jpg']
+  },
+  lifepro:{
+    label:{pt:'E-commerce · Redesign',en:'E-commerce · Redesign'},
+    title:'Lifepro — Fitness Listings',
+    lead:{pt:'Redesenho de listings e conteúdo A+ para a marca de fitness Lifepro na Amazon, com foco em clareza, hierarquia de informação e conversão — destacando benefícios do produto de forma visual e direta.',
+          en:'Listing and A+ content redesign for fitness brand Lifepro on Amazon, focused on clarity, information hierarchy and conversion — highlighting product benefits in a visual, direct way.'},
+    info:{pt:[['Cliente','Lifepro'],['Atuação','Redesign · Amazon A+'],['Ano','2026']],
+          en:[['Client','Lifepro'],['Role','Redesign · Amazon A+'],['Year','2026']]},
+    images:['lifepro-01.jpg','lifepro-02.jpg','lifepro-03.jpg','lifepro-04.jpg','lifepro-05.jpg']
+  }
+};
+
+let curId=null;
+const galIO=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.08});
+function L(){return document.body.classList.contains('en')?'en':'pt'}
+function renderDetail(id){
+  const p=PROJECTS[id],l=L();
+  document.getElementById('d-label').textContent=p.label[l];
+  document.getElementById('d-title').textContent=p.title;
+  document.getElementById('d-lead').textContent=p.lead[l];
+  document.getElementById('d-info').innerHTML=p.info[l].map(i=>`<div><div class="k">${i[0]}</div><div class="v">${i[1]}</div></div>`).join('');
+  const g=document.getElementById('d-gallery');
+  g.innerHTML=p.images.map(s=>`<img src="${img(s)}" alt="${p.title}" loading="lazy">`).join('');
+  g.querySelectorAll('img').forEach(im=>galIO.observe(im));
+}
+function openDetail(id){
+  curId=id; renderDetail(id);
+  const d=document.getElementById('detail');d.classList.add('open');document.body.style.overflow='hidden';d.scrollTop=0;
+}
+function closeDetail(){const d=document.getElementById('detail');d.classList.remove('open');document.body.style.overflow='';curId=null}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDetail()});
+</script>
+</body>
+</html>
