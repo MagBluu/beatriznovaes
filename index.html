@@ -83,8 +83,20 @@ nav a:hover::after{width:100%}
 .s-b{width:120px;height:120px;top:58%;right:24%;transform:rotate(-8deg);background:var(--lilac);border-radius:50%;z-index:1}
 .s-c{width:128px;height:96px;bottom:13%;right:7%;transform:rotate(-5deg)}
 .s-c .ph{background-image:url('imagens/danielle-01.jpg')}
+.s-d{width:108px;height:150px;bottom:7%;left:37%;transform:rotate(-6deg)}
+.s-d .ph{background-image:url('imagens/livro-capa.jpg')}
+.s-e{width:70px;height:70px;top:11%;left:30%;transform:rotate(10deg);background:var(--gold);border-radius:50%;z-index:1;opacity:.85}
 .snip{position:absolute;font-family:'Caveat',cursive;color:var(--lilac-deep);z-index:2}
-@media(max-width:780px){.scrap{opacity:.5}.s-b{display:none}}
+@media(max-width:780px){.scrap{opacity:.5}.s-b,.s-e,.s-d{display:none}.livro-snip{display:none}}
+/* highlight strip under hero poem */
+.hero-stats{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px;position:relative;z-index:3}
+.hero-stats span{font-family:'Special Elite',monospace;font-size:.76rem;letter-spacing:.04em;background:var(--card);border:1.3px solid var(--ink);padding:6px 13px;box-shadow:2px 3px 0 var(--shadow)}
+.hero-stats span:nth-child(2){transform:rotate(-1.2deg)}
+.hero-stats span:nth-child(3){transform:rotate(1deg)}
+.scroll-cue{position:absolute;bottom:34px;left:5vw;font-family:'Caveat',cursive;font-size:1.15rem;color:var(--ink-soft);display:flex;align-items:center;gap:8px;opacity:0;animation:fadeUp .8s 1.3s forwards}
+.scroll-cue .arrow{display:inline-block;animation:bob 1.8s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+@media(max-width:780px){.scroll-cue{display:none}}
 
 /* ---- marquee (torn paper strip) ---- */
 .marquee{border-top:2.5px solid var(--ink);border-bottom:2.5px solid var(--ink);padding:14px 0;overflow:hidden;background:var(--lilac-deep);color:var(--card)}
@@ -142,6 +154,10 @@ section{padding:100px 5vw;position:relative}
 .card.archive{background:var(--lilac-deep);color:var(--card);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;min-height:240px}
 .card.archive h3{font-family:'Caveat',cursive;font-size:2rem;color:var(--card)}
 .card.archive p{font-family:'Special Elite',monospace;font-size:.78rem;color:var(--violet);margin-top:6px}
+.card.book .thumb{aspect-ratio:3/2;background:var(--ink)}
+.card.book .thumb img{object-fit:cover}
+.card.book .ribbon{position:absolute;top:-4px;left:28px;width:26px;height:56px;background:var(--lilac-deep);z-index:6;box-shadow:2px 3px 6px var(--shadow)}
+.card.book .ribbon::after{content:"";position:absolute;bottom:-13px;left:0;border-style:solid;border-width:13px 13px 0 13px;border-color:var(--lilac-deep) transparent transparent transparent}
 .c-lg{grid-column:span 6}.c-md{grid-column:span 4}.c-sm{grid-column:span 4}
 @media(max-width:900px){.c-lg{grid-column:span 12}.c-md,.c-sm{grid-column:span 6}}
 @media(max-width:560px){.c-md,.c-sm,.c-lg{grid-column:span 12}}
@@ -187,6 +203,23 @@ footer .hand{font-family:'Caveat',cursive;font-size:1.3rem;color:var(--lilac-dee
 .d-gallery .gw img{width:100%;display:block}
 .d-back{display:inline-block;margin-top:48px;font-family:'Special Elite',monospace;font-size:.82rem;letter-spacing:.08em;color:var(--ink);text-decoration:none;border-bottom:2px solid var(--gold);padding-bottom:3px;cursor:pointer}
 
+/* ---- book-style detail (livro) ---- */
+.bd-cover-wrap{max-width:340px;margin:0 auto 8px;transform:rotate(-1.5deg)}
+.bd-cover-wrap img{border:1.5px solid var(--ink)}
+.bd-caption{font-family:'Special Elite',monospace;font-size:.78rem;letter-spacing:.1em;color:var(--lilac-deep);text-align:center;margin:38px 0 22px;background:var(--tape);display:inline-block;padding:5px 14px;position:relative;left:50%;transform:translateX(-50%) rotate(-1deg)}
+.bd-process{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;max-width:640px;margin:0 auto}
+.bd-process img{width:220px !important;border:1.5px solid var(--ink);box-shadow:3px 6px 14px var(--shadow)}
+.bd-spreads{display:flex;flex-direction:column;gap:2px;max-width:900px;margin:0 auto}
+.bd-page{position:relative;background:var(--card);box-shadow:0 10px 24px var(--shadow)}
+.bd-page img{width:100%;display:block}
+.bd-page:not(:last-child)::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:14px;background:linear-gradient(to bottom,rgba(43,39,34,.16),transparent)}
+.bd-strip{display:flex;gap:26px;overflow-x:auto;padding:20px 10px 30px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.bd-strip::-webkit-scrollbar{height:6px}
+.bd-strip::-webkit-scrollbar-thumb{background:var(--lilac);border-radius:6px}
+.bd-pola{flex:0 0 auto;width:190px;scroll-snap-align:center;background:var(--card);padding:10px 10px 28px;box-shadow:4px 7px 16px var(--shadow);transform:rotate(var(--r,0deg))}
+.bd-pola img{width:100%;display:block}
+@media(max-width:600px){.bd-process img{width:44%}.bd-pola{width:150px}}
+
 @keyframes slideUp{to{transform:translateY(0)}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 @keyframes scroll{to{transform:translateX(-50%)}}
@@ -219,7 +252,10 @@ footer .hand{font-family:'Caveat',cursive;font-size:1.3rem;color:var(--lilac-dee
   <div class="scrap poladroid s-a"><span class="ph"></span><span class="tape gold diag" style="top:-12px;left:24px"></span></div>
   <div class="scrap s-b"></div>
   <div class="scrap poladroid s-c"><span class="ph"></span><span class="tape diag" style="top:-12px;right:14px"></span></div>
+  <div class="scrap poladroid s-d" onclick="openDetail('livro')" style="cursor:pointer"><span class="ph"></span><span class="tape gold" style="top:-12px;left:50%;transform:translateX(-50%) rotate(-4deg)"></span></div>
+  <div class="scrap s-e"></div>
   <span class="snip" style="top:42%;right:14%;font-size:1.5rem;transform:rotate(-8deg)">✦ poesia</span>
+  <span class="snip livro-snip" style="bottom:26%;left:38%;font-size:1.15rem;transform:rotate(4deg)"><span data-pt>meu livro ↓</span><span data-en>my book ↓</span></span>
   <p class="avail"><span data-pt>disponível p/ freelance!</span><span data-en>available for freelance!</span></p>
   <p class="kicker"><span data-pt>Designer gráfico · Escritora · Maceió, Brasil</span><span data-en>Graphic designer · Writer · Maceió, Brazil</span></p>
   <h1>
@@ -231,6 +267,12 @@ footer .hand{font-family:'Caveat',cursive;font-size:1.3rem;color:var(--lilac-dee
     <span data-en>Visual identity, social media, e-commerce and editorial design. I design brands and write between the lines — what emerges when <b>image and word</b> overlap like a collage.</span>
   </p><br>
   <p class="poem"><span data-pt>recorto, colo, dou sentido.</span><span data-en>I cut, I paste, I make meaning.</span></p>
+  <div class="hero-stats">
+    <span data-pt>6+ marcas atendidas</span><span data-en>6+ brands served</span>
+    <span data-pt>1 livro publicado</span><span data-en>1 published book</span>
+    <span>Maceió · AL</span>
+  </div>
+  <p class="scroll-cue"><span data-pt>ver trabalhos</span><span data-en>see work</span> <span class="arrow">↓</span></p>
 </header>
 
 <div class="marquee" aria-hidden="true">
@@ -280,7 +322,12 @@ footer .hand{font-family:'Caveat',cursive;font-size:1.3rem;color:var(--lilac-dee
   <p class="sec-label"><span data-pt>Portfólio selecionado</span><span data-en>Selected work</span></p>
   <h2 class="sec-title"><span data-pt>Trabalhos recortados do <em>mundo real</em>.</span><span data-en>Work cut from the <em>real world</em>.</span></h2>
   <div class="work-grid">
-    <div class="card c-lg reveal" onclick="openDetail('emi')">
+    <div class="card book c-lg reveal" onclick="openDetail('livro')">
+      <span class="ribbon"></span>
+      <div class="thumb"><img src="imagens/livro-capa.jpg" alt="Tudo que Habita em Mim" loading="lazy" style="object-position:top"></div>
+      <div class="meta"><h3><span data-pt>Tudo que Habita em Mim</span><span data-en>Tudo que Habita em Mim (book)</span></h3><p><span data-pt>LIVRO · DESIGN EDITORIAL</span><span data-en>BOOK · EDITORIAL DESIGN</span></p></div>
+    </div>
+    <div class="card c-md reveal" onclick="openDetail('emi')">
       <span class="tape"></span>
       <div class="thumb"><img src="imagens/emi-01.jpg" alt="êmi cestas" loading="lazy"></div>
       <div class="meta"><h3>êmi cestas</h3><p><span data-pt>IDENTIDADE VISUAL</span><span data-en>VISUAL IDENTITY</span></p></div>
@@ -413,6 +460,21 @@ const PROJECTS={
     info:{pt:[['Cliente','Lifepro'],['Atuação','Redesign · Amazon A+'],['Ano','2026']],
           en:[['Client','Lifepro'],['Role','Redesign · Amazon A+'],['Year','2026']]},
     images:['lifepro-01.jpg','lifepro-02.jpg','lifepro-03.jpg','lifepro-04.jpg','lifepro-05.jpg']
+  },
+  livro:{
+    book:true,
+    label:{pt:'Design Editorial · Livro publicado',en:'Editorial Design · Published Book'},
+    title:'Tudo que Habita em Mim',
+    lead:{pt:'Uma coletânea de poemas para todas as vezes que o sentir foi demais para aguentar — dividida em duas partes: a primeira traz crescimento e esperança; a segunda, as dificuldades e a resiliência de atravessá-las. Escrevi, projetei a capa e ilustrei cada detalhe: do conceito da mão entre flores à diagramação completa.',
+          en:'A poetry collection for every time feeling was too much to hold — split into two parts: the first carries growth and hope; the second, hardship and the resilience to move through it. I wrote it, designed the cover and illustrated every detail: from the hand-among-flowers concept to the full layout.'},
+    info:{pt:[['Autora','Beatriz Novaes'],['Atuação','Escrita · Design · Ilustração'],['Formato','Livro impresso independente']],
+          en:[['Author','Beatriz Novaes'],['Role','Writing · Design · Illustration'],['Format','Independently printed book']]},
+    cover:'livro-capa.jpg',
+    jacket:'livro-jaqueta.jpg',
+    mono:'livro-ilustracao-mono.jpg',
+    colorIll:'livro-ilustracao-cor.jpg',
+    spreads:['livro-modulo-01.jpg','livro-modulo-02.jpg','livro-modulo-03.jpg','livro-modulo-04.jpg'],
+    real:['livro-real-01.jpg','livro-real-02.jpg','livro-real-03.jpg','livro-real-04.jpg']
   }
 };
 let curId=null;
@@ -425,7 +487,32 @@ function renderDetail(id){
   document.getElementById('d-lead').textContent=p.lead[l];
   document.getElementById('d-info').innerHTML=p.info[l].map(i=>`<div><div class="k">${i[0]}</div><div class="v">${i[1]}</div></div>`).join('');
   const g=document.getElementById('d-gallery');
-  g.innerHTML=p.images.map((s,i)=>{const rot=(i%3-1)*0.6;return `<div class="gw" style="--rot:${rot}deg"><img src="${img(s)}" alt="${p.title}" loading="lazy"></div>`}).join('');
+  if(p.book){
+    const procLabel=l==='en'?'From sketch to color':'Do traço à cor';
+    const spreadLabel=l==='en'?'Inside the book':'O miolo do livro';
+    const realLabel=l==='en'?'The book out in the world':'O livro no mundo';
+    const jacketLabel=l==='en'?'Full cover — front, spine & back':'Capa completa — frente, lombada e contracapa';
+    g.innerHTML=`
+      <div class="bd-cover-wrap gw"><img src="${img(p.cover)}" alt="${p.title}" loading="lazy"></div>
+      <p class="bd-caption">${procLabel}</p>
+      <div class="bd-process gw">
+        <img src="${img(p.mono)}" alt="mono" loading="lazy">
+        <img src="${img(p.colorIll)}" alt="cor" loading="lazy">
+      </div>
+      <p class="bd-caption">${spreadLabel}</p>
+      <div class="bd-spreads">
+        ${p.spreads.map(s=>`<div class="bd-page gw"><img src="${img(s)}" alt="${p.title}" loading="lazy"></div>`).join('')}
+      </div>
+      <p class="bd-caption">${realLabel}</p>
+      <div class="bd-strip">
+        ${p.real.map((s,i)=>`<div class="bd-pola" style="--r:${(i%2?1:-1)*3}deg"><img src="${img(s)}" alt="${p.title}" loading="lazy"></div>`).join('')}
+      </div>
+      <p class="bd-caption">${jacketLabel}</p>
+      <div class="gw"><img src="${img(p.jacket)}" alt="jaqueta" loading="lazy"></div>
+    `;
+  } else {
+    g.innerHTML=p.images.map((s,i)=>{const rot=(i%3-1)*0.6;return `<div class="gw" style="--rot:${rot}deg"><img src="${img(s)}" alt="${p.title}" loading="lazy"></div>`}).join('');
+  }
   g.querySelectorAll('.gw').forEach(im=>galIO.observe(im));
 }
 function openDetail(id){
