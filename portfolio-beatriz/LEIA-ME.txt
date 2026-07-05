@@ -1,0 +1,29 @@
+==================================================
+  PORTFÓLIO BEATRIZ NOVAES — como colocar no ar
+==================================================
+O e-mail (beatriz.acnovaes@gmail.com) JÁ está preenchido.
+Não precisa editar nada — é só publicar.
+
+CONTEÚDO:
+  - index.html   → o site (não renomeie)
+  - imagens/     → todas as fotos (mantenha junto do index.html)
+
+------------------------------------------------
+PUBLICAR — Netlify Drop (mais rápido):
+------------------------------------------------
+1. Acesse https://app.netlify.com/drop e crie conta grátis.
+2. Arraste ESTA PASTA INTEIRA (index.html + imagens/) para a página.
+3. Site no ar em segundos. Renomeie em Site settings.
+Arraste a PASTA, não só o index.html — senão as imagens não aparecem.
+
+------------------------------------------------
+PUBLICAR — GitHub Pages:
+------------------------------------------------
+1. Crie um repositório público (ideal: seunome.github.io).
+2. Add file → Upload files → arraste o index.html E a pasta imagens/
+   (o index.html precisa ficar na raiz, não dentro de outra pasta).
+3. Commit. Depois Settings → Pages → Deploy from a branch → main → Save.
+4. Aguarde ~1 min; o endereço aparece no topo de Pages.
+
+Para atualizar: suba os arquivos novos por cima (commit) e o site
+atualiza sozinho em 1-2 minutos.
