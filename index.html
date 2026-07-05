@@ -70,24 +70,29 @@ nav a:hover::after{width:100%}
 .hero h1 .nm2{color:var(--lilac-deep);font-style:normal}
 .hero .sub{margin-top:28px;max-width:46ch;font-size:1.06rem;line-height:1.65;color:var(--ink-soft);opacity:0;animation:fadeUp .8s .8s forwards;position:relative;z-index:3}
 .hero .sub b{color:var(--lilac-deep);font-weight:700}
-.hero .poem{font-family:'Caveat',cursive;font-size:1.85rem;color:var(--lilac-deep);transform:rotate(-3deg);margin-top:14px;display:inline-block;position:relative;z-index:3}
-.hero .avail{position:absolute;top:118px;right:6vw;font-family:'Caveat',cursive;font-size:1.5rem;color:var(--ink);transform:rotate(6deg);opacity:0;animation:fadeUp .8s 1s forwards;background:var(--gold);padding:6px 16px 8px;box-shadow:2px 3px 6px var(--shadow);z-index:5}
-.hero .avail::before{content:"● ";color:#3a7d3a;font-size:.65rem;vertical-align:middle}
-@media(max-width:780px){.hero .avail{display:none}}
+.hero .poem{font-family:'Caveat',cursive;font-size:1.85rem;color:var(--lilac-deep);transform:rotate(-3deg);margin-top:14px;display:inline-block;align-self:flex-start;width:fit-content;position:relative;z-index:3}
+.hero .avail{display:none}
 /* collage scraps floating */
 .scrap{position:absolute;z-index:1;box-shadow:3px 6px 16px var(--shadow);background-size:cover;background-position:center}
 .scrap.poladroid{background:var(--card);padding:10px 10px 34px;box-shadow:3px 7px 18px var(--shadow)}
 .scrap.poladroid .ph{width:100%;height:100%;background-size:cover;background-position:center;display:block}
-.s-a{width:150px;height:185px;top:20%;right:9%;transform:rotate(6deg)}
+/* right-anchored so they never drift into the text column regardless of viewport width */
+.s-a{width:150px;height:185px;top:16%;right:8%;transform:rotate(6deg)}
 .s-a .ph{background-image:url('imagens/emi-01.jpg')}
-.s-b{width:120px;height:120px;top:58%;right:24%;transform:rotate(-8deg);background:var(--lilac);border-radius:50%;z-index:1}
-.s-c{width:128px;height:96px;bottom:13%;right:7%;transform:rotate(-5deg)}
+.s-c{width:128px;height:96px;bottom:11%;right:6%;transform:rotate(-5deg)}
 .s-c .ph{background-image:url('imagens/danielle-01.jpg')}
 .s-d{width:108px;height:150px;bottom:7%;left:37%;transform:rotate(-6deg)}
 .s-d .ph{background-image:url('imagens/livro-capa.jpg')}
-.s-e{width:70px;height:70px;top:11%;left:30%;transform:rotate(10deg);background:var(--gold);border-radius:50%;z-index:1;opacity:.85}
+.s-f{width:150px;height:112px;top:38%;right:36%;transform:rotate(5deg)}
+.s-f .ph{background-image:url('imagens/mighty-02.jpg')}
+/* soft color blobs — blurred, low z-index, anchored right of the text column so they never sit under a headline or paragraph */
+.blob{position:absolute;border-radius:50%;z-index:0;filter:blur(.5px);pointer-events:none}
+.b-lilac{width:clamp(120px,15vw,210px);height:clamp(120px,15vw,210px);top:60%;right:44%;background:radial-gradient(circle at 35% 35%,var(--violet),var(--lilac) 70%);opacity:.6}
+.b-gold{width:clamp(80px,9vw,130px);height:clamp(80px,9vw,130px);top:6%;right:30%;background:radial-gradient(circle at 35% 35%,#f0c574,var(--gold) 70%);opacity:.55}
+.tape-strip{position:absolute;width:130px;height:26px;background:var(--tape-gold);top:33%;right:24%;transform:rotate(-30deg);z-index:1;box-shadow:0 1px 3px rgba(0,0,0,.1)}
+.void-tag{position:absolute;top:52%;right:16%;font-family:'Special Elite',monospace;font-size:.76rem;letter-spacing:.06em;color:var(--ink);background:var(--card);border:1.3px solid var(--ink);padding:6px 13px;transform:rotate(3deg);box-shadow:2px 3px 0 var(--shadow);z-index:2}
 .snip{position:absolute;font-family:'Caveat',cursive;color:var(--lilac-deep);z-index:2}
-@media(max-width:780px){.scrap{opacity:.5}.s-b,.s-e,.s-d{display:none}.livro-snip{display:none}}
+@media(max-width:780px){.scrap,.blob,.tape-strip,.void-tag{opacity:.5}.s-f,.blob,.tape-strip,.void-tag,.s-d{display:none}.livro-snip{display:none}}
 /* highlight strip under hero poem */
 .hero-stats{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px;position:relative;z-index:3}
 .hero-stats span{font-family:'Special Elite',monospace;font-size:.76rem;letter-spacing:.04em;background:var(--card);border:1.3px solid var(--ink);padding:6px 13px;box-shadow:2px 3px 0 var(--shadow)}
@@ -250,13 +255,15 @@ footer .hand{font-family:'Caveat',cursive;font-size:1.3rem;color:var(--lilac-dee
 
 <header class="hero">
   <div class="scrap poladroid s-a"><span class="ph"></span><span class="tape gold diag" style="top:-12px;left:24px"></span></div>
-  <div class="scrap s-b"></div>
   <div class="scrap poladroid s-c"><span class="ph"></span><span class="tape diag" style="top:-12px;right:14px"></span></div>
   <div class="scrap poladroid s-d" onclick="openDetail('livro')" style="cursor:pointer"><span class="ph"></span><span class="tape gold" style="top:-12px;left:50%;transform:translateX(-50%) rotate(-4deg)"></span></div>
-  <div class="scrap s-e"></div>
-  <span class="snip" style="top:42%;right:14%;font-size:1.5rem;transform:rotate(-8deg)">✦ poesia</span>
+  <div class="scrap poladroid s-f" onclick="openDetail('mighty')" style="cursor:pointer"><span class="ph"></span><span class="tape" style="top:-10px;left:16px;transform:rotate(-5deg)"></span></div>
+  <div class="blob b-lilac"></div>
+  <div class="blob b-gold"></div>
+  <span class="tape-strip"></span>
+  <span class="void-tag"><span data-pt>Amazon A+ · Branding</span><span data-en>Amazon A+ · Branding</span></span>
+  <span class="snip" style="top:30%;right:12%;font-size:1.5rem;transform:rotate(-8deg)">✦ poesia</span>
   <span class="snip livro-snip" style="bottom:26%;left:38%;font-size:1.15rem;transform:rotate(4deg)"><span data-pt>meu livro ↓</span><span data-en>my book ↓</span></span>
-  <p class="avail"><span data-pt>disponível p/ freelance!</span><span data-en>available for freelance!</span></p>
   <p class="kicker"><span data-pt>Designer gráfico · Escritora · Maceió, Brasil</span><span data-en>Graphic designer · Writer · Maceió, Brazil</span></p>
   <h1>
     <span class="line"><span>Beatriz</span></span>
@@ -474,6 +481,7 @@ const PROJECTS={
     mono:'livro-ilustracao-mono.jpg',
     colorIll:'livro-ilustracao-cor.jpg',
     spreads:['livro-modulo-01.jpg','livro-modulo-02.jpg','livro-modulo-03.jpg','livro-modulo-04.jpg'],
+    anims:['livro-anim-01.gif','livro-anim-02.gif'],
     real:['livro-real-01.jpg','livro-real-02.jpg','livro-real-03.jpg','livro-real-04.jpg']
   }
 };
@@ -489,7 +497,8 @@ function renderDetail(id){
   const g=document.getElementById('d-gallery');
   if(p.book){
     const procLabel=l==='en'?'From sketch to color':'Do traço à cor';
-    const spreadLabel=l==='en'?'Inside the book':'O miolo do livro';
+    const animLabel=l==='en'?'Animated illustrations':'Ilustrações animadas';
+    const spreadLabel=l==='en'?'Amazon A+ product page':'Página de produto (Amazon A+)';
     const realLabel=l==='en'?'The book out in the world':'O livro no mundo';
     const jacketLabel=l==='en'?'Full cover — front, spine & back':'Capa completa — frente, lombada e contracapa';
     g.innerHTML=`
@@ -498,6 +507,10 @@ function renderDetail(id){
       <div class="bd-process gw">
         <img src="${img(p.mono)}" alt="mono" loading="lazy">
         <img src="${img(p.colorIll)}" alt="cor" loading="lazy">
+      </div>
+      <p class="bd-caption">${animLabel}</p>
+      <div class="bd-process gw">
+        ${p.anims.map(a=>`<img src="${img(a)}" alt="${p.title}" loading="lazy">`).join('')}
       </div>
       <p class="bd-caption">${spreadLabel}</p>
       <div class="bd-spreads">
