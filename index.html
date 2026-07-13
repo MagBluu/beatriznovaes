@@ -55,20 +55,26 @@ nav a{color:var(--ink);text-decoration:none;font-size:.8rem;font-weight:600;text
 nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--lilac);transition:width .3s}
 nav a:hover::after{width:100%}
 .lang{display:flex;border:1.5px solid var(--ink);font-size:.72rem;font-weight:700;overflow:hidden;background:var(--card)}
-.lang button{background:none;border:none;padding:6px 9px;cursor:pointer;font-family:inherit;font-weight:700;color:var(--ink)}
+.lang button{display:flex;align-items:center;gap:6px;background:none;border:none;padding:6px 10px;cursor:pointer;font-family:inherit;font-weight:700;color:var(--ink);transition:.2s}
+.lang button svg{border-radius:2px;box-shadow:0 0 0 1px rgba(0,0,0,.15);flex-shrink:0}
+.lang button:not(.active):hover{background:var(--paper-dark)}
 .lang button.active{background:var(--lilac-deep);color:var(--card)}
 .nav-toggle{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--ink)}
 @media(max-width:780px){nav ul{display:none;position:absolute;top:100%;right:5vw;background:var(--card);flex-direction:column;gap:14px;padding:20px 28px;border:1.5px solid var(--ink);box-shadow:5px 5px 0 var(--ink)}nav ul.open{display:flex}.nav-toggle{display:block}}
 
 /* ---- hero ---- */
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:130px 5vw 70px;position:relative;overflow:hidden}
+.hero{min-height:100vh;display:flex;align-items:center;padding:130px 5vw 90px;position:relative}
+.hero-inner{display:grid;grid-template-columns:1.05fr .95fr;gap:5vw;align-items:center;width:100%}
+.hero-left{display:flex;flex-direction:column}
+.hero-right{display:flex;flex-direction:column;align-items:flex-start}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr;gap:36px}.hero-right{margin-top:4px}}
 .hero .kicker{font-family:'Special Elite',monospace;font-size:.82rem;letter-spacing:.18em;color:var(--ink-soft);margin-bottom:22px;opacity:0;animation:fadeUp .8s .2s forwards;background:var(--tape-gold);display:inline-block;padding:5px 14px;transform:rotate(-1.5deg);width:fit-content}
 .hero h1{font-family:'Caveat',cursive;font-weight:700;line-height:.82;font-size:clamp(4.2rem,15vw,12rem);letter-spacing:-.01em;max-width:13ch;position:relative;z-index:3}
 .hero h1 .line{display:block;overflow:hidden}
 .hero h1 .line span{display:block;transform:translateY(110%);animation:slideUp .9s cubic-bezier(.2,.8,.2,1) forwards}
 .hero h1 .line:nth-child(2) span{animation-delay:.12s}
 .hero h1 .nm2{color:var(--lilac-deep);font-style:normal}
-.hero .sub{margin-top:28px;max-width:46ch;font-size:1.06rem;line-height:1.65;color:var(--ink-soft);opacity:0;animation:fadeUp .8s .8s forwards;position:relative;z-index:3}
+.hero .sub{margin-top:0;max-width:46ch;font-size:1.06rem;line-height:1.65;color:var(--ink-soft);opacity:0;animation:fadeUp .8s .8s forwards;position:relative;z-index:3}
 .hero .sub b{color:var(--lilac-deep);font-weight:700}
 .hero .poem{font-family:'Caveat',cursive;font-size:1.85rem;color:var(--lilac-deep);transform:rotate(-3deg);margin-top:14px;display:inline-block;align-self:flex-start;width:fit-content;position:relative;z-index:3}
 .hero .avail{display:none}
@@ -225,27 +231,39 @@ footer .hand{font-family:'Caveat',cursive;font-size:1.3rem;color:var(--lilac-dee
       <li><a href="#contato"><span data-pt>Contato</span><span data-en>Contact</span></a></li>
     </ul>
     <div class="lang">
-      <button id="bt-pt" class="active" onclick="setLang('pt')">PT</button>
-      <button id="bt-en" onclick="setLang('en')">EN</button>
+      <button id="bt-pt" class="active" onclick="setLang('pt')">
+        <svg viewBox="0 0 20 14" width="20" height="14"><rect width="20" height="14" fill="#009739"/><polygon points="10,2.3 18,7 10,11.7 2,7" fill="#FEDD00"/><circle cx="10" cy="7" r="3.1" fill="#012169"/></svg>
+        <span>PT</span>
+      </button>
+      <button id="bt-en" onclick="setLang('en')">
+        <svg viewBox="0 0 20 14" width="20" height="14"><rect width="20" height="14" fill="#fff"/><g fill="#B22234"><rect y="0" width="20" height="1.08"/><rect y="2.15" width="20" height="1.08"/><rect y="4.3" width="20" height="1.08"/><rect y="6.46" width="20" height="1.08"/><rect y="8.6" width="20" height="1.08"/><rect y="10.77" width="20" height="1.08"/><rect y="12.9" width="20" height="1.08"/></g><rect width="8.4" height="7.5" fill="#3C3B6E"/></svg>
+        <span>EN</span>
+      </button>
     </div>
   </div>
 </nav>
 
 <header class="hero">
-  <p class="kicker"><span data-pt>Designer gráfico · Escritora · Maceió, Brasil</span><span data-en>Graphic designer · Writer · Maceió, Brazil</span></p>
-  <h1>
-    <span class="line"><span>Beatriz</span></span>
-    <span class="line"><span class="nm2">Novaes</span></span>
-  </h1>
-  <p class="sub">
-    <span data-pt>Identidade visual, social media, e-commerce e design editorial. Eu desenho marcas e escrevo entrelinhas — aquilo que nasce quando <b>imagem e palavra</b> se sobrepõem como uma colagem.</span>
-    <span data-en>Visual identity, social media, e-commerce and editorial design. I design brands and write between the lines — what emerges when <b>image and word</b> overlap like a collage.</span>
-  </p><br>
-  <p class="poem"><span data-pt>recorto, colo, dou sentido.</span><span data-en>I cut, I paste, I make meaning.</span></p>
-  <div class="hero-stats">
-    <span data-pt>16+ marcas impactadas</span><span data-en>16+ brands impacted</span>
-    <span data-pt>3 livros publicados</span><span data-en>3 published books</span>
-    <span>Maceió · AL</span>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <p class="kicker"><span data-pt>Designer gráfico · Escritora · Maceió, Brasil</span><span data-en>Graphic designer · Writer · Maceió, Brazil</span></p>
+      <h1>
+        <span class="line"><span>Beatriz</span></span>
+        <span class="line"><span class="nm2">Novaes</span></span>
+      </h1>
+    </div>
+    <div class="hero-right">
+      <p class="sub">
+        <span data-pt>Identidade visual, social media, e-commerce e design editorial. Eu desenho marcas e escrevo entrelinhas — aquilo que nasce quando <b>imagem e palavra</b> se sobrepõem como uma colagem.</span>
+        <span data-en>Visual identity, social media, e-commerce and editorial design. I design brands and write between the lines — what emerges when <b>image and word</b> overlap like a collage.</span>
+      </p>
+      <p class="poem"><span data-pt>recorto, colo, dou sentido.</span><span data-en>I cut, I paste, I make meaning.</span></p>
+      <div class="hero-stats">
+        <span data-pt>18+ marcas impactadas</span><span data-en>18+ brands impacted</span>
+        <span data-pt>3 livros publicados</span><span data-en>3 published books</span>
+        <span>Maceió · AL</span>
+      </div>
+    </div>
   </div>
   <p class="scroll-cue"><span data-pt>ver trabalhos</span><span data-en>see work</span> <span class="arrow">↓</span></p>
 </header>
