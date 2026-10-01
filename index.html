@@ -24,6 +24,7 @@
   --tape:rgba(185,163,227,.42);   /* fita lilás translúcida */
   --tape-gold:rgba(228,169,72,.4);
   --shadow:rgba(43,39,34,.22);
+  --label-text:#5a438a;    /* mesmo tom de --lilac-deep, escurecido p/ passar WCAG AA sobre a fita translúcida */
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -93,7 +94,7 @@ nav a:hover::after{width:100%}
 .marquee span{margin:0 26px}.marquee span::after{content:"✿";margin-left:52px;color:var(--gold)}
 
 section{padding:100px 5vw;position:relative}
-.sec-label{font-family:'Special Elite',monospace;font-size:.8rem;letter-spacing:.14em;color:var(--lilac-deep);margin-bottom:16px;display:inline-block;background:var(--tape);padding:5px 14px;transform:rotate(-1deg)}
+.sec-label{font-family:'Special Elite',monospace;font-size:.8rem;letter-spacing:.14em;color:var(--label-text);margin-bottom:16px;display:inline-block;background:var(--tape);padding:5px 14px;transform:rotate(-1deg)}
 .sec-title{font-family:'Caveat',cursive;font-weight:700;font-size:clamp(2.8rem,6.5vw,4.6rem);line-height:.98;letter-spacing:0;margin-bottom:48px;max-width:20ch}
 .sec-title em{font-style:normal;color:var(--lilac-deep)}
 
@@ -142,7 +143,7 @@ section{padding:100px 5vw;position:relative}
 .card .meta p{font-family:'Special Elite',monospace;font-size:.72rem;color:var(--lilac-deep);letter-spacing:.04em;margin-top:6px}
 .card.archive{background:var(--lilac-deep);color:var(--card);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;min-height:240px}
 .card.archive h3{font-family:'Caveat',cursive;font-size:2rem;color:var(--card)}
-.card.archive p{font-family:'Special Elite',monospace;font-size:.78rem;color:var(--violet);margin-top:6px}
+.card.archive p{font-family:'Special Elite',monospace;font-size:.78rem;color:var(--card);margin-top:6px}
 .card.book .thumb{aspect-ratio:3/2;background:var(--ink)}
 .card.book .thumb img{object-fit:cover}
 .card.book .ribbon{position:absolute;top:-4px;left:28px;width:26px;height:56px;background:var(--lilac-deep);z-index:6;box-shadow:2px 3px 6px var(--shadow)}
@@ -180,7 +181,7 @@ footer .hand{font-family:'Caveat',cursive;font-size:1.3rem;color:var(--lilac-dee
 .detail-inner{position:relative;z-index:2;max-width:1040px;margin:0 auto;padding:90px 5vw 80px}
 .detail .close{position:fixed;top:22px;right:5vw;z-index:10;background:var(--ink);color:var(--card);border:none;width:48px;height:48px;border-radius:50%;font-size:1.4rem;cursor:pointer;transition:.25s;box-shadow:3px 3px 0 var(--lilac-deep)}
 .detail .close:hover{transform:rotate(90deg)}
-.detail .d-label{font-family:'Special Elite',monospace;font-size:.8rem;letter-spacing:.12em;color:var(--lilac-deep);background:var(--tape);padding:5px 13px;display:inline-block;margin-bottom:16px;transform:rotate(-1deg)}
+.detail .d-label{font-family:'Special Elite',monospace;font-size:.8rem;letter-spacing:.12em;color:var(--label-text);background:var(--tape);padding:5px 13px;display:inline-block;margin-bottom:16px;transform:rotate(-1deg)}
 .detail h2{font-family:'Caveat',cursive;font-weight:700;font-size:clamp(2.8rem,7vw,5rem);line-height:.95;letter-spacing:0;margin-bottom:22px}
 .detail .lead{font-size:1.14rem;line-height:1.7;color:var(--ink-soft);max-width:62ch;margin-bottom:30px}
 .d-info{display:flex;gap:38px;flex-wrap:wrap;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);padding:20px 0;margin-bottom:48px}
@@ -195,7 +196,7 @@ footer .hand{font-family:'Caveat',cursive;font-size:1.3rem;color:var(--lilac-dee
 /* ---- book-style detail (livro) ---- */
 .bd-cover-wrap{max-width:340px;margin:0 auto 8px;transform:rotate(-1.5deg)}
 .bd-cover-wrap img{border:1.5px solid var(--ink)}
-.bd-caption{font-family:'Special Elite',monospace;font-size:.78rem;letter-spacing:.1em;color:var(--lilac-deep);text-align:center;margin:38px 0 22px;background:var(--tape);display:inline-block;padding:5px 14px;position:relative;left:50%;transform:translateX(-50%) rotate(-1deg)}
+.bd-caption{font-family:'Special Elite',monospace;font-size:.78rem;letter-spacing:.1em;color:var(--label-text);text-align:center;margin:38px 0 22px;background:var(--tape);display:inline-block;padding:5px 14px;position:relative;left:50%;transform:translateX(-50%) rotate(-1deg)}
 .bd-process{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;max-width:640px;margin:0 auto}
 .bd-process img{width:220px !important;border:1.5px solid var(--ink);box-shadow:3px 6px 14px var(--shadow)}
 .bd-spreads{display:flex;flex-direction:column;gap:2px;max-width:900px;margin:0 auto}
@@ -417,20 +418,20 @@ const PROJECTS={
   emi:{
     label:{pt:'Identidade Visual · Branding',en:'Visual Identity · Branding'},
     title:'êmi cestas',
-    lead:{pt:'Identidade visual completa para a êmi cestas, marca de cestas artesanais da empreendedora Mariza Novaes. O nome nasceu do monograma "M&R" (Mariza e seu marido), simplificado para a pronúncia carinhosa "êmi". Criei o logotipo com a rosa, a paleta bege/pêssego/marrom/verde, a tipografia (Veronica + Arno Pro) e todas as aplicações — de embalagens a papelaria e adesivos.',
-          en:'Full visual identity for êmi cestas, a handmade gift-basket brand by entrepreneur Mariza Novaes. The name came from the "M&R" monogram, simplified into the affectionate sound "êmi". I created the rose logo, the beige/peach/brown/green palette, the typography (Veronica + Arno Pro) and every application — from packaging to stationery and stickers.'},
+    lead:{pt:'O desejo de empreender com cestas de café, pelo amor ao trabalho manual e artesanal, deu origem a esta marca da empreendedora Mariza Novaes. O nome nasceu de um monograma com as iniciais do casal, "M&R" — até simplificarmos a pronúncia para "êmi & erri" e, em homenagem à própria Mariza, chegarmos a "êmi cestas". A partir dessa história, desenvolvi a identidade visual completa: o logotipo com a rosa, a paleta bege/pêssego/marrom/verde, a tipografia (Veronica + Arno Pro) e todas as aplicações — de embalagens a papelaria e adesivos.',
+          en:'The wish to start a business around gift baskets — out of love for handmade, artisanal work — gave rise to this brand for entrepreneur Mariza Novaes. The name began as a monogram of the couple\'s initials, "M&R", until we simplified the pronunciation to "êmi & erri" and, as a tribute to Mariza herself, landed on "êmi cestas". From that story, I developed the full visual identity: the rose logo, the beige/peach/brown/green palette, the typography (Veronica + Arno Pro) and every application — from packaging to stationery and stickers.'},
     info:{pt:[['Cliente','êmi cestas'],['Atuação','Identidade · Logo · Aplicações'],['Ano','2024']],
           en:[['Client','êmi cestas'],['Role','Identity · Logo · Applications'],['Year','2024']]},
-    images:['emi-01.jpg','emi-02.jpg','emi-03.jpg','emi-04.jpg','emi-05.jpg','emi-06.jpg','emi-07.jpg','emi-08.jpg','emi-09.jpg','emi-10.jpg','emi-11.jpg','emi-12.jpg','emi-13.jpg','emi-14.jpg','emi-15.jpg','emi-16.jpg']
+    images:['emi-01.jpg','emi-04.jpg','emi-05.jpg','emi-06.jpg','emi-07.jpg','emi-08.jpg','emi-09.jpg','emi-10.jpg','emi-11.jpg','emi-12.jpg','emi-13.jpg','emi-14.jpg','emi-15.jpg','emi-16.jpg']
   },
   danielle:{
     label:{pt:'Identidade Visual · Rebranding',en:'Visual Identity · Rebranding'},
     title:'Galeria Danielle Diniz',
-    lead:{pt:'Rebranding completo de uma galeria de arte nascida de uma família criativa. A marca, antes "Aldraba de Entrada", renasceu mais moderna e dinâmica como Galeria Danielle Diniz. Projeto 100% meu: criação do ícone, estudo de concorrência, paleta e aplicações.',
-          en:'Full rebrand of an art gallery born from a creative family. Once "Aldraba de Entrada", the brand was reborn as the more modern, dynamic Galeria Danielle Diniz. A 100% solo project: icon design, competitor study, palette and applications.'},
+    lead:{pt:'A Galeria Danielle Diniz nasceu de uma família extremamente criativa — dona Quitéria e Danielle uniram seus dons abstratos e digitais para criar quadros que conversam com o público. A marca, antes chamada Aldraba de Entrada, decidiu se ressignificar e passar por um rebranding, renascendo mais moderna, ampla e dinâmica. O desafio era criar uma identidade original, de traços delicados, que ainda assim representasse a marca. Como uma galeria de arte precisa abranger desde obras clássicas a abstratas, modernas e fotográficas, a solução foi trazer arte para dentro da própria identidade visual — com curvas, elegância e delicadeza no traço. Projeto 100% meu: criação do ícone, estudo de concorrência, paleta e aplicações.',
+          en:'Galeria Danielle Diniz was born from an exceptionally creative family — Quitéria and Danielle combined their abstract and digital talents to create artwork that speaks to an audience. Once called Aldraba de Entrada, the brand chose to redefine itself through a rebrand, emerging more modern, broader and more dynamic. The challenge was to create an original, delicately drawn identity that could still represent the brand. Since an art gallery needs to embrace everything from classic to abstract, modern and photographic work, the solution was to bring art into the identity itself — with curves, elegance and delicate linework. A 100% solo project: icon design, competitor study, palette and applications.'},
     info:{pt:[['Cliente','Galeria Danielle Diniz'],['Atuação','Identidade · Ícone · Aplicações'],['Ano','2024']],
           en:[['Client','Galeria Danielle Diniz'],['Role','Identity · Icon · Applications'],['Year','2024']]},
-    images:['danielle-01.jpg','danielle-02.jpg','danielle-03.jpg','danielle-04.jpg','danielle-05.jpg','danielle-06.jpg','danielle-07.jpg','danielle-08.jpg','danielle-09.jpg','danielle-10.jpg','danielle-11.jpg']
+    images:['danielle-01.jpg','danielle-04.jpg','danielle-05.jpg','danielle-06.jpg','danielle-07.jpg','danielle-08.jpg','danielle-09.jpg','danielle-10.jpg','danielle-11.jpg']
   },
   petcove:{
     label:{pt:'Estratégia de Marca · Rebranding',en:'Brand Strategy · Rebranding'},
@@ -439,7 +440,7 @@ const PROJECTS={
           en:'Petcove\'s previous brand book read like a premium pet-tech startup — institutional teal, Scandinavian photography, product floating in white voids — misaligned with the actual research on who buys and why. I led the strategic diagnosis and creative direction that rebuilt the brand from the ground up: a single platform, "We Do The Dirty Work," grounded in a 682-person consumer usage and attitude study, a two-layer palette (trust teal + expressive pastels), and a new photography direction trading catalog perfection for real homes.'},
     info:{pt:[['Cliente','Petcove'],['Atuação','Estratégia de Marca · Direção Criativa · Identidade Visual'],['Ano','2026']],
           en:[['Client','Petcove'],['Role','Brand Strategy · Creative Direction · Visual Identity'],['Year','2026']]},
-    images:['petcove-01.jpg','petcove-04.jpg','petcove-07.jpg','petcove-08.jpg','petcove-09.jpg','petcove-10.jpg','petcove-16.jpg','petcove-18.jpg','petcove-19.jpg','petcove-22.jpg','petcove-24.jpg','petcove-25.jpg','petcove-26.jpg','petcove-27.jpg','petcove-28.jpg','petcove-29.jpg','petcove-30.jpg','petcove-31.jpg','petcove-33.jpg','petcove-34.jpg']
+    images:['petcove-01.jpg','petcove-04.jpg','petcove-07.jpg','petcove-08.jpg','petcove-09.jpg','petcove-10.jpg','petcove-16.jpg','petcove-18.jpg','petcove-19.jpg','petcove-22.jpg','petcove-24.jpg','petcove-25.jpg','petcove-26.jpg','petcove-27.jpg','petcove-28.jpg','petcove-29.jpg','petcove-30.jpg','petcove-31.jpg','petcove-33.jpg']
   },
   mighty:{
     label:{pt:'E-commerce · Amazon A+',en:'E-commerce · Amazon A+'},
