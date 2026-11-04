@@ -210,6 +210,30 @@ footer .hand{font-family:'Caveat',cursive;font-size:1.3rem;color:var(--lilac-dee
 .bd-pola img{width:100%;display:block}
 @media(max-width:600px){.bd-process img{width:44%}.bd-pola{width:150px}}
 
+/* ---- services as ruled index card ---- */
+.svc-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
+.svc-intro{color:var(--ink-soft);font-size:1rem;max-width:34ch}
+.ruled{position:relative;background:var(--card);border:1.5px solid var(--ink);box-shadow:5px 6px 0 var(--ink);padding:26px 26px 18px 64px;transform:rotate(-.6deg);
+  background-image:linear-gradient(90deg,transparent 46px,rgba(219,160,200,.7) 46px,rgba(219,160,200,.7) 48px,transparent 48px)}
+.rl{display:grid;grid-template-columns:1fr;gap:3px;padding:14px 0 12px;border-bottom:1px solid rgba(94,132,226,.35);cursor:pointer;transition:transform .2s}
+.rl:hover{transform:translateX(6px)}.rl.nolink{cursor:default}.rl.nolink:hover{transform:none}
+.rl b{font-family:'Special Elite',monospace;font-weight:400;font-size:1.05rem}
+.rl>span{color:var(--ink-soft);font-size:.95rem}
+.rl i{font-family:'Caveat',cursive;font-style:normal;font-size:1.3rem;color:var(--lilac-deep);line-height:1}
+.rl:not(.nolink) i::after{content:"  →"}
+@media(max-width:820px){.svc-wrap{grid-template-columns:1fr;gap:30px}.ruled{padding-left:58px}}
+/* ---- testimonial notes ---- */
+.note{position:relative;max-width:620px;margin:70px auto 0;background:#fbf6c9;padding:34px 36px 26px;box-shadow:4px 8px 18px var(--shadow);transform:rotate(1.2deg);cursor:pointer;transition:transform .3s}
+.note:hover{transform:rotate(0) translateY(-4px)}
+.note blockquote{font-family:'Caveat',cursive;font-size:clamp(1.6rem,3vw,2.1rem);line-height:1.15;color:var(--ink)}
+.note figcaption{margin-top:16px;font-family:'Special Elite',monospace;font-size:.76rem;letter-spacing:.04em;color:var(--ink-soft)}
+.d-quote{position:relative;background:#fbf6c9;padding:30px 32px 22px;box-shadow:4px 8px 18px var(--shadow);margin:0 0 52px;max-width:720px;transform:rotate(-.6deg)}
+.d-quote blockquote p{font-family:'Caveat',cursive;font-size:1.75rem;line-height:1.18;margin-bottom:10px}
+.d-quote figcaption{font-family:'Special Elite',monospace;font-size:.78rem;color:var(--ink-soft);margin-top:6px}
+.d-quote .orig{margin-top:14px;font-size:.85rem;color:var(--ink-soft)}
+.d-quote .orig summary{cursor:pointer;font-family:'Special Elite',monospace;font-size:.74rem;color:var(--label-text)}
+.d-quote .orig blockquote p{font-family:'Archivo',sans-serif;font-size:.95rem;line-height:1.55;margin:8px 0 0}
+
 /* ---- A/B test case (SculptTrainer) ---- */
 :root{--sA:#b58025;--sB:#6a4fa3;--grid:rgba(43,39,34,.12)}
 .card .badge{position:absolute;right:12px;bottom:12px;z-index:3;font-family:'Special Elite',monospace;font-size:.78rem;background:var(--lilac-deep);color:var(--card);padding:6px 11px;box-shadow:3px 3px 0 var(--ink);transform:rotate(-2deg)}
@@ -349,12 +373,12 @@ footer .hand{font-family:'Caveat',cursive;font-size:1.3rem;color:var(--lilac-dee
     </div>
     <div class="hero-right">
       <p class="sub">
-        <span data-pt>Identidade visual, social media, e-commerce e design editorial. Eu desenho marcas e escrevo entrelinhas — aquilo que nasce quando <b>imagem e palavra</b> se sobrepõem como uma colagem.</span>
-        <span data-en>Visual identity, social media, e-commerce and editorial design. I design brands and write between the lines — what emerges when <b>image and word</b> overlap like a collage.</span>
+        <span data-pt>Sou designer e escrevo poesia. Faço marcas, imagens para Amazon e livros, e levo as duas coisas para o mesmo trabalho: <b>a imagem precisa dizer alguma coisa, e o texto precisa caber nela</b>.</span>
+        <span data-en>I'm a designer and I write poetry. I make brands, Amazon images and books, and I bring both crafts to the same job: <b>the image has to say something, and the words have to fit in it</b>.</span>
       </p>
       <p class="poem"><span data-pt>recorto, colo, dou sentido.</span><span data-en>I cut, I paste, I make meaning.</span></p>
       <div class="hero-stats">
-        <span data-pt>18+ marcas impactadas</span><span data-en>18+ brands impacted</span>
+        <span data-pt>18+ marcas atendidas</span><span data-en>18+ brands served</span>
         <span data-pt>3 livros publicados</span><span data-en>3 published books</span>
         <span>Maceió · AL</span>
       </div>
@@ -364,25 +388,22 @@ footer .hand{font-family:'Caveat',cursive;font-size:1.3rem;color:var(--lilac-dee
 </header>
 
 <div class="marquee" aria-hidden="true">
-  <div><span>Identidade Visual</span><span>Branding</span><span>Amazon A+</span><span>Testes A/B</span><span>Social Media</span><span>Design Editorial</span><span>Colagem</span><span>Identidade Visual</span><span>Branding</span><span>Amazon A+</span><span>Testes A/B</span><span>Social Media</span><span>Design Editorial</span><span>Colagem</span></div>
+  <div><span>Lifepro</span><span>Joyberri</span><span>Petcove</span><span>êmi cestas</span><span>Galeria Danielle Diniz</span><span>Tudo que Habita em Mim</span><span>Lifepro</span><span>Joyberri</span><span>Petcove</span><span>êmi cestas</span><span>Galeria Danielle Diniz</span><span>Tudo que Habita em Mim</span></div>
 </div>
 
 <section id="sobre">
   <div class="about">
     <div class="about-text reveal">
-      <p class="sec-label"><span data-pt>Quem recorta &amp; cola</span><span data-en>Who cuts &amp; pastes</span></p>
-      <h2 class="sec-title"><span data-pt>Onde o traço encontra a <em>palavra</em>.</span><span data-en>Where the line meets the <em>word</em>.</span></h2>
+      <p class="sec-label"><span data-pt>Prazer,</span><span data-en>Hi,</span></p>
+      <h2 class="sec-title"><span data-pt>Designer que também <em>escreve</em>.</span><span data-en>A designer who also <em>writes</em>.</span></h2>
       <p>
-        <span data-pt>Sou <strong>Beatriz Novaes</strong>, designer gráfico baseado em Maceió, com olhar de escritora. Atuo com <strong>identidade visual, social media, e-commerce e Amazon A+</strong> — sempre buscando a frase certa que a imagem ainda não disse.</span>
-        <span data-en>I'm <strong>Beatriz Novaes</strong>, a graphic designer based in Maceió, Brazil, with a writer's eye. I work with <strong>visual identity, social media, e-commerce and Amazon A+</strong> — always searching for the right phrase the image hasn't said yet.</span>
+        <span data-pt>Sou a <strong>Beatriz</strong>, designer em Maceió. Já desenhei a marca de uma empresa de cestas artesanais e as imagens de produtos que vendem para milhares de pessoas na Amazon. Gosto dos dois extremos.</span>
+        <span data-en>I'm <strong>Beatriz</strong>, a designer in Maceió, Brazil. I've designed the brand for a small handmade gift-basket business and the images for products selling to thousands of people on Amazon. I like both ends.</span>
       </p>
       <p>
-        <span data-pt>Trabalho com marcas que querem soar autênticas: do rebranding completo ao design de produto. E, fora do expediente, escrevo poesia — o que me ensinou que <strong>todo bom design conta uma história</strong>.</span>
-        <span data-en>I work with brands that want to feel authentic: from full rebrands to product design. And after hours, I write poetry — which taught me that <strong>every good design tells a story</strong>.</span>
+        <span data-pt>Fora do expediente escrevo poesia, e já publiquei três livros. Escrever me ensinou a <strong>cortar o que sobra</strong>. No design eu tento fazer a mesma coisa, e quando dá, eu testo para ter certeza (como no <a href="#" onclick="openDetail('sculpt');return false" style="color:var(--lilac-deep)">teste A/B da Lifepro</a>).</span>
+        <span data-en>After hours I write poetry, and I've published three books. Writing taught me to <strong>cut what's extra</strong>. I try to do the same in design, and when I can, I test it to be sure (like the <a href="#" onclick="openDetail('sculpt');return false" style="color:var(--lilac-deep)">Lifepro A/B test</a>).</span>
       </p>
-      <div class="tags">
-        <span>Identidade Visual</span><span>Branding</span><span>Amazon A+</span><span>Social Media</span><span data-pt>Design Editorial</span><span data-en>Editorial</span><span>Storytelling</span>
-      </div>
     </div>
     <div class="photo-stack reveal">
       <span class="clip"></span>
@@ -396,19 +417,25 @@ footer .hand{font-family:'Caveat',cursive;font-size:1.3rem;color:var(--lilac-dee
 </section>
 
 <section id="servicos" class="services">
-  <p class="sec-label"><span data-pt>No que posso ajudar</span><span data-en>How I can help</span></p>
-  <h2 class="sec-title" style="margin-bottom:12px"><span data-pt>Serviços &amp; especialidades.</span><span data-en>Services &amp; expertise.</span></h2>
-  <div class="svc-grid">
-    <div class="svc reveal"><div class="no">01</div><h3><span data-pt>Identidade Visual</span><span data-en>Visual Identity</span></h3><p><span data-pt>Logo, sistema de marca, papelaria e manual — a base visual completa de um negócio.</span><span data-en>Logo, brand system, stationery and guidelines — a business's full visual foundation.</span></p></div>
-    <div class="svc reveal"><div class="no">02</div><h3>E-commerce &amp; Amazon A+</h3><p><span data-pt>Listings, storefronts e conteúdo A+ que vendem com clareza e estética.</span><span data-en>Listings, storefronts and A+ content that sell with clarity and beauty.</span></p></div>
-    <div class="svc reveal"><div class="no">03</div><h3>Social Media</h3><p><span data-pt>Direção de arte e templates para redes — consistência visual que engaja.</span><span data-en>Art direction and templates for social — visual consistency that engages.</span></p></div>
-    <div class="svc reveal"><div class="no">04</div><h3><span data-pt>Design Editorial</span><span data-en>Editorial Design</span></h3><p><span data-pt>Capas de livro, diagramação e peças onde tipografia e palavra são protagonistas.</span><span data-en>Book covers, layout and pieces where typography and word take the lead.</span></p></div>
+  <div class="svc-wrap">
+    <div>
+      <p class="sec-label"><span data-pt>No que eu posso ajudar</span><span data-en>How I can help</span></p>
+      <h2 class="sec-title" style="margin-bottom:16px"><span data-pt>O que eu faço, <em>na prática</em>.</span><span data-en>What I do, <em>in practice</em>.</span></h2>
+      <p class="svc-intro"><span data-pt>Cada linha tem um projeto aqui embaixo. Clique para ver.</span><span data-en>Every line has a project below. Click to see it.</span></p>
+    </div>
+    <div class="ruled reveal">
+      <span class="tape diag" style="top:-14px;left:40px"></span>
+      <div class="rl" onclick="openDetail('petcove')"><b><span data-pt>Marca do zero ou rebranding</span><span data-en>Brands from scratch or rebrands</span></b><span><span data-pt>nome, logo, paleta, aplicações, estratégia</span><span data-en>name, logo, palette, applications, strategy</span></span><i>Petcove · êmi · Danielle Diniz</i></div>
+      <div class="rl" onclick="openDetail('sculpt')"><b>Amazon</b><span><span data-pt>imagens de listing, A+, e testes A/B para provar o que funciona</span><span data-en>listing images, A+, and A/B tests to prove what works</span></span><i>Lifepro · Joyberri</i></div>
+      <div class="rl" onclick="openDetail('livro')"><b><span data-pt>Livros</span><span data-en>Books</span></b><span><span data-pt>capa, miolo, ilustração e a página na Amazon</span><span data-en>cover, interior, illustration and the Amazon page</span></span><i>Tudo que Habita em Mim</i></div>
+      <div class="rl nolink"><b>Social media</b><span><span data-pt>direção de arte e templates que a equipe consegue usar sozinha</span><span data-en>art direction and templates the team can use on its own</span></span><i>&nbsp;</i></div>
+    </div>
   </div>
 </section>
 
 <section id="trabalho">
-  <p class="sec-label"><span data-pt>Portfólio selecionado</span><span data-en>Selected work</span></p>
-  <h2 class="sec-title"><span data-pt>Trabalhos recortados do <em>mundo real</em>.</span><span data-en>Work cut from the <em>real world</em>.</span></h2>
+  <p class="sec-label"><span data-pt>Portfólio</span><span data-en>Work</span></p>
+  <h2 class="sec-title"><span data-pt>Projetos que eu faria <em>de novo</em>.</span><span data-en>Projects I'd do <em>all over again</em>.</span></h2>
   <div class="work-grid">
     <div class="card book c-lg reveal" onclick="openDetail('livro')">
       <span class="ribbon"></span>
@@ -456,6 +483,14 @@ footer .hand{font-family:'Caveat',cursive;font-size:1.3rem;color:var(--lilac-dee
       <p>BEHANCE</p>
     </a>
   </div>
+  <figure class="note reveal" onclick="openDetail('petcove')">
+    <span class="tape gold" style="top:-13px;left:50%;transform:translateX(-50%) rotate(2deg)"></span>
+    <blockquote>
+      <span data-pt>“Gente, caramba… vocês arrasaram! A paixão e o trabalho duro aparecem em cada página: nas fontes, nas cores e nesses ícones fofos demais.”</span>
+      <span data-en>“You guys, holy smokes .... crushed it! The passion and hard work you put into this shows on every page -- from the fonts, the colors, and those friggin' adorable icons.”</span>
+    </blockquote>
+    <figcaption>Matt Jozwiakowski · <span data-pt>sobre o rebranding da Petcove</span><span data-en>on the Petcove rebrand</span><span data-pt class="tr"> · traduzido do inglês</span></figcaption>
+  </figure>
 </section>
 
 <section id="palavra" class="writer">
@@ -471,7 +506,7 @@ footer .hand{font-family:'Caveat',cursive;font-size:1.3rem;color:var(--lilac-dee
 
 <section id="contato" class="contact">
   <p class="sec-label" style="display:inline-block"><span data-pt>Vamos criar</span><span data-en>Let's create</span></p>
-  <h2><span data-pt>Que tal um <em>projeto</em><br>com alma?</span><span data-en class="block">How about a project<br>with <em>soul</em>?</span></h2>
+  <h2><span data-pt>Tem um projeto?<br><em>Me conta.</em></span><span data-en class="block">Got a project?<br><em>Tell me about it.</em></span></h2>
   <a class="mail" href="mailto:beatriz.acnovaes@gmail.com">beatriz.acnovaes@gmail.com</a>
   <div class="links">
     <a href="https://www.behance.net/Beatriz_Novaes" target="_blank" rel="noopener">Behance</a>
@@ -494,6 +529,7 @@ footer .hand{font-family:'Caveat',cursive;font-size:1.3rem;color:var(--lilac-dee
     <h2 id="d-title"></h2>
     <p class="lead" id="d-lead"></p>
     <div class="d-info" id="d-info"></div>
+    <div id="d-quote"></div>
     <div class="d-gallery" id="d-gallery"></div>
     <a class="d-back" onclick="closeDetail()"><span data-pt>← voltar ao portfólio</span><span data-en>← back to portfolio</span></a>
   </div>
@@ -518,8 +554,8 @@ const PROJECTS={
   emi:{
     label:{pt:'Identidade Visual · Branding',en:'Visual Identity · Branding'},
     title:'êmi cestas',
-    lead:{pt:'O desejo de empreender com cestas de café, pelo amor ao trabalho manual e artesanal, deu origem a esta marca da empreendedora Mariza Novaes. O nome nasceu de um monograma com as iniciais do casal, "M&R" — até simplificarmos a pronúncia para "êmi & erri" e, em homenagem à própria Mariza, chegarmos a "êmi cestas". A partir dessa história, desenvolvi a identidade visual completa: o logotipo com a rosa, a paleta bege/pêssego/marrom/verde, a tipografia (Veronica + Arno Pro) e todas as aplicações — de embalagens a papelaria e adesivos.',
-          en:'The wish to start a business around gift baskets — out of love for handmade, artisanal work — gave rise to this brand for entrepreneur Mariza Novaes. The name began as a monogram of the couple\'s initials, "M&R", until we simplified the pronunciation to "êmi & erri" and, as a tribute to Mariza herself, landed on "êmi cestas". From that story, I developed the full visual identity: the rose logo, the beige/peach/brown/green palette, the typography (Veronica + Arno Pro) and every application — from packaging to stationery and stickers.'},
+    lead:{pt:'A Mariza Novaes queria vender cestas de café feitas à mão. O nome começou como um monograma com as iniciais do casal, \"M&R\". Lendo em voz alta virou \"êmi & erri\", e no fim ficou só o \"êmi\", o M da Mariza. Daí saiu o resto: a rosa do logo, a paleta bege, pêssego, marrom e verde, a dupla Veronica + Arno Pro, e as aplicações em embalagem, papelaria e adesivos.',
+          en:'Mariza Novaes wanted to sell handmade coffee gift baskets. The name started as a monogram of the couple\'s initials, \"M&R\". Read out loud it became \"êmi & erri\", and in the end it was just \"êmi\", the M in Mariza. Everything else came from there: the rose logo, the beige, peach, brown and green palette, the Veronica + Arno Pro pairing, and the packaging, stationery and stickers.'},
     info:{pt:[['Cliente','êmi cestas'],['Atuação','Identidade · Logo · Aplicações'],['Ano','2024']],
           en:[['Client','êmi cestas'],['Role','Identity · Logo · Applications'],['Year','2024']]},
     images:['emi-01.jpg','emi-04.jpg','emi-05.jpg','emi-06.jpg','emi-07.jpg','emi-08.jpg','emi-09.jpg','emi-10.jpg','emi-11.jpg','emi-12.jpg','emi-13.jpg','emi-14.jpg','emi-15.jpg','emi-16.jpg']
@@ -527,8 +563,8 @@ const PROJECTS={
   danielle:{
     label:{pt:'Identidade Visual · Rebranding',en:'Visual Identity · Rebranding'},
     title:'Galeria Danielle Diniz',
-    lead:{pt:'A Galeria Danielle Diniz nasceu de uma família extremamente criativa — dona Quitéria e Danielle uniram seus dons abstratos e digitais para criar quadros que conversam com o público. A marca, antes chamada Aldraba de Entrada, decidiu se ressignificar e passar por um rebranding, renascendo mais moderna, ampla e dinâmica. O desafio era criar uma identidade original, de traços delicados, que ainda assim representasse a marca. Como uma galeria de arte precisa abranger desde obras clássicas a abstratas, modernas e fotográficas, a solução foi trazer arte para dentro da própria identidade visual — com curvas, elegância e delicadeza no traço. Projeto 100% meu: criação do ícone, estudo de concorrência, paleta e aplicações.',
-          en:'Galeria Danielle Diniz was born from an exceptionally creative family — Quitéria and Danielle combined their abstract and digital talents to create artwork that speaks to an audience. Once called Aldraba de Entrada, the brand chose to redefine itself through a rebrand, emerging more modern, broader and more dynamic. The challenge was to create an original, delicately drawn identity that could still represent the brand. Since an art gallery needs to embrace everything from classic to abstract, modern and photographic work, the solution was to bring art into the identity itself — with curves, elegance and delicate linework. A 100% solo project: icon design, competitor study, palette and applications.'},
+    lead:{pt:'A galeria é de uma família: dona Quitéria e Danielle juntam arte abstrata e digital em quadros feitos para conversar com quem vê. A marca se chamava Aldraba de Entrada e precisava de um nome e de uma cara mais amplos. Uma galeria vende do clássico ao abstrato e à fotografia, então a identidade não podia escolher um estilo só. A saída foi desenhar a própria marca como uma peça de arte, com curvas e traço fino. Fiz tudo sozinha: estudo de concorrência, ícone, paleta e aplicações.',
+          en:'The gallery is a family business: Quitéria and Danielle combine abstract and digital art into pieces made to talk to whoever looks at them. The brand used to be called Aldraba de Entrada and needed a broader name and look. A gallery sells everything from classic to abstract to photography, so the identity couldn\'t pick a single style. The answer was to draw the brand itself as a piece of art, with curves and fine linework. I did it all myself: competitor study, icon, palette and applications.'},
     info:{pt:[['Cliente','Galeria Danielle Diniz'],['Atuação','Identidade · Ícone · Aplicações'],['Ano','2024']],
           en:[['Client','Galeria Danielle Diniz'],['Role','Identity · Icon · Applications'],['Year','2024']]},
     images:['danielle-01.jpg','danielle-04.jpg','danielle-05.jpg','danielle-06.jpg','danielle-07.jpg','danielle-08.jpg','danielle-09.jpg','danielle-10.jpg','danielle-11.jpg']
@@ -536,17 +572,20 @@ const PROJECTS={
   petcove:{
     label:{pt:'Estratégia de Marca · Rebranding',en:'Brand Strategy · Rebranding'},
     title:'Petcove',
-    lead:{pt:'O brand book anterior da Petcove tinha estética de startup pet-tech premium — teal institucional, fotografia escandinava, produto flutuando em vazios brancos — desalinhada da pesquisa real sobre quem compra e por quê. Conduzi o diagnóstico estratégico e a direção criativa que reconstruíram a marca do zero: uma plataforma única, "We Do The Dirty Work", ancorada em uma pesquisa de comportamento e atitude do consumidor com 682 pessoas, com paleta em duas camadas (teal de confiança + pastéis expressivos) e uma nova direção de fotografia que troca o perfeccionismo de catálogo por lares reais.',
-          en:'Petcove\'s previous brand book read like a premium pet-tech startup — institutional teal, Scandinavian photography, product floating in white voids — misaligned with the actual research on who buys and why. I led the strategic diagnosis and creative direction that rebuilt the brand from the ground up: a single platform, "We Do The Dirty Work," grounded in a 682-person consumer usage and attitude study, a two-layer palette (trust teal + expressive pastels), and a new photography direction trading catalog perfection for real homes.'},
+    lead:{pt:'O brand book antigo da Petcove parecia de uma startup pet-tech de luxo: teal institucional, foto escandinava, produto flutuando no branco. Só que a pesquisa com 682 consumidores dizia outra coisa sobre quem compra e por quê. Fiz o diagnóstico e a direção criativa para reconstruir a marca a partir disso: uma plataforma só, \"We Do The Dirty Work\", uma paleta em duas camadas (o teal da confiança e pastéis com mais personalidade) e fotos em casas de verdade no lugar do catálogo perfeito.',
+          en:'Petcove\'s old brand book looked like a luxury pet-tech startup: institutional teal, Scandinavian photography, product floating in white space. But a study of 682 consumers said something else about who buys and why. I led the diagnosis and creative direction to rebuild the brand from that: one platform, \"We Do The Dirty Work\", a two-layer palette (trust teal plus pastels with more personality) and photos in real homes instead of catalog perfection.'},
     info:{pt:[['Cliente','Petcove'],['Atuação','Estratégia de Marca · Direção Criativa · Identidade Visual'],['Ano','2026']],
           en:[['Client','Petcove'],['Role','Brand Strategy · Creative Direction · Visual Identity'],['Year','2026']]},
+    quote:{en:'You guys, holy smokes .... crushed it!\n\nThe passion and hard work you put into this shows on every page -- from the fonts, the colors, and those friggin\' adorable icons. Let\'s get this rolling onto our websites and ads and PDPS asap!',
+           pt:'Gente, caramba... vocês arrasaram!\n\nA paixão e o trabalho duro que vocês colocaram nisso aparecem em cada página: nas fontes, nas cores e nesses ícones fofos demais. Vamos levar isso para os nossos sites, anúncios e páginas de produto o quanto antes!',
+           who:'Matt Jozwiakowski',when:{pt:'e-mail de 4 de maio de 2026',en:'email, May 4, 2026'}},
     images:['petcove-01.jpg','petcove-04.jpg','petcove-07.jpg','petcove-08.jpg','petcove-09.jpg','petcove-10.jpg','petcove-16.jpg','petcove-18.jpg','petcove-19.jpg','petcove-22.jpg','petcove-24.jpg','petcove-25.jpg','petcove-26.jpg','petcove-27.jpg','petcove-28.jpg','petcove-29.jpg','petcove-30.jpg','petcove-31.jpg','petcove-33.jpg']
   },
   mighty:{
     label:{pt:'E-commerce · Amazon A+',en:'E-commerce · Amazon A+'},
     title:'Joyberri — Mighty Bounce',
-    lead:{pt:'Listing e conteúdo A+ para o pula-pula inflável Mighty Bounce, da marca Joyberri. O conceito foi estudado junto à estrategista de e-commerce; o design foi inteiramente criado e construído por mim, com apoio de IA na geração de algumas imagens.',
-          en:'Listing and A+ content for the Mighty Bounce inflatable bounce house by Joyberri. The concept was developed together with the e-commerce strategist; the design was entirely created and built by me, with AI support for some image generation.'},
+    lead:{pt:'Listing e A+ do pula-pula inflável Mighty Bounce, da Joyberri. O conceito eu pensei junto com a estrategista de e-commerce; o design é todo meu, com IA ajudando a gerar algumas das imagens.',
+          en:'Listing and A+ for Joyberri\'s Mighty Bounce inflatable bounce house. I worked out the concept with the e-commerce strategist; the design is all mine, with AI helping generate some of the images.'},
     info:{pt:[['Cliente','Joyberri'],['Atuação','Listing · Amazon A+'],['Ano','2025']],
           en:[['Client','Joyberri'],['Role','Listing · Amazon A+'],['Year','2025']]},
     images:['mighty-01.jpg','mighty-02.jpg','mighty-03.jpg','mighty-04.jpg','mighty-05.jpg','mighty-06.jpg','mighty-07.jpg','mighty-08.jpg','mighty-09.jpg','mighty-10.jpg']
@@ -554,8 +593,8 @@ const PROJECTS={
   upsurge:{
     label:{pt:'E-commerce · Amazon A+',en:'E-commerce · Amazon A+'},
     title:'Joyberri — Upsurge',
-    lead:{pt:'Listing e conteúdo A+ para a linha Upsurge da Joyberri, incluindo variações de produto. Conceito estudado com a estrategista de e-commerce e design criado e construído por mim, com apoio de IA na construção de imagens.',
-          en:'Listing and A+ content for Joyberri\'s Upsurge line, including product variations. Concept developed with the e-commerce strategist and design created and built by me, with AI support in image building.'},
+    lead:{pt:'Listing e A+ da linha Upsurge, da Joyberri, com as variações de produto. Mesmo esquema do Mighty Bounce: conceito com a estrategista, design meu, IA de apoio em algumas imagens.',
+          en:'Listing and A+ for Joyberri\'s Upsurge line, including product variations. Same setup as Mighty Bounce: concept with the strategist, design by me, AI support on some images.'},
     info:{pt:[['Cliente','Joyberri'],['Atuação','Listing · Amazon A+'],['Ano','2025']],
           en:[['Client','Joyberri'],['Role','Listing · Amazon A+'],['Year','2025']]},
     images:['upsurge-01.jpg','upsurge-02.jpg','upsurge-03.jpg','upsurge-04.jpg','upsurge-05.jpg','upsurge-06.jpg','upsurge-07.jpg','upsurge-08.jpg','upsurge-09.jpg','upsurge-10.jpg','upsurge-11.jpg']
@@ -563,8 +602,8 @@ const PROJECTS={
   lifepro:{
     label:{pt:'E-commerce · Redesign',en:'E-commerce · Redesign'},
     title:'Lifepro — Fitness Listings',
-    lead:{pt:'Redesenho de listings e conteúdo A+ para a marca de fitness Lifepro na Amazon, com foco em clareza, hierarquia de informação e conversão — destacando benefícios do produto de forma visual e direta.',
-          en:'Listing and A+ content redesign for fitness brand Lifepro on Amazon, focused on clarity, information hierarchy and conversion — highlighting product benefits in a visual, direct way.'},
+    lead:{pt:'Redesenho de listings e A+ da Lifepro na Amazon. O objetivo era o cliente entender o produto em segundos: menos texto, hierarquia clara e o benefício principal sempre na frente.',
+          en:'Listing and A+ redesign for Lifepro on Amazon. The goal was for shoppers to get the product in seconds: less text, clear hierarchy and the main benefit always up front.'},
     info:{pt:[['Cliente','Lifepro'],['Atuação','Redesign · Amazon A+'],['Ano','2026']],
           en:[['Client','Lifepro'],['Role','Redesign · Amazon A+'],['Year','2026']]},
     images:['lifepro-01.jpg','lifepro-02.jpg','lifepro-03.jpg','lifepro-04.jpg','lifepro-05.jpg']
@@ -573,8 +612,8 @@ const PROJECTS={
     ab:true,
     label:{pt:'E-commerce · Teste A/B · Amazon',en:'E-commerce · A/B Test · Amazon'},
     title:'Lifepro SculptTrainer — Teste A/B',
-    lead:{pt:'As imagens secundárias do SculptTrainer eram quadradas (1:1). Redesenhei o set inteiro no formato vertical — mais alto, ocupando mais tela no celular, com tipografia maior e hierarquia mais direta — e colocamos as duas versões frente a frente no "Manage Your Experiments" da Amazon. Em 6 semanas e ~45 mil visitantes, a versão vertical converteu 32,6% a mais.',
-          en:'The SculptTrainer\'s secondary images were square (1:1). I redesigned the whole set in a vertical format — taller, filling more of the phone screen, with bigger type and a more direct hierarchy — and we ran both versions head-to-head in Amazon\'s "Manage Your Experiments". Over 6 weeks and ~45k visitors, the vertical version converted 32.6% better.'},
+    lead:{pt:'As imagens secundárias do SculptTrainer eram quadradas. Refiz o set inteiro na vertical, que ocupa mais tela no celular, com letra maior e hierarquia mais direta. Depois colocamos as duas versões para competir no \"Manage Your Experiments\" da Amazon. Em 6 semanas, com uns 45 mil visitantes, a vertical converteu 32,6% a mais.',
+          en:'The SculptTrainer\'s secondary images were square. I redid the whole set vertically, which fills more of a phone screen, with bigger type and a more direct hierarchy. Then we pitted both versions against each other in Amazon\'s \"Manage Your Experiments\". Over 6 weeks and about 45k visitors, the vertical converted 32.6% better.'},
     info:{pt:[['Cliente','Lifepro'],['Produto','SculptTrainer'],['Atuação','Design · Teste A/B'],['Período','20 ago – 30 set 2026']],
           en:[['Client','Lifepro'],['Product','SculptTrainer'],['Role','Design · A/B Test'],['Period','Aug 20 – Sep 30, 2026']]},
     sq:['sculpt-q-01.jpg','sculpt-q-02.jpg','sculpt-q-03.jpg','sculpt-q-04.jpg','sculpt-q-05.jpg','sculpt-q-06.jpg','sculpt-q-08.jpg'],
@@ -585,8 +624,8 @@ const PROJECTS={
     book:true,
     label:{pt:'Design Editorial · Livro publicado',en:'Editorial Design · Published Book'},
     title:'Tudo que Habita em Mim',
-    lead:{pt:'Uma coletânea de poemas para todas as vezes que o sentir foi demais para aguentar — dividida em duas partes: a primeira traz crescimento e esperança; a segunda, as dificuldades e a resiliência de atravessá-las. Escrevi, projetei a capa e ilustrei cada detalhe: do conceito da mão entre flores à diagramação completa.',
-          en:'A poetry collection for every time feeling was too much to hold — split into two parts: the first carries growth and hope; the second, hardship and the resilience to move through it. I wrote it, designed the cover and illustrated every detail: from the hand-among-flowers concept to the full layout.'},
+    lead:{pt:'Poemas para as vezes em que sentir foi demais. A primeira parte é sobre crescer e ter esperança; a segunda, sobre o que dói e como atravessar. Escrevi, desenhei a capa (a mão entre flores), ilustrei e diagramei tudo.',
+          en:'Poems for the times when feeling was too much. The first part is about growing and hoping; the second, about what hurts and how to get through it. I wrote it, designed the cover (the hand among flowers), illustrated it and laid out every page.'},
     info:{pt:[['Autora','Beatriz Novaes'],['Atuação','Escrita · Design · Ilustração'],['Formato','Livro impresso independente']],
           en:[['Author','Beatriz Novaes'],['Role','Writing · Design · Illustration'],['Format','Independently printed book']]},
     cover:'livro-capa.jpg',
@@ -634,13 +673,13 @@ function abHTML(p,l){
     <div class="ab-box prob" id="ab-prob">
       <div class="row"><span>${T('Versão A é melhor','Version A is better')}</span><span>${T('Versão B é melhor','Version B is better')}</span></div>
       <div class="bar"><span class="pa">31%</span><span class="pb">69%</span></div>
-      <p class="ab-note">${T('Probabilidade calculada pela Amazon com base em 45.299 visitantes únicos (22.636 vs 22.663). Evidência classificada como "leve" — o experimento continua rodando até atingir significância.','Probability calculated by Amazon from 45,299 unique visitors (22,636 vs 22,663). Evidence is rated "mild" — the experiment keeps running until it reaches significance.')}</p>
+      <p class="ab-note">${T('Probabilidade calculada pela Amazon com base em 45.299 visitantes únicos (22.636 vs 22.663). Evidência classificada como "leve": o experimento continua rodando até atingir significância.','Probability calculated by Amazon from 45,299 unique visitors (22,636 vs 22,663). Evidence is rated "mild": the experiment keeps running until it reaches significance.')}</p>
     </div>
   </div>
 
   <div class="ab-sec">
     <h3 class="ab-h">${T('O que mudou na tela','What changed on screen')}</h3>
-    <p class="ab-p">${T('No celular — onde acontece boa parte das compras na Amazon — a imagem vertical ocupa muito mais da primeira dobra — o cliente vê o produto maior, lê os benefícios sem zoom e o preço desce para um scroll depois. Alterne entre as versões e navegue pelas 7 imagens:','On phones — where much of Amazon shopping happens — the vertical image fills far more of the first screen — shoppers see the product bigger, read the benefits without zooming, and price slides one scroll down. Switch between versions and browse all 7 images:')}</p>
+    <p class="ab-p">${T('No celular, onde acontece boa parte das compras na Amazon, a imagem vertical ocupa muito mais da primeira tela. O cliente vê o produto maior, lê os benefícios sem zoom e o preço desce para um scroll depois. Alterne entre as versões e navegue pelas 7 imagens:','On phones, where much of Amazon shopping happens, the vertical image fills far more of the first screen. Shoppers see the product bigger, read the benefits without zooming, and price slides one scroll down. Switch between versions and browse all 7 images:')}</p>
     <div class="phone-wrap">
       <div class="phone"><span class="notch"></span><div class="scr">
         <div class="bar1"><span></span></div>
@@ -700,7 +739,7 @@ function abHTML(p,l){
     <h3 class="ab-h">${T('O que aprendemos','What we learned')}</h3>
     <div class="learn">
       <div><h4>${T('Mais tela, mais atenção','More screen, more attention')}</h4><p>${T('No celular, a vertical ocupa ~60% mais área antes do primeiro scroll. Produto maior, texto legível sem zoom.','On mobile, the vertical takes ~60% more area before the first scroll. Bigger product, text readable without zooming.')}</p></div>
-      <div><h4>${T('Mais força na busca','Stronger from search')}</h4><p>${T('O maior ganho veio de quem chegou pela busca (+38% em vendas) — justamente quem está comparando opções lado a lado.','The biggest gain came from shoppers arriving via search (+38% in sales) — exactly the ones comparing options side by side.')}</p></div>
+      <div><h4>${T('Mais força na busca','Stronger from search')}</h4><p>${T('O maior ganho veio de quem chegou pela busca (+38% em vendas), justamente quem está comparando opções lado a lado.','The biggest gain came from shoppers arriving via search (+38% in sales), exactly the ones comparing options side by side.')}</p></div>
       <div><h4>${T('Leitura honesta','An honest read')}</h4><p>${T('69% de probabilidade é um sinal positivo, mas ainda não definitivo. O teste segue rodando até a Amazon declarar significância.','A 69% probability is a positive signal, not a final verdict yet. The test keeps running until Amazon declares significance.')}</p></div>
     </div>
   </div>`;
@@ -726,7 +765,7 @@ function initAB(p,l){
     ia.style.opacity=pv==='A'?1:0;ib.style.opacity=pv==='B'?1:0;
     const h=Math.round(W*RATIO[pv]);box.style.height=h+'px';meter.style.height=h+'px';
     pct.textContent=Math.round(h/SCR*100)+'%';
-    cap.textContent=pv==='A'?T('Quadrada: a imagem divide a primeira tela com título, preço e botão — o produto fica pequeno e os textos exigem zoom.','Square: the image shares the first screen with title, price and button — the product is small and the copy needs zooming.'):T('Vertical: ~60% mais área para o produto e para a mensagem. Tipografia maior, leitura imediata, mesma informação.','Vertical: ~60% more area for the product and the message. Bigger type, instant reading, same information.');
+    cap.textContent=pv==='A'?T('Quadrada: a imagem divide a primeira tela com título, preço e botão. O produto fica pequeno e os textos exigem zoom.','Square: the image shares the first screen with title, price and button. The product is small and the copy needs zooming.'):T('Vertical: ~60% mais área para o produto e para a mensagem. Tipografia maior, leitura imediata, mesma informação.','Vertical: ~60% more area for the product and the message. Bigger type, instant reading, same information.');
     document.querySelectorAll('#ph-tabs button').forEach(b=>b.classList.toggle('on',b.dataset.v===pv));
     dots.querySelectorAll('i').forEach((d,i)=>d.classList.toggle('on',i===pi));
   }
@@ -789,6 +828,8 @@ function renderDetail(id){
   document.getElementById('d-title').textContent=p.title;
   document.getElementById('d-lead').textContent=p.lead[l];
   document.getElementById('d-info').innerHTML=p.info[l].map(i=>`<div><div class="k">${i[0]}</div><div class="v">${i[1]}</div></div>`).join('');
+  const q=document.getElementById('d-quote');
+  q.innerHTML=p.quote?`<figure class="d-quote"><span class="tape gold" style="top:-13px;left:36px;transform:rotate(-3deg)"></span><blockquote>${p.quote[l].split('\n\n').map(x=>`<p>${x}</p>`).join('')}</blockquote><figcaption><b>${p.quote.who}</b> · ${p.quote.when[l]}</figcaption>${l==='pt'?`<details class="orig"><summary>Traduzido do inglês · ver original</summary><blockquote lang="en">${p.quote.en.split('\n\n').map(x=>`<p>${x}</p>`).join('')}</blockquote></details>`:''}</figure>`:'';
   const g=document.getElementById('d-gallery');
   if(p.ab){
     g.innerHTML=abHTML(p,l);
