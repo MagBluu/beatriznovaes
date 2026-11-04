@@ -86,6 +86,7 @@ nav a:hover::after{width:100%}
 .hero-stats span:nth-child(2){transform:rotate(-1.2deg)}
 .hero-stats span:nth-child(3){transform:rotate(1deg)}
 .scroll-cue{position:absolute;bottom:34px;left:5vw;font-family:'Caveat',cursive;font-size:1.15rem;color:var(--ink-soft);display:flex;align-items:center;gap:8px;opacity:0;animation:fadeUp .8s 1.3s forwards}
+.scroll-cue{text-decoration:none;cursor:pointer;transition:color .2s}.scroll-cue:hover{color:var(--lilac-deep)}
 .scroll-cue .arrow{display:inline-block;animation:bob 1.8s ease-in-out infinite}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
 @media(max-width:780px){.scroll-cue{display:none}}
@@ -211,6 +212,30 @@ footer .hand{font-family:'Caveat',cursive;font-size:1.3rem;color:var(--lilac-dee
 .bd-pola{flex:0 0 auto;width:190px;scroll-snap-align:center;background:var(--card);padding:10px 10px 28px;box-shadow:4px 7px 16px var(--shadow);transform:rotate(var(--r,0deg))}
 .bd-pola img{width:100%;display:block}
 @media(max-width:600px){.bd-process img{width:44%}.bd-pola{width:150px}}
+
+/* ---- adaptive nav ---- */
+nav{transition:background .4s,padding .35s,box-shadow .4s}
+nav .logo,nav a,nav .nav-toggle,.lang,.lang button{transition:color .35s,border-color .35s,background .35s}
+nav.scrolled{padding-top:9px;padding-bottom:9px;background:rgba(239,233,221,.94);box-shadow:0 1px 0 rgba(43,39,34,.14);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+nav.ink{background:rgba(43,39,34,.94);box-shadow:0 1px 0 rgba(247,243,234,.12)}
+nav.lilac{background:rgba(106,79,163,.96);box-shadow:none}
+nav.ink .logo,nav.lilac .logo,nav.ink .nav-toggle,nav.lilac .nav-toggle{color:var(--card)}
+nav.ink .logo b{color:var(--gold)}nav.lilac .logo b{color:var(--gold)}
+@media(min-width:781px){nav.ink ul a,nav.lilac ul a{color:var(--card)}}
+nav.ink a::after,nav.lilac a::after{background:var(--gold)}
+nav.ink .lang,nav.lilac .lang{border-color:var(--card);background:transparent}
+nav.ink .lang button,nav.lilac .lang button{color:var(--card)}
+nav.ink .lang .ind,nav.lilac .lang .ind{background:var(--gold)}
+nav.ink .lang button.active,nav.lilac .lang button.active{color:var(--ink)}
+nav a.cur::after{width:100%}
+/* ---- lifepro story + phone ---- */
+.d-story{background:var(--card);border:1.5px solid var(--ink);box-shadow:4px 5px 0 var(--ink);padding:28px 30px 12px;margin:0 0 46px;max-width:760px}
+.d-story h3{font-family:'Caveat',cursive;font-weight:700;font-size:2.2rem;line-height:1;margin-bottom:14px}
+.d-story p{color:var(--ink-soft);line-height:1.7;margin-bottom:16px;max-width:64ch}
+.phone-line{margin-top:16px;font-family:'Special Elite',monospace;font-size:1rem;display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap}
+.phone-line a{color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:8px;border-bottom:2px solid var(--gold);padding-bottom:2px;transition:color .2s}
+.phone-line a:hover{color:var(--lilac-deep)}
+.phone-line .sep{color:var(--ink-soft)}
 
 /* ---- services as ruled index card ---- */
 .svc-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
@@ -428,10 +453,10 @@ footer .hand{font-family:'Caveat',cursive;font-size:1.3rem;color:var(--lilac-dee
       </div>
     </div>
   </div>
-  <p class="scroll-cue"><span data-pt>ver trabalhos</span><span data-en>see work</span> <span class="arrow">↓</span></p>
+  <a class="scroll-cue" href="#trabalho"><span data-pt>ver trabalhos</span><span data-en>see work</span> <span class="arrow">↓</span></a>
 </header>
 
-<div class="marquee" aria-hidden="true">
+<div class="marquee" aria-hidden="true" data-nav="lilac">
   <div><span>Lifepro</span><span>Joyberri</span><span>Petcove</span><span>êmi cestas</span><span>Galeria Danielle Diniz</span><span>Tudo que Habita em Mim</span><span>Lifepro</span><span>Joyberri</span><span>Petcove</span><span>êmi cestas</span><span>Galeria Danielle Diniz</span><span>Tudo que Habita em Mim</span></div>
 </div>
 
@@ -537,7 +562,7 @@ footer .hand{font-family:'Caveat',cursive;font-size:1.3rem;color:var(--lilac-dee
   </figure>
 </section>
 
-<section id="palavra" class="writer">
+<section id="palavra" class="writer" data-nav="ink">
   <p class="sec-label"><span data-pt>A outra metade</span><span data-en>The other half</span></p>
   <blockquote>
     <span data-pt>Designer de dia, <span>poeta nas entrelinhas</span>. Escrevo sobre tudo que habita em mim.</span>
@@ -555,6 +580,7 @@ footer .hand{font-family:'Caveat',cursive;font-size:1.3rem;color:var(--lilac-dee
       <span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span data-pt>copiar</span><span data-en>copy</span></span>
       <span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 12.5l5 5L20 6.5"/></svg><span data-pt>copiado!</span><span data-en>copied!</span></span>
     </button></div>
+  <p class="phone-line"><a href="https://wa.me/5582988693692" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>+55 82 98869-3692</a><span class="sep">·</span><a href="tel:+5582988693692"><span data-pt>ligar</span><span data-en>call</span></a></p>
   <div class="links">
     <a href="https://www.behance.net/Beatriz_Novaes" target="_blank" rel="noopener">Behance</a>
     <a href="https://www.linkedin.com/in/beatriz-novaes19" target="_blank" rel="noopener">LinkedIn</a>
@@ -650,11 +676,18 @@ const PROJECTS={
   lifepro:{
     label:{pt:'E-commerce · Redesign',en:'E-commerce · Redesign'},
     title:'Lifepro — Fitness Listings',
-    lead:{pt:'Redesenho de listings e A+ da Lifepro na Amazon. O objetivo era o cliente entender o produto em segundos: menos texto, hierarquia clara e o benefício principal sempre na frente.',
-          en:'Listing and A+ redesign for Lifepro on Amazon. The goal was for shoppers to get the product in seconds: less text, clear hierarchy and the main benefit always up front.'},
+    lead:{pt:'Redesign dos listings e do conteúdo A+ da Lifepro na Amazon, com uma nova direção de design e de fotografia para a marca.',
+          en:'A redesign of Lifepro\'s Amazon listings and A+ content, with a new design and photography direction for the brand.'},
     info:{pt:[['Cliente','Lifepro'],['Atuação','Redesign · Amazon A+'],['Ano','2026']],
           en:[['Client','Lifepro'],['Role','Redesign · Amazon A+'],['Year','2026']]},
-    images:['lifepro-01.jpg','lifepro-02.jpg','lifepro-03.jpg','lifepro-04.jpg','lifepro-05.jpg']
+    story:{title:{pt:'Por que redesenhar',en:'Why a redesign'},
+      pt:['O redesign nasceu da necessidade de posicionar a Lifepro como uma marca premium e moderna, mas sem a exclusão do luxo. O objetivo é levar a vida fitness para todo mundo, e para todo tipo de corpo.',
+          'Repensamos o design e a fotografia para refletir isso, gerar confiança e aumentar a conversão. As fotos de lifestyle passaram a ser sofisticadas, mas reais: pessoas comuns colocando a saúde em primeiro lugar.',
+          'Na direção de fotografia, apostamos em ângulos dinâmicos. É uma escolha criativa que dá personalidade e energia às imagens e ainda abre espaço para destacar os produtos menores.'],
+      en:['The redesign came from the need to position Lifepro as a premium, modern brand, without the exclusivity of luxury. The goal is to bring the fitness life to everybody, and every body.',
+          'We reimagined the design and photography to reflect that, build trust and drive conversion. Lifestyle images were rethought to feel elevated yet real, showing everyday people prioritizing their health.',
+          'For the photography direction, we went for dynamic angles: a creative approach that adds personality and energy to the images, while also creating room to focus on and highlight smaller products.']},
+    images:['lifepro-01.jpg','lifepro-02.jpg','lifepro-03.jpg','lifepro-04.jpg']
   },
   sculpt:{
     ab:true,
@@ -685,6 +718,25 @@ const PROJECTS={
     real:['livro-real-01.jpg','livro-real-02.jpg','livro-real-03.jpg','livro-real-04.jpg']
   }
 };
+/* ===== adaptive nav + scrollspy ===== */
+(function(){
+  const nav=document.querySelector('nav'),darks=[...document.querySelectorAll('[data-nav]')],
+        links=[...nav.querySelectorAll('ul a')],secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+  let tick=false;
+  function upd(){tick=false;
+    const y=nav.offsetHeight/2;let mode='';
+    darks.forEach(d=>{const r=d.getBoundingClientRect();if(r.top<=y&&r.bottom>=y)mode=d.dataset.nav});
+    nav.classList.toggle('scrolled',window.scrollY>40);
+    nav.classList.toggle('ink',mode==='ink');nav.classList.toggle('lilac',mode==='lilac');
+    const mid=window.innerHeight*.4;let cur=-1;
+    secs.forEach((s,i)=>{if(s&&s.getBoundingClientRect().top<=mid)cur=i});
+    if(window.innerHeight+window.scrollY>=document.body.scrollHeight-4)cur=secs.length-1;
+    links.forEach((a,i)=>a.classList.toggle('cur',i===cur));
+  }
+  window.addEventListener('scroll',()=>{if(!tick){tick=true;requestAnimationFrame(upd)}},{passive:true});
+  window.addEventListener('resize',upd);upd();
+})();
+
 /* ===== continuous tabs indicator ===== */
 function moveInd(box,instant){
   const act=box.querySelector('button.on,button.active');if(!act||!box.offsetWidth)return;
@@ -944,6 +996,7 @@ function renderDetail(id){
   document.getElementById('d-info').innerHTML=p.info[l].map(i=>`<div><div class="k">${i[0]}</div><div class="v">${i[1]}</div></div>`).join('');
   const q=document.getElementById('d-quote');
   q.innerHTML=p.quote?`<figure class="d-quote"><span class="tape gold" style="top:-13px;left:36px;transform:rotate(-3deg)"></span><blockquote>${p.quote[l].split('\n\n').map(x=>`<p>${x}</p>`).join('')}</blockquote><figcaption><b>${p.quote.who}</b> · ${p.quote.when[l]}</figcaption>${l==='pt'?`<details class="orig"><summary>Traduzido do inglês · ver original</summary><blockquote lang="en">${p.quote.en.split('\n\n').map(x=>`<p>${x}</p>`).join('')}</blockquote></details>`:''}</figure>`:'';
+  if(p.story)q.innerHTML+=`<div class="d-story"><h3>${p.story.title[l]}</h3>${p.story[l].map(x=>`<p>${x}</p>`).join('')}</div>`;
   const g=document.getElementById('d-gallery');
   if(p.ab){
     g.innerHTML=abHTML(p,l);
