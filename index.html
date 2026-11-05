@@ -223,7 +223,9 @@ footer .hand{font-family:'Caveat',cursive;font-size:1.3rem;color:var(--lilac-dee
 .sec-title.one{max-width:none;white-space:nowrap;font-size:clamp(1.6rem,6.2vw,4.6rem)}
 .fb-sec{padding-top:40px}
 .fb-tabs{margin-bottom:34px}
-.fb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:34px;align-items:start}
+.fb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;align-items:start}
+.fb.long{grid-column:span 2}.fb.long blockquote p{font-size:1.4rem}
+@media(max-width:900px){.fb-grid{grid-template-columns:1fr}.fb.long{grid-column:auto}}
 .fb{position:relative;background:#fbf6c9;padding:32px 30px 22px;box-shadow:4px 8px 18px var(--shadow);transition:transform .35s,opacity .35s}
 .fb:nth-child(2n){background:#f3ecfb;transform:rotate(-1deg)}.fb:nth-child(2n+1){transform:rotate(1deg)}
 .fb.hide{display:none}
@@ -235,7 +237,6 @@ footer .hand{font-family:'Caveat',cursive;font-size:1.3rem;color:var(--lilac-dee
 .fb details{margin-top:12px;font-size:.85rem;color:var(--ink-soft)}
 .fb details summary{cursor:pointer;font-family:'Special Elite',monospace;font-size:.72rem;color:var(--label-text)}
 .fb details p{font-size:.92rem;line-height:1.55;margin-top:8px}
-@media(max-width:400px){.fb-grid{grid-template-columns:1fr}}
 .d-share{margin:-26px 0 40px;display:flex}
 .d-share .copy{margin-left:0;padding:9px 16px}
 
@@ -1253,17 +1254,28 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&curId)closeDetail()
 const FEEDBACKS=[
   {kind:'project',project:'petcove',who:'Matt Jozwiakowski',ctx:{pt:'sobre o rebranding da Petcove · e-mail, maio de 2026',en:'on the Petcove rebrand · email, May 2026'},lang:'en',
    text:{en:['You guys, holy smokes .... crushed it!','The passion and hard work you put into this shows on every page -- from the fonts, the colors, and those friggin\' adorable icons. Let\'s get this rolling onto our websites and ads and PDPS asap!'],
-         pt:['Gente, caramba... vocês arrasaram!','A paixão e o trabalho duro que vocês colocaram nisso aparecem em cada página: nas fontes, nas cores e nesses ícones fofos demais. Vamos levar isso para os nossos sites, anúncios e páginas de produto o quanto antes!']}}
+         pt:['Gente, caramba... vocês arrasaram!','A paixão e o trabalho duro que vocês colocaram nisso aparecem em cada página: nas fontes, nas cores e nesses ícones fofos demais. Vamos levar isso para os nossos sites, anúncios e páginas de produto o quanto antes!']}},
+  {kind:'work',who:'Sean Leifson',role:{pt:'CEO da Retail Ready e da Clearday Metrics',en:'CEO of Retail Ready & Clearday Metrics'},
+   ctx:{pt:'recomendação no LinkedIn · maio de 2026',en:'LinkedIn recommendation · May 2026'},lang:'en',
+   link:'https://www.linkedin.com/in/beatriz-novaes19/details/recommendations/',
+   text:{en:['I had the pleasure of employing and working with Bea, and I can confidently say she is a very dedicated, talented, and hardworking graphic designer. From day one, Beatriz approached every project with a genuine eagerness to learn and a clear commitment to producing work she can be proud of.',
+             'She actively seeks feedback, asks thoughtful questions, and consistently applies what she learns to elevate the quality of her next deliverable. It was inspiring to watch her growth, each project showed sharper design, stronger visual execution, and a deeper understanding of the project.',
+             'Any team would be lucky to have Bea. She\'s the kind of designer who not only produces high quality work but also raises the bar for everyone around her.'],
+         pt:['Tive o prazer de contratar e trabalhar com a Bea, e posso dizer com confiança que ela é uma designer gráfica muito dedicada, talentosa e esforçada. Desde o primeiro dia, a Beatriz encarou cada projeto com uma vontade genuína de aprender e um compromisso claro de entregar um trabalho do qual pudesse se orgulhar.',
+             'Ela busca feedback, faz perguntas pertinentes e aplica o que aprende para elevar a qualidade da entrega seguinte. Foi inspirador acompanhar a evolução dela: cada projeto mostrava um design mais afiado, uma execução visual mais forte e uma compreensão mais profunda do trabalho.',
+             'Qualquer equipe teria sorte de ter a Bea. Ela é o tipo de designer que não só entrega trabalho de alta qualidade, mas também eleva o padrão de todos ao redor.']}}
 ];
 function renderFeedbacks(){
   const l=L(),g=document.getElementById('fb-grid'),f=(document.querySelector('#fb-tabs button.on')||{}).dataset?.f||'all';
   g.innerHTML=FEEDBACKS.map(x=>{const tr=x.lang!==l;const ps=t=>t.map(p=>`<p>${p}</p>`).join('');
     const kind=x.kind==='project'?(l==='en'?'ON A PROJECT':'SOBRE UM PROJETO'):(l==='en'?'ON MY WORK':'SOBRE MEU TRABALHO');
-    return `<figure class="fb${f!=='all'&&f!==x.kind?' hide':''}" data-k="${x.kind}"><span class="tape gold" style="top:-13px;left:34px;transform:rotate(-3deg)"></span>
+    const long=x.text.en.join('').length>400;
+    return `<figure class="fb${long?' long':''}${f!=='all'&&f!==x.kind?' hide':''}" data-k="${x.kind}"><span class="tape gold" style="top:-13px;left:34px;transform:rotate(-3deg)"></span>
       <span class="kind">${kind}</span><blockquote>${ps(x.text[l]||x.text[x.lang])}</blockquote>
       <figcaption><b>${x.who}</b>${x.role?' · '+(x.role[l]||x.role):''}<br>${x.ctx[l]}</figcaption>
       ${tr&&x.text[l]?`<details><summary>${l==='en'?'Translated from Portuguese · see original':'Traduzido do inglês · ver original'}</summary>${ps(x.text[x.lang])}</details>`:''}
       ${x.project?`<a class="go" onclick="openDetail('${x.project}')">${l==='en'?'see the project →':'ver o projeto →'}</a>`:''}
+      ${x.link?`<a class="go" href="${x.link}" target="_blank" rel="noopener">${l==='en'?'see on LinkedIn ↗':'ver no LinkedIn ↗'}</a>`:''}
     </figure>`}).join('');
 }
 document.querySelectorAll('#fb-tabs button').forEach(b=>b.addEventListener('click',()=>{
