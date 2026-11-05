@@ -261,6 +261,37 @@ nav a.cur::after{width:100%}
 .d-quote .orig summary{cursor:pointer;font-family:'Special Elite',monospace;font-size:.74rem;color:var(--label-text)}
 .d-quote .orig blockquote p{font-family:'Archivo',sans-serif;font-size:.95rem;line-height:1.55;margin:8px 0 0}
 
+/* ---- before/after slider + simulator (Mighty Bounce) ---- */
+.ba-wrap{display:grid;grid-template-columns:minmax(0,560px) 1fr;gap:44px;align-items:center}
+@media(max-width:820px){.ba-wrap{grid-template-columns:1fr;gap:24px}}
+.ba{position:relative;aspect-ratio:1;background:var(--card);padding:12px;box-shadow:4px 8px 20px var(--shadow);user-select:none;touch-action:pan-y}
+.ba .in{position:relative;width:100%;height:100%;overflow:hidden}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;-webkit-user-drag:none}
+.ba .after{clip-path:inset(0 0 0 var(--x,50%))}
+.ba .line{position:absolute;top:0;bottom:0;left:var(--x,50%);width:3px;margin-left:-1.5px;background:var(--card);box-shadow:0 0 0 1px rgba(43,39,34,.25);pointer-events:none}
+.ba .knob{position:absolute;top:50%;left:var(--x,50%);width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:var(--ink);color:var(--card);display:flex;align-items:center;justify-content:center;font-size:1rem;box-shadow:3px 3px 0 var(--lilac-deep);pointer-events:none}
+.ba .tag{position:absolute;top:12px;font-family:'Special Elite',monospace;font-size:.74rem;padding:4px 10px;color:var(--card);pointer-events:none;z-index:2}
+.ba .tag.l{left:12px;background:var(--sA)}.ba .tag.r{right:12px;background:var(--sB)}
+.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0;z-index:3}
+.ba.hint .line,.ba.hint .knob{transition:left .9s cubic-bezier(.4,0,.2,1)}
+.ba.hint .after{transition:clip-path .9s cubic-bezier(.4,0,.2,1)}
+.sim .row{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.sim .vis{font-family:'Caveat',cursive;font-weight:700;font-size:2.6rem;line-height:1;color:var(--ink)}
+.sim input[type=range]{width:100%;accent-color:var(--lilac-deep);margin:6px 0 22px;height:28px;cursor:pointer}
+.sim .out{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.sim .out>div{border-top:2px solid var(--ink);padding-top:10px}
+.sim .out .k{font-family:'Special Elite',monospace;font-size:.72rem;letter-spacing:.06em;display:flex;align-items:center;gap:7px}
+.sim .out .k i{width:11px;height:11px;border-radius:3px;display:inline-block}
+.sim .out .v{font-family:'Caveat',cursive;font-weight:700;font-size:2.4rem;line-height:1;margin-top:6px}
+.sim .out .plus .v{color:var(--lilac-deep)}
+@media(max-width:520px){.sim .out{grid-template-columns:1fr 1fr}.sim .out .plus{grid-column:span 2}}
+.count-row{display:flex;gap:30px;align-items:flex-end;flex-wrap:wrap}
+.count-row .grp .k{font-family:'Special Elite',monospace;font-size:.74rem;letter-spacing:.06em;margin-bottom:8px;display:flex;gap:7px;align-items:center}
+.count-row .grp .k i{width:11px;height:11px;border-radius:3px;display:inline-block}
+.count-row .sq{display:flex;gap:5px;flex-wrap:wrap;max-width:300px}
+.count-row .sq img{width:52px;height:52px;object-fit:cover;box-shadow:2px 3px 6px var(--shadow);opacity:0;transform:translateY(10px) rotate(-4deg);transition:opacity .4s,transform .4s}
+.count-row.in .sq img{opacity:1;transform:none}
+
 /* ---- A/B test case (SculptTrainer) ---- */
 :root{--sA:#b58025;--sB:#6a4fa3;--grid:rgba(43,39,34,.12)}
 .card .badge{position:absolute;right:12px;bottom:12px;z-index:3;font-family:'Special Elite',monospace;font-size:.78rem;background:var(--lilac-deep);color:var(--card);padding:6px 11px;box-shadow:3px 3px 0 var(--ink);transform:rotate(-2deg)}
@@ -534,8 +565,8 @@ nav a.cur::after{width:100%}
     </div>
     <div class="card c-md reveal" onclick="openDetail('mighty')">
       <span class="tape"></span>
-      <div class="thumb"><img src="imagens/mighty-02.jpg" alt="Mighty Bounce" loading="lazy"></div>
-      <div class="meta"><h3>Joyberri — Mighty Bounce</h3><p>E-COMMERCE · AMAZON A+</p></div>
+      <div class="thumb"><img src="imagens/mighty-02.jpg" alt="Mighty Bounce" loading="lazy"><span class="badge"><b>+34%</b> <span data-pt>conversão</span><span data-en>conversion</span></span></div>
+      <div class="meta"><h3>Joyberri — Mighty Bounce</h3><p><span data-pt>LISTING UPDATE · RESULTADOS</span><span data-en>LISTING UPDATE · RESULTS</span></p></div>
     </div>
     <div class="card c-md reveal" onclick="openDetail('upsurge')">
       <span class="tape gold"></span>
@@ -658,10 +689,18 @@ const PROJECTS={
   mighty:{
     label:{pt:'E-commerce · Amazon A+',en:'E-commerce · Amazon A+'},
     title:'Joyberri — Mighty Bounce',
-    lead:{pt:'Listing e A+ do pula-pula inflável Mighty Bounce, da Joyberri. O conceito eu pensei junto com a estrategista de e-commerce; o design é todo meu, com IA ajudando a gerar algumas das imagens.',
-          en:'Listing and A+ for Joyberri\'s Mighty Bounce inflatable bounce house. I worked out the concept with the e-commerce strategist; the design is all mine, with AI helping generate some of the images.'},
-    info:{pt:[['Cliente','Joyberri'],['Atuação','Listing · Amazon A+'],['Ano','2025']],
-          en:[['Client','Joyberri'],['Role','Listing · Amazon A+'],['Year','2025']]},
+    mb:true,
+    label:{pt:'E-commerce · Listing Update · Resultados',en:'E-commerce · Listing Update · Results'},
+    lead:{pt:'O listing de 2024 do pula-pula Mighty Bounce tinha 5 imagens: o produto no fundo branco, as peças do kit e os selos de segurança. Em 2025 refiz o set inteiro com 10 imagens que mostram o brinquedo em festas e quintais de verdade, comparam com a concorrência e com o aluguel, e explicam a montagem passo a passo. Depois da troca, a conversão subiu 34% e as imagens novas trouxeram US$ 4.141 em vendas a mais.',
+          en:'The 2024 Mighty Bounce listing had 5 images: the product on white, the kit parts and the safety badges. In 2025 I rebuilt the whole set with 10 images that show the bounce house at real parties and backyards, compare it with competitors and with renting, and walk through setup step by step. After the switch, conversion rose 34% and the new images brought in an extra $4,141 in sales.'},
+    info:{pt:[['Cliente','Joyberri'],['Atuação','Listing · Imagens secundárias'],['Antes','5 imagens (2024)'],['Depois','10 imagens (2025)']],
+          en:[['Client','Joyberri'],['Role','Listing · Secondary images'],['Before','5 images (2024)'],['After','10 images (2025)']]},
+    old:['mighty-old-01.jpg','mighty-old-02.jpg','mighty-old-03.jpg','mighty-old-04.jpg','mighty-old-05.jpg'],
+    pairs:[{pt:'Brincadeiras',en:'Activities',a:'mighty-old-01.jpg',b:'mighty-08.jpg'},
+           {pt:'Recursos',en:'Features',a:'mighty-old-02.jpg',b:'mighty-04.jpg'},
+           {pt:'Kit e montagem',en:'Kit & setup',a:'mighty-old-03.jpg',b:'mighty-07.jpg'},
+           {pt:'Segurança',en:'Safety',a:'mighty-old-04.jpg',b:'mighty-06.jpg'},
+           {pt:'Tamanho',en:'Size',a:'mighty-old-05.jpg',b:'mighty-03.jpg'}],
     images:['mighty-01.jpg','mighty-02.jpg','mighty-03.jpg','mighty-04.jpg','mighty-05.jpg','mighty-06.jpg','mighty-07.jpg','mighty-08.jpg','mighty-09.jpg','mighty-10.jpg']
   },
   upsurge:{
@@ -802,6 +841,121 @@ function initCar(car){
   window.addEventListener('resize',size);car._size=size;size();upd(0);
 }
 document.addEventListener('keydown',e=>{if(!curId)return;const c=document.querySelector('#detail .car');if(c&&document.activeElement===document.body&&(e.key==='ArrowRight'||e.key==='ArrowLeft')){c.focus();c.dispatchEvent(new KeyboardEvent('keydown',{key:e.key}))}});
+
+/* ===== Mighty Bounce results case ===== */
+const MB={a:.079,b:.106,inc:4141};
+function mbHTML(p,l){
+  const T=(pt,en)=>l==='en'?en:pt, lf=(MB.b/MB.a-1)*100;
+  const kpi=(t,s,attrs)=>`<div class="kpi"><div class="n" ${attrs}>+0</div><div class="t">${t}</div><div class="s">${s}</div></div>`;
+  const legend=`<div class="legend"><span><i style="background:var(--sA)"></i>${T('Antes · 2024','Before · 2024')}</span><span><i style="background:var(--sB)"></i>${T('Depois · 2025','After · 2025')}</span></div>`;
+  return `
+  <div class="ab-sec">
+    <div class="kpis ab-count">
+      ${kpi(T('CONVERSÃO','CONVERSION'),T('0,079% → 0,106%','0.079% → 0.106%'),`data-to="${lf}" data-dec="0" data-suf="%"`)}
+      ${kpi(T('EM VENDAS A MAIS','IN EXTRA SALES'),T('atribuídas às imagens novas','attributed to the new images'),`data-to="${MB.inc}" data-dec="0" data-pre="${T('US$ ','$')}"`)}
+      ${kpi(T('PONTOS PERCENTUAIS','PERCENTAGE POINTS'),T('de diferença na taxa','difference in the rate'),`data-to="0.027" data-dec="3" data-suf=" p.p."`)}
+      ${kpi(T('IMAGENS NO SET','IMAGES IN THE SET'),T('de 5 para 10','from 5 to 10'),`data-to="5" data-dec="0"`)}
+    </div>
+  </div>
+
+  <div class="ab-sec">
+    <div class="ab-head"><h3 class="ab-h">${T('A conversão','Conversion')}</h3>${legend}</div>
+    <div class="ab-box">
+      <div class="mbars" id="mbc">
+        <div class="mrow"><span class="ml">${T('Antes','Before')}</span><div class="track"><div class="fill a"><span class="val">${nf(MB.a,l,3)}%</span></div></div></div>
+        <div class="mrow"><span class="ml">${T('Depois','After')}</span><div class="track"><div class="fill b"><span class="val">${nf(MB.b,l,3)}%</span></div></div></div>
+        <span class="lift">+${nf(lf,l,1)}% ${T('com o set novo','with the new set')}</span>
+      </div>
+      <p class="ab-note">${T('Comparação da taxa de conversão antes e depois da troca das imagens secundárias (não foi um teste A/B simultâneo).','Conversion rate compared before and after the secondary images were replaced (not a simultaneous A/B test).')}</p>
+    </div>
+  </div>
+
+  <div class="ab-sec">
+    <h3 class="ab-h">${T('Na prática, o que muda?','What does it mean in practice?')}</h3>
+    <p class="ab-p">${T('Uma diferença de 0,027 ponto parece pequena. Arraste para ver quantos pedidos ela representa de acordo com o número de visitantes:','A 0.027-point difference sounds small. Drag to see how many orders it adds up to, depending on the number of visitors:')}</p>
+    <div class="ab-box sim">
+      <div class="row"><span class="ab-note" style="margin:0">${T('VISITANTES NA PÁGINA','PAGE VISITORS')}</span><span class="vis" id="sim-v"></span></div>
+      <input type="range" id="sim-r" min="10000" max="500000" step="10000" value="100000" aria-label="${T('visitantes','visitors')}">
+      <div class="out">
+        <div><div class="k"><i style="background:var(--sA)"></i>${T('PEDIDOS ANTES','ORDERS BEFORE')}</div><div class="v" id="sim-a"></div></div>
+        <div><div class="k"><i style="background:var(--sB)"></i>${T('PEDIDOS DEPOIS','ORDERS AFTER')}</div><div class="v" id="sim-b"></div></div>
+        <div class="plus"><div class="k">${T('PEDIDOS A MAIS','EXTRA ORDERS')}</div><div class="v" id="sim-d"></div></div>
+      </div>
+      <p class="ab-note">${T('Simulação ilustrativa usando as taxas medidas (0,079% e 0,106%).','Illustrative simulation using the measured rates (0.079% and 0.106%).')}</p>
+    </div>
+  </div>
+
+  <div class="ab-sec">
+    <h3 class="ab-h">${T('Antes e depois, tema por tema','Before and after, topic by topic')}</h3>
+    <p class="ab-p">${T('Mesma informação, outra abordagem. Escolha um tema e arraste a linha para comparar:','Same information, a different approach. Pick a topic and drag the line to compare:')}</p>
+    <div class="ba-wrap">
+      <div class="ba" id="ba"><div class="in">
+        <img class="before" id="ba-a" alt="${T('antes','before')}"><img class="after" id="ba-b" alt="${T('depois','after')}">
+        <span class="line"></span><span class="knob">↔</span>
+        <span class="tag l">2024</span><span class="tag r">2025</span>
+        <input type="range" min="0" max="100" value="50" id="ba-r" aria-label="${T('comparar antes e depois','compare before and after')}">
+      </div></div>
+      <div>
+        <div class="tabs" id="ba-tabs">${p.pairs.map((x,i)=>`<button data-i="${i}" class="${i?'':'on'}">${x[l]}</button>`).join('')}</div>
+        <p class="ab-p" id="ba-cap"></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="ab-sec">
+    <h3 class="ab-h">${T('De 5 para 10 imagens','From 5 to 10 images')}</h3>
+    <div class="ab-box count-row" id="cnt">
+      <div class="grp"><div class="k"><i style="background:var(--sA)"></i>${T('ANTES · 2024','BEFORE · 2024')}</div><div class="sq">${p.old.map((s,i)=>`<img src="${img(s)}" alt="" loading="lazy" style="transition-delay:${i*.06}s">`).join('')}</div></div>
+      <div class="grp"><div class="k"><i style="background:var(--sB)"></i>${T('DEPOIS · 2025','AFTER · 2025')}</div><div class="sq">${p.images.map((s,i)=>`<img src="${img(s)}" alt="" loading="lazy" style="transition-delay:${.35+i*.06}s">`).join('')}</div></div>
+    </div>
+  </div>
+
+  <div class="ab-sec">
+    <h3 class="ab-h">${T('O que mudou','What changed')}</h3>
+    <div class="learn">
+      <div><h4>${T('Do fundo branco para a festa','From white background to the party')}</h4><p>${T('O set antigo mostrava o produto isolado. O novo coloca o pula-pula em piquenique, salão, quintal e aniversário, para o pai ou a mãe se imaginar usando.','The old set showed the product on its own. The new one puts it at a picnic, an event hall, a backyard and a birthday, so parents can picture using it.')}</p></div>
+      <div><h4>${T('Comparar para decidir','Compare to decide')}</h4><p>${T('Entraram duas imagens de comparação: com outros pula-pulas e com o aluguel (US$ 200 por festa). São os argumentos que o cliente procura antes de comprar.','Two comparison images were added: against other bounce houses and against renting ($200 per party). Those are the arguments shoppers look for before buying.')}</p></div>
+      <div><h4>${T('Menos dúvida na montagem','Less doubt about setup')}</h4><p>${T('A lista de peças virou um passo a passo de montagem com fotos, e o soprador ganhou uma imagem própria. A pergunta "é difícil de montar?" já chega respondida.','The parts list became a photo step-by-step, and the blower got its own image. The question "is it hard to set up?" comes already answered.')}</p></div>
+    </div>
+    <p class="ab-note" style="margin-top:22px">${T('Conceito pensado com a estrategista de e-commerce; design feito por mim, com IA ajudando a gerar algumas das imagens.','Concept developed with the e-commerce strategist; design by me, with AI helping generate some of the images.')}</p>
+  </div>
+
+  <div class="ab-sec">
+    <h3 class="ab-h">${T('O set novo completo','The full new set')}</h3>
+    ${carHTML(p,l)}
+  </div>`;
+}
+function initMBcase(p,l){
+  const T=(pt,en)=>l==='en'?en:pt;
+  const inView=(el,fn)=>{const o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){fn();o.disconnect()}}),{threshold:.3});o.observe(el)};
+  document.querySelectorAll('#detail .ab-count .n').forEach(el=>inView(el,()=>{
+    const to=+el.dataset.to,dec=+el.dataset.dec,pre=el.dataset.pre||'',suf=el.dataset.suf||'',t0=performance.now(),D=1400;
+    const step=t=>{const k=Math.min(1,(t-t0)/D),e=1-Math.pow(1-k,3);el.textContent='+'+pre+nf(to*e,l,dec)+suf;if(k<1)requestAnimationFrame(step)};requestAnimationFrame(step);
+  }));
+  const mb=document.getElementById('mbc');inView(mb,()=>{const max=MB.b*1.15;mb.querySelector('.fill.a').style.width=(MB.a/max*100)+'%';mb.querySelector('.fill.b').style.width=(MB.b/max*100)+'%'});
+  /* simulator */
+  const r=document.getElementById('sim-r'),ov=document.getElementById('sim-v'),oa=document.getElementById('sim-a'),ob=document.getElementById('sim-b'),od=document.getElementById('sim-d');
+  const sim=()=>{const v=+r.value,a=v*MB.a/100,b=v*MB.b/100;ov.textContent=nf(v,l,0);oa.textContent=nf(Math.round(a),l,0);ob.textContent=nf(Math.round(b),l,0);od.textContent='+'+nf(Math.round(b)-Math.round(a),l,0)};
+  r.addEventListener('input',sim);sim();
+  /* before/after slider */
+  const ba=document.getElementById('ba'),ia=document.getElementById('ba-a'),ib=document.getElementById('ba-b'),br=document.getElementById('ba-r'),cap=document.getElementById('ba-cap');
+  const caps=[
+    T('Antes: uma colagem com quatro fotos e palavras soltas. Depois: o título diz tudo ("Escorregue, saque, brinque e enterre"), as fotos ganham espaço e a rede de vôlei e as bolas aparecem como bônus.','Before: a collage of four photos and loose words. After: the headline says it all ("Slide, Serve, Play and Dunk"), the photos get room, and the volleyball net and balls show up as a bonus.'),
+    T('Antes: detalhes técnicos em círculos sem hierarquia. Depois: cada recurso vem com o benefício ao lado (costura reforçada → não rasga), numa leitura de cima para baixo.','Before: technical details in circles with no hierarchy. After: each feature comes with its benefit beside it (reinforced seams → no ripping), read top to bottom.'),
+    T('Antes: a lista de peças do kit. Depois: o passo a passo da montagem com fotos reais, que responde à dúvida mais comum antes da compra.','Before: the list of kit parts. After: a photo step-by-step of the setup, answering the most common question before purchase.'),
+    T('Antes: selos e garantia num fundo branco. Depois: a mesma informação organizada como argumento, com o título "A escolha mais segura" e a paleta do set novo.','Before: badges and warranty on white. After: the same information framed as an argument, under "The Safest Choice", in the new set\'s palette.'),
+    T('Antes: as medidas no produto isolado. Depois: as medidas num ambiente real, com a capacidade (até 4 crianças, 120 kg) em destaque no topo.','Before: dimensions on the isolated product. After: dimensions in a real setting, with the capacity (up to 4 kids, 264 lbs) highlighted at the top.')
+  ];
+  let bi=0;
+  const setX=v=>ba.style.setProperty('--x',v+'%');
+  const show=i=>{bi=i;ia.src=img(p.pairs[i].a);ib.src=img(p.pairs[i].b);cap.textContent=caps[i];document.querySelectorAll('#ba-tabs button').forEach(b=>b.classList.toggle('on',+b.dataset.i===i))};
+  br.addEventListener('input',()=>{ba.classList.remove('hint');setX(br.value)});
+  document.querySelectorAll('#ba-tabs button').forEach(b=>b.onclick=()=>show(+b.dataset.i));
+  show(0);setX(50);
+  inView(ba,()=>{ba.classList.add('hint');setX(78);setTimeout(()=>{setX(30)},950);setTimeout(()=>{setX(50);br.value=50;setTimeout(()=>ba.classList.remove('hint'),950)},1900)});
+  const cnt=document.getElementById('cnt');inView(cnt,()=>cnt.classList.add('in'));
+  const car=document.querySelector('#detail .car');if(car)initCar(car);
+}
 
 /* ===== A/B case: data + charts ===== */
 const AB={
@@ -1001,6 +1155,9 @@ function renderDetail(id){
   if(p.ab){
     g.innerHTML=abHTML(p,l);
     initAB(p,l);
+  } else if(p.mb){
+    g.innerHTML=mbHTML(p,l);
+    initMBcase(p,l);
   } else if(p.book){
     const procLabel=l==='en'?'From sketch to color':'Do traço à cor';
     const animLabel=l==='en'?'Animated illustrations':'Ilustrações animadas';
