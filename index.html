@@ -262,6 +262,9 @@ nav a.cur::after{width:100%}
 .d-quote .orig blockquote p{font-family:'Archivo',sans-serif;font-size:.95rem;line-height:1.55;margin:8px 0 0}
 
 /* ---- before/after slider + simulator (Mighty Bounce) ---- */
+.ba-cap p{color:var(--ink-soft);line-height:1.6;margin-bottom:14px;max-width:46ch}
+.ba-cap b{display:inline-block;font-family:'Special Elite',monospace;font-weight:400;font-size:.72rem;letter-spacing:.06em;color:var(--card);padding:2px 8px;margin-right:6px}
+.ba-cap .a b{background:var(--sA)}.ba-cap .b b{background:var(--sB)}
 .ba-wrap{display:grid;grid-template-columns:minmax(0,560px) 1fr;gap:44px;align-items:center}
 @media(max-width:820px){.ba-wrap{grid-template-columns:1fr;gap:24px}}
 .ba{position:relative;aspect-ratio:1;background:var(--card);padding:12px;box-shadow:4px 8px 20px var(--shadow);user-select:none;touch-action:pan-y}
@@ -285,12 +288,17 @@ nav a.cur::after{width:100%}
 .sim .out .v{font-family:'Caveat',cursive;font-weight:700;font-size:2.4rem;line-height:1;margin-top:6px}
 .sim .out .plus .v{color:var(--lilac-deep)}
 @media(max-width:520px){.sim .out{grid-template-columns:1fr 1fr}.sim .out .plus{grid-column:span 2}}
-.count-row{display:flex;gap:30px;align-items:flex-end;flex-wrap:wrap}
-.count-row .grp .k{font-family:'Special Elite',monospace;font-size:.74rem;letter-spacing:.06em;margin-bottom:8px;display:flex;gap:7px;align-items:center}
-.count-row .grp .k i{width:11px;height:11px;border-radius:3px;display:inline-block}
-.count-row .sq{display:flex;gap:5px;flex-wrap:wrap;max-width:300px}
-.count-row .sq img{width:52px;height:52px;object-fit:cover;box-shadow:2px 3px 6px var(--shadow);opacity:0;transform:translateY(10px) rotate(-4deg);transition:opacity .4s,transform .4s}
+.count-row{display:flex;flex-direction:column;gap:26px}
+.count-row .grp .k{font-family:'Special Elite',monospace;font-size:.78rem;letter-spacing:.06em;margin-bottom:10px;display:flex;gap:8px;align-items:center}
+.count-row .grp .k i{width:12px;height:12px;border-radius:3px;display:inline-block}
+.count-row .grp .k b{font-family:'Caveat',cursive;font-size:1.6rem;font-weight:700;margin-left:auto;line-height:1}
+.count-row .sq{display:grid;grid-template-columns:repeat(10,1fr);gap:8px}
+.count-row .sq img,.count-row .sq .empty{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+.count-row .sq img{box-shadow:2px 3px 8px var(--shadow);opacity:0;transform:translateY(12px) rotate(-4deg);transition:opacity .45s,transform .45s}
+.count-row .sq .empty{border:1.5px dashed rgba(43,39,34,.28);opacity:0;transition:opacity .45s}
 .count-row.in .sq img{opacity:1;transform:none}
+.count-row.in .sq .empty{opacity:1}
+@media(max-width:600px){.count-row .sq{grid-template-columns:repeat(5,1fr);gap:6px}}
 
 /* ---- A/B test case (SculptTrainer) ---- */
 :root{--sA:#b58025;--sB:#6a4fa3;--grid:rgba(43,39,34,.12)}
@@ -897,7 +905,7 @@ function mbHTML(p,l){
       </div></div>
       <div>
         <div class="tabs" id="ba-tabs">${p.pairs.map((x,i)=>`<button data-i="${i}" class="${i?'':'on'}">${x[l]}</button>`).join('')}</div>
-        <p class="ab-p" id="ba-cap"></p>
+        <div id="ba-cap" class="ba-cap"></div>
       </div>
     </div>
   </div>
@@ -905,8 +913,8 @@ function mbHTML(p,l){
   <div class="ab-sec">
     <h3 class="ab-h">${T('De 5 para 10 imagens','From 5 to 10 images')}</h3>
     <div class="ab-box count-row" id="cnt">
-      <div class="grp"><div class="k"><i style="background:var(--sA)"></i>${T('ANTES · 2024','BEFORE · 2024')}</div><div class="sq">${p.old.map((s,i)=>`<img src="${img(s)}" alt="" loading="lazy" style="transition-delay:${i*.06}s">`).join('')}</div></div>
-      <div class="grp"><div class="k"><i style="background:var(--sB)"></i>${T('DEPOIS · 2025','AFTER · 2025')}</div><div class="sq">${p.images.map((s,i)=>`<img src="${img(s)}" alt="" loading="lazy" style="transition-delay:${.35+i*.06}s">`).join('')}</div></div>
+      <div class="grp"><div class="k"><i style="background:var(--sA)"></i>${T('ANTES · 2024','BEFORE · 2024')}<b>5</b></div><div class="sq">${p.old.map((s,i)=>`<img src="${img(s)}" alt="" loading="lazy" style="transition-delay:${i*.06}s">`).join('')}${'<span class="empty"></span>'.repeat(5)}</div></div>
+      <div class="grp"><div class="k"><i style="background:var(--sB)"></i>${T('DEPOIS · 2025','AFTER · 2025')}<b>10</b></div><div class="sq">${p.images.map((s,i)=>`<img src="${img(s)}" alt="" loading="lazy" style="transition-delay:${.35+i*.06}s">`).join('')}</div></div>
     </div>
   </div>
 
@@ -940,15 +948,15 @@ function initMBcase(p,l){
   /* before/after slider */
   const ba=document.getElementById('ba'),ia=document.getElementById('ba-a'),ib=document.getElementById('ba-b'),br=document.getElementById('ba-r'),cap=document.getElementById('ba-cap');
   const caps=[
-    T('Antes: uma colagem com quatro fotos e palavras soltas. Depois: o título diz tudo ("Escorregue, saque, brinque e enterre"), as fotos ganham espaço e a rede de vôlei e as bolas aparecem como bônus.','Before: a collage of four photos and loose words. After: the headline says it all ("Slide, Serve, Play and Dunk"), the photos get room, and the volleyball net and balls show up as a bonus.'),
-    T('Antes: detalhes técnicos em círculos sem hierarquia. Depois: cada recurso vem com o benefício ao lado (costura reforçada → não rasga), numa leitura de cima para baixo.','Before: technical details in circles with no hierarchy. After: each feature comes with its benefit beside it (reinforced seams → no ripping), read top to bottom.'),
-    T('Antes: a lista de peças do kit. Depois: o passo a passo da montagem com fotos reais, que responde à dúvida mais comum antes da compra.','Before: the list of kit parts. After: a photo step-by-step of the setup, answering the most common question before purchase.'),
-    T('Antes: selos e garantia num fundo branco. Depois: a mesma informação organizada como argumento, com o título "A escolha mais segura" e a paleta do set novo.','Before: badges and warranty on white. After: the same information framed as an argument, under "The Safest Choice", in the new set\'s palette.'),
-    T('Antes: as medidas no produto isolado. Depois: as medidas num ambiente real, com a capacidade (até 4 crianças, 120 kg) em destaque no topo.','Before: dimensions on the isolated product. After: dimensions in a real setting, with the capacity (up to 4 kids, 264 lbs) highlighted at the top.')
+    T(['uma colagem com quatro fotos e palavras soltas.','o título diz tudo ("Escorregue, saque, brinque e enterre"), as fotos ganham espaço e a rede de vôlei e as bolas aparecem como bônus.'],['a collage of four photos and loose words.','the headline says it all ("Slide, Serve, Play and Dunk"), the photos get room, and the volleyball net and balls show up as a bonus.']),
+    T(['detalhes técnicos em círculos sem hierarquia.','cada recurso vem com o benefício ao lado (costura reforçada → não rasga), numa leitura de cima para baixo.'],['technical details in circles with no hierarchy.','each feature comes with its benefit beside it (reinforced seams → no ripping), read top to bottom.']),
+    T(['a lista de peças do kit.','o passo a passo da montagem com fotos reais, que responde à dúvida mais comum antes da compra.'],['the list of kit parts.','a photo step-by-step of the setup, answering the most common question before purchase.']),
+    T(['selos e garantia num fundo branco.','a mesma informação organizada como argumento, com o título "A escolha mais segura" e a paleta do set novo.'],['badges and warranty on white.','the same information framed as an argument, under "The Safest Choice", in the new set\'s palette.']),
+    T(['as medidas no produto isolado.','as medidas num ambiente real, com a capacidade (até 4 crianças, 120 kg) em destaque no topo.'],['dimensions on the isolated product.','dimensions in a real setting, with the capacity (up to 4 kids, 264 lbs) highlighted at the top.'])
   ];
   let bi=0;
   const setX=v=>ba.style.setProperty('--x',v+'%');
-  const show=i=>{bi=i;ia.src=img(p.pairs[i].a);ib.src=img(p.pairs[i].b);cap.textContent=caps[i];document.querySelectorAll('#ba-tabs button').forEach(b=>b.classList.toggle('on',+b.dataset.i===i))};
+  const show=i=>{bi=i;ia.src=img(p.pairs[i].a);ib.src=img(p.pairs[i].b);cap.innerHTML=`<p class="a"><b>${T('ANTES','BEFORE')}</b>${caps[i][0][0].toUpperCase()+caps[i][0].slice(1)}</p><p class="b"><b>${T('DEPOIS','AFTER')}</b>${caps[i][1][0].toUpperCase()+caps[i][1].slice(1)}</p>`;document.querySelectorAll('#ba-tabs button').forEach(b=>b.classList.toggle('on',+b.dataset.i===i))};
   br.addEventListener('input',()=>{ba.classList.remove('hint');setX(br.value)});
   document.querySelectorAll('#ba-tabs button').forEach(b=>b.onclick=()=>show(+b.dataset.i));
   show(0);setX(50);
