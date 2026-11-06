@@ -223,7 +223,7 @@ footer .hand{font-family:'Caveat',cursive;font-size:1.3rem;color:var(--lilac-dee
 .sec-title.one{max-width:none;white-space:nowrap;font-size:clamp(1.6rem,6.2vw,4.6rem)}
 .fb-sec{padding-top:40px}
 .fb-tabs{margin-bottom:34px}
-.fb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;align-items:start}
+.fb-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:34px;align-items:start}
 .fb.long{grid-column:span 2}.fb.long blockquote p{font-size:1.4rem}
 @media(max-width:900px){.fb-grid{grid-template-columns:1fr}.fb.long{grid-column:auto}}
 .fb{position:relative;background:#fbf6c9;padding:32px 30px 22px;box-shadow:4px 8px 18px var(--shadow);transition:transform .35s,opacity .35s}
@@ -700,6 +700,8 @@ document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(
 const img=n=>`imagens/${n}`;
 const PROJECTS={
   emi:{
+    quote:{lang:'pt',pt:'A identidade visual da êmi cestas foi um resultado que me trouxe muita satisfação e me surpreendeu positivamente, porque eu queria uma coisa que fosse delicada e que ao mesmo tempo transmitisse essa delicadeza, essa suavidade...\n\nQue expressasse através da logo, pelas cores, um carinho envolvido no trabalho que eu me propus a fazer, que é presentear alguém com cestas de café da manhã, de lanche... Enfim, gostei bastante do trabalho.',en:'The êmi cestas visual identity was a result that brought me a lot of satisfaction and pleasantly surprised me, because I wanted something delicate that would, at the same time, convey that delicacy, that softness...\n\nSomething that would express, through the logo and the colors, the care that goes into the work I set out to do, which is gifting someone with breakfast and snack baskets... All in all, I really liked the work.',
+           who:'Mariza Almeida',role:{pt:'fundadora da êmi cestas',en:'founder of êmi cestas'}},
     label:{pt:'Identidade Visual · Branding',en:'Visual Identity · Branding'},
     title:'êmi cestas',
     lead:{pt:'A Mariza Novaes queria vender cestas de café feitas à mão. O nome começou como um monograma com as iniciais do casal, \"M&R\". Lendo em voz alta virou \"êmi & erri\", e no fim ficou só o \"êmi\", o M da Mariza. Daí saiu o resto: a rosa do logo, a paleta bege, pêssego, marrom e verde, a dupla Veronica + Arno Pro, e as aplicações em embalagem, papelaria e adesivos.',
@@ -1192,7 +1194,7 @@ function renderDetail(id){
   document.getElementById('d-lead').textContent=p.lead[l];
   document.getElementById('d-info').innerHTML=p.info[l].map(i=>`<div><div class="k">${i[0]}</div><div class="v">${i[1]}</div></div>`).join('');
   const q=document.getElementById('d-quote');
-  q.innerHTML=p.quote?`<figure class="d-quote"><span class="tape gold" style="top:-13px;left:36px;transform:rotate(-3deg)"></span><blockquote>${p.quote[l].split('\n\n').map(x=>`<p>${x}</p>`).join('')}</blockquote><figcaption><b>${p.quote.who}</b> · ${p.quote.when[l]}</figcaption>${l==='pt'?`<details class="orig"><summary>Traduzido do inglês · ver original</summary><blockquote lang="en">${p.quote.en.split('\n\n').map(x=>`<p>${x}</p>`).join('')}</blockquote></details>`:''}</figure>`:'';
+  q.innerHTML=p.quote?`<figure class="d-quote"><span class="tape gold" style="top:-13px;left:36px;transform:rotate(-3deg)"></span><blockquote>${p.quote[l].split('\n\n').map(x=>`<p>${x}</p>`).join('')}</blockquote><figcaption><b>${p.quote.who}</b> · ${(p.quote.when||p.quote.role)[l]}</figcaption>${l!==(p.quote.lang||'en')?`<details class="orig"><summary>${l==='pt'?'Traduzido do inglês · ver original':'Translated from Portuguese · see original'}</summary><blockquote lang="${p.quote.lang||'en'}">${p.quote[p.quote.lang||'en'].split('\n\n').map(x=>`<p>${x}</p>`).join('')}</blockquote></details>`:''}</figure>`:'';
   if(p.story)q.innerHTML+=`<div class="d-story"><h3>${p.story.title[l]}</h3>${p.story[l].map(x=>`<p>${x}</p>`).join('')}</div>`;
   const g=document.getElementById('d-gallery');
   if(p.ab){
@@ -1255,6 +1257,9 @@ const FEEDBACKS=[
   {kind:'project',project:'petcove',who:'Matt Jozwiakowski',ctx:{pt:'sobre o rebranding da Petcove · e-mail, maio de 2026',en:'on the Petcove rebrand · email, May 2026'},lang:'en',
    text:{en:['You guys, holy smokes .... crushed it!','The passion and hard work you put into this shows on every page -- from the fonts, the colors, and those friggin\' adorable icons. Let\'s get this rolling onto our websites and ads and PDPS asap!'],
          pt:['Gente, caramba... vocês arrasaram!','A paixão e o trabalho duro que vocês colocaram nisso aparecem em cada página: nas fontes, nas cores e nesses ícones fofos demais. Vamos levar isso para os nossos sites, anúncios e páginas de produto o quanto antes!']}},
+  {kind:'project',project:'emi',who:'Mariza Almeida',role:{pt:'fundadora da êmi cestas',en:'founder of êmi cestas'},ctx:{pt:'sobre a identidade visual da êmi cestas',en:'on the êmi cestas visual identity'},lang:'pt',
+   text:{pt:['A identidade visual da êmi cestas foi um resultado que me trouxe muita satisfação e me surpreendeu positivamente, porque eu queria uma coisa que fosse delicada e que ao mesmo tempo transmitisse essa delicadeza, essa suavidade...','Que expressasse através da logo, pelas cores, um carinho envolvido no trabalho que eu me propus a fazer, que é presentear alguém com cestas de café da manhã, de lanche... Enfim, gostei bastante do trabalho.'],
+         en:['The êmi cestas visual identity was a result that brought me a lot of satisfaction and pleasantly surprised me, because I wanted something delicate that would, at the same time, convey that delicacy, that softness...','Something that would express, through the logo and the colors, the care that goes into the work I set out to do, which is gifting someone with breakfast and snack baskets... All in all, I really liked the work.']}},
   {kind:'work',who:'Sean Leifson',role:{pt:'CEO da Retail Ready e da Clearday Metrics',en:'CEO of Retail Ready & Clearday Metrics'},
    ctx:{pt:'recomendação no LinkedIn · maio de 2026',en:'LinkedIn recommendation · May 2026'},lang:'en',
    link:'https://www.linkedin.com/in/beatriz-novaes19/details/recommendations/',
@@ -1269,11 +1274,11 @@ function renderFeedbacks(){
   const l=L(),g=document.getElementById('fb-grid'),f=(document.querySelector('#fb-tabs button.on')||{}).dataset?.f||'all';
   g.innerHTML=FEEDBACKS.map(x=>{const tr=x.lang!==l;const ps=t=>t.map(p=>`<p>${p}</p>`).join('');
     const kind=x.kind==='project'?(l==='en'?'ON A PROJECT':'SOBRE UM PROJETO'):(l==='en'?'ON MY WORK':'SOBRE MEU TRABALHO');
-    const long=x.text.en.join('').length>400;
+    const long=x.text.en.join('').length>600;
     return `<figure class="fb${long?' long':''}${f!=='all'&&f!==x.kind?' hide':''}" data-k="${x.kind}"><span class="tape gold" style="top:-13px;left:34px;transform:rotate(-3deg)"></span>
       <span class="kind">${kind}</span><blockquote>${ps(x.text[l]||x.text[x.lang])}</blockquote>
       <figcaption><b>${x.who}</b>${x.role?' · '+(x.role[l]||x.role):''}<br>${x.ctx[l]}</figcaption>
-      ${tr&&x.text[l]?`<details><summary>${l==='en'?'Translated from Portuguese · see original':'Traduzido do inglês · ver original'}</summary>${ps(x.text[x.lang])}</details>`:''}
+      ${tr&&x.text[l]?`<details><summary>${x.lang==='pt'?'Translated from Portuguese · see original':'Traduzido do inglês · ver original'}</summary>${ps(x.text[x.lang])}</details>`:''}
       ${x.project?`<a class="go" onclick="openDetail('${x.project}')">${l==='en'?'see the project →':'ver o projeto →'}</a>`:''}
       ${x.link?`<a class="go" href="${x.link}" target="_blank" rel="noopener">${l==='en'?'see on LinkedIn ↗':'ver no LinkedIn ↗'}</a>`:''}
     </figure>`}).join('');
