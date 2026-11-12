@@ -143,7 +143,8 @@ section{padding:100px 5vw;position:relative}
 .card:nth-child(3n){transform:rotate(1.3deg)}
 .card:hover{transform:translateY(-7px) rotate(0);box-shadow:8px 14px 26px var(--shadow);z-index:10}
 .card .thumb{width:100%;aspect-ratio:4/3;overflow:hidden;background:var(--ink);position:relative}
-.card .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.card .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.8,.2,1),opacity .5s;opacity:0}
+.card .thumb img.ld{opacity:1}
 .card:hover .thumb img{transform:scale(1.06)}
 .card .tape{top:-12px;left:50%;transform:translateX(-50%) rotate(-3deg)}
 .card .meta{padding:14px 4px 4px}
@@ -630,10 +631,10 @@ button:active,.copy:active,.arr:active{transform:scale(.96)}
     <div class="photo-stack reveal">
       <span class="clip"></span>
       <div class="frame">
-        <img src="imagens/bea-retrato.jpg" alt="Beatriz Novaes">
+        <img src="imagens/web/bea-retrato.webp" decoding="async" alt="Beatriz Novaes">
         <span class="cap">Beatriz ✶ design &amp; palavra</span>
       </div>
-      <div class="mini"><img src="imagens/bea-livros.jpg" alt="Beatriz com seus livros"></div>
+      <div class="mini"><img src="imagens/web/bea-livros.webp" decoding="async" alt="Beatriz com seus livros"></div>
     </div>
   </div>
 </section>
@@ -661,43 +662,43 @@ button:active,.copy:active,.arr:active{transform:scale(.96)}
   <div class="work-grid">
     <div class="card book c-lg reveal" onclick="openDetail('livro')">
       <span class="ribbon"></span>
-      <div class="thumb"><img src="imagens/livro-capa.jpg" alt="Tudo que Habita em Mim" loading="lazy" style="object-position:top"></div>
+      <div class="thumb" style="background:#345baa"><img src="imagens/thumbs/livro-capa-900.webp" srcset="imagens/thumbs/livro-capa-600.webp 600w, imagens/thumbs/livro-capa-900.webp 900w, imagens/thumbs/livro-capa-1200.webp 1200w" sizes="(max-width:700px) 92vw, 46vw" width="1200" height="900" decoding="async" alt="Tudo que Habita em Mim" loading="lazy" style="object-position:top"></div>
       <div class="meta"><h3><span data-pt>Tudo que Habita em Mim</span><span data-en>Tudo que Habita em Mim (book)</span></h3><p><span data-pt>LIVRO · DESIGN EDITORIAL</span><span data-en>BOOK · EDITORIAL DESIGN</span></p></div>
     </div>
     <div class="card c-lg reveal" onclick="openDetail('sculpt')">
       <span class="tape gold"></span>
-      <div class="thumb"><img src="imagens/sculpt-ab-thumb.jpg" alt="Lifepro SculptTrainer — teste A/B quadrada vs vertical" loading="lazy">
+      <div class="thumb" style="background:#c9bdb1"><img src="imagens/thumbs/sculpt-ab-thumb-900.webp" srcset="imagens/thumbs/sculpt-ab-thumb-600.webp 600w, imagens/thumbs/sculpt-ab-thumb-900.webp 900w, imagens/thumbs/sculpt-ab-thumb-1200.webp 1200w" sizes="(max-width:700px) 92vw, 46vw" width="1200" height="900" decoding="async" alt="Lifepro SculptTrainer — teste A/B quadrada vs vertical" loading="lazy">
         <span class="badge"><b>+32,6%</b> <span data-pt>conversão</span><span data-en>conversion</span></span></div>
       <div class="meta"><h3><span data-pt>Lifepro SculptTrainer — Teste A/B</span><span data-en>Lifepro SculptTrainer — A/B Test</span></h3><p><span data-pt>AMAZON · QUADRADA VS VERTICAL · RESULTADOS</span><span data-en>AMAZON · SQUARE VS VERTICAL · RESULTS</span></p></div>
     </div>
     <div class="card c-md reveal" onclick="openDetail('emi')">
       <span class="tape"></span>
-      <div class="thumb"><img src="imagens/emi-01.jpg" alt="êmi cestas" loading="lazy"></div>
+      <div class="thumb" style="background:#dfb79a"><img src="imagens/thumbs/emi-01-900.webp" srcset="imagens/thumbs/emi-01-600.webp 600w, imagens/thumbs/emi-01-900.webp 900w, imagens/thumbs/emi-01-1200.webp 1200w" sizes="(max-width:700px) 92vw, (max-width:1000px) 46vw, 30vw" width="1200" height="900" decoding="async" alt="êmi cestas" loading="lazy"></div>
       <div class="meta"><h3>êmi cestas</h3><p><span data-pt>IDENTIDADE VISUAL</span><span data-en>VISUAL IDENTITY</span></p></div>
     </div>
     <div class="card c-md reveal" onclick="openDetail('danielle')">
       <span class="tape gold"></span>
-      <div class="thumb"><img src="imagens/danielle-01.jpg" alt="Danielle Diniz" loading="lazy"></div>
+      <div class="thumb" style="background:#a6a199"><img src="imagens/thumbs/danielle-01-900.webp" srcset="imagens/thumbs/danielle-01-600.webp 600w, imagens/thumbs/danielle-01-900.webp 900w, imagens/thumbs/danielle-01-1200.webp 1200w" sizes="(max-width:700px) 92vw, (max-width:1000px) 46vw, 30vw" width="1200" height="900" decoding="async" alt="Danielle Diniz" loading="lazy"></div>
       <div class="meta"><h3><span data-pt>Galeria Danielle Diniz</span><span data-en>Danielle Diniz Gallery</span></h3><p><span data-pt>REBRANDING</span><span data-en>REBRANDING</span></p></div>
     </div>
     <div class="card c-md reveal" onclick="openDetail('petcove')">
       <span class="tape"></span>
-      <div class="thumb"><img src="imagens/petcove-01.jpg" alt="Petcove" loading="lazy"></div>
+      <div class="thumb" style="background:#ab8a77"><img src="imagens/thumbs/petcove-01-900.webp" srcset="imagens/thumbs/petcove-01-600.webp 600w, imagens/thumbs/petcove-01-900.webp 900w, imagens/thumbs/petcove-01-1200.webp 1200w" sizes="(max-width:700px) 92vw, (max-width:1000px) 46vw, 30vw" width="1200" height="900" decoding="async" alt="Petcove" loading="lazy"></div>
       <div class="meta"><h3>Petcove</h3><p><span data-pt>ESTRATÉGIA DE MARCA</span><span data-en>BRAND STRATEGY</span></p></div>
     </div>
     <div class="card c-md reveal" onclick="openDetail('mighty')">
       <span class="tape"></span>
-      <div class="thumb"><img src="imagens/mighty-02.jpg" alt="Mighty Bounce" loading="lazy"><span class="badge"><b>+34%</b> <span data-pt>conversão</span><span data-en>conversion</span></span></div>
+      <div class="thumb" style="background:#81886e"><img src="imagens/thumbs/mighty-02-900.webp" srcset="imagens/thumbs/mighty-02-600.webp 600w, imagens/thumbs/mighty-02-900.webp 900w, imagens/thumbs/mighty-02-1200.webp 1200w" sizes="(max-width:700px) 92vw, (max-width:1000px) 46vw, 30vw" width="1200" height="900" decoding="async" alt="Mighty Bounce" loading="lazy"><span class="badge"><b>+34%</b> <span data-pt>conversão</span><span data-en>conversion</span></span></div>
       <div class="meta"><h3>Joyberri — Mighty Bounce</h3><p><span data-pt>LISTING UPDATE · RESULTADOS</span><span data-en>LISTING UPDATE · RESULTS</span></p></div>
     </div>
     <div class="card c-md reveal" onclick="openDetail('upsurge')">
       <span class="tape gold"></span>
-      <div class="thumb"><img src="imagens/upsurge-01.jpg" alt="Upsurge" loading="lazy"></div>
+      <div class="thumb" style="background:#b6b39a"><img src="imagens/thumbs/upsurge-01-900.webp" srcset="imagens/thumbs/upsurge-01-600.webp 600w, imagens/thumbs/upsurge-01-900.webp 900w, imagens/thumbs/upsurge-01-1200.webp 1200w" sizes="(max-width:700px) 92vw, (max-width:1000px) 46vw, 30vw" width="1200" height="900" decoding="async" alt="Upsurge" loading="lazy"></div>
       <div class="meta"><h3>Joyberri — Upsurge</h3><p>E-COMMERCE · AMAZON A+</p></div>
     </div>
     <div class="card c-md reveal" onclick="openDetail('lifepro')">
       <span class="tape"></span>
-      <div class="thumb"><img src="imagens/lifepro-01.jpg" alt="Lifepro" loading="lazy"></div>
+      <div class="thumb" style="background:#bea993"><img src="imagens/thumbs/lifepro-01-900.webp" srcset="imagens/thumbs/lifepro-01-600.webp 600w, imagens/thumbs/lifepro-01-900.webp 900w, imagens/thumbs/lifepro-01-1200.webp 1200w" sizes="(max-width:700px) 92vw, (max-width:1000px) 46vw, 30vw" width="1200" height="900" decoding="async" alt="Lifepro" loading="lazy"></div>
       <div class="meta"><h3>Lifepro — Fitness Listings</h3><p><span data-pt>E-COMMERCE · REDESIGN</span><span data-en>E-COMMERCE · REDESIGN</span></p></div>
     </div>
     <a class="card archive strip reveal" href="https://www.behance.net/Beatriz_Novaes" target="_blank" rel="noopener">
@@ -776,7 +777,7 @@ menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classL
 const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*.08)+'s';io.observe(el)});
 
-const img=n=>`imagens/${n}`;
+const img=n=>/\.(jpe?g|png)$/i.test(n)?`imagens/web/${n.replace(/\.(jpe?g|png)$/i,'.webp')}`:`imagens/${n}`;
 const PROJECTS={
   emi:{
     quote:{lang:'pt',pt:'A identidade visual da êmi cestas foi um resultado que me trouxe muita satisfação e me surpreendeu positivamente, porque eu queria uma coisa que fosse delicada e que ao mesmo tempo transmitisse essa delicadeza, essa suavidade...\n\nQue expressasse através da logo, pelas cores, um carinho envolvido no trabalho que eu me propus a fazer, que é presentear alguém com cestas de café da manhã, de lanche... Enfim, gostei bastante do trabalho.',en:'The êmi cestas visual identity was a result that brought me a lot of satisfaction and pleasantly surprised me, because I wanted something delicate that would, at the same time, convey that delicacy, that softness...\n\nSomething that would express, through the logo and the colors, the care that goes into the work I set out to do, which is gifting someone with breakfast and snack baskets... All in all, I really liked the work.',
@@ -1451,6 +1452,7 @@ renderFeedbacks();
 
 /* ===== micro-interactions ===== */
 (function(){
+  document.querySelectorAll('.card .thumb img').forEach(i=>{const on=()=>i.classList.add('ld');if(i.complete&&i.naturalWidth)on();else{i.addEventListener('load',on);i.addEventListener('error',on)}});
   const fine=window.matchMedia('(pointer:fine)').matches;
   /* hero letters */
   document.querySelectorAll('.hero h1 .line>span').forEach(sp=>{
