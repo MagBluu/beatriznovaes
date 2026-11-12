@@ -219,12 +219,16 @@ footer .hand{font-family:'Caveat',cursive;font-size:1.3rem;color:var(--lilac-dee
 .bd-pola img{width:100%;display:block}
 @media(max-width:600px){.bd-process img{width:44%}.bd-pola{width:150px}}
 
+/* ---- typography: no widows ---- */
+h1,h2,h3,h4,blockquote,.pn-q,.sec-title,.bk-h,.ab-h,figcaption,.kpi .t{text-wrap:balance}
+p,li,.lead,.bk-p,.ab-p,.ab-note,.rl>span,.fb blockquote p,.d-quote p{text-wrap:pretty}
+
 /* ---- archive strip / title / feedbacks / share ---- */
 .card.archive.strip{justify-content:center}
-.arch-in{display:flex;align-items:baseline;gap:14px}
+.arch-in{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;justify-content:center;text-align:center}
 .arch-in h3{line-height:1}
-.arch-in .arch-arr{font-family:'Caveat',cursive;font-size:2rem;line-height:1;transition:transform .3s}
-.card.archive.strip:hover .arch-arr{transform:translateX(6px)}
+.arch-in .arch-arr{display:inline-block;font-family:'Caveat',cursive;line-height:1;transition:transform .3s}
+.card.archive.strip:hover .arch-arr{transform:translate(4px,-4px)}
 .arch-in p{margin:0;line-height:1;letter-spacing:.12em}
 .sec-title.one{max-width:none;white-space:nowrap;font-size:clamp(1.6rem,6.2vw,4.6rem)}
 .fb-sec{padding-top:40px}
@@ -702,7 +706,7 @@ button:active,.copy:active,.arr:active{transform:scale(.96)}
       <div class="meta"><h3>Lifepro — Fitness Listings</h3><p><span data-pt>E-COMMERCE · REDESIGN</span><span data-en>E-COMMERCE · REDESIGN</span></p></div>
     </div>
     <a class="card archive strip reveal" href="https://www.behance.net/Beatriz_Novaes" target="_blank" rel="noopener">
-      <span class="arch-in"><h3><span data-pt>ver tudo</span><span data-en>see all</span></h3><span class="arch-arr">→</span><p>BEHANCE</p></span>
+      <span class="arch-in"><h3><span data-pt>Veja mais projetos no Behance!</span><span data-en>See more projects on Behance!</span>&nbsp;<span class="arch-arr">↗</span></h3></span>
     </a>
   </div>
 </section>
@@ -769,6 +773,7 @@ function setLang(l){
   document.getElementById('bt-en').classList.toggle('active', l==='en');
   if(curId) renderDetail(curId);
   renderFeedbacks();
+  if(window.noWidows)noWidows();
   requestAnimationFrame(()=>{const c=document.querySelector('#detail .car');if(c&&c._size)c._size();moveAllInd()});
 }
 const tog=document.querySelector('.nav-toggle'),menu=document.querySelector('nav ul');
@@ -1387,7 +1392,7 @@ function openDetail(id,fromRoute){
   if(!fromRoute){const h='#/projeto/'+SLUG[id];if(location.hash!==h){history.pushState(null,'',h);pushed=true}}
   document.title=PROJECTS[id].title+' · Beatriz Novaes';
   const already=!!curId;
-  const go=()=>{curId=id; renderDetail(id);
+  const go=()=>{curId=id; renderDetail(id);if(window.noWidows)noWidows(document.getElementById('detail'));
     const d=document.getElementById('detail');d.classList.add('open');d.classList.remove('enter');void d.offsetWidth;d.classList.add('enter');document.body.style.overflow='hidden';d.scrollTop=0;
     requestAnimationFrame(()=>{const c=d.querySelector('.car');if(c&&c._size)c._size();moveAllInd(true)});};
   if(fromRoute==='instant')go();else pageTurn(PROJECTS[id].title,go);
@@ -1450,6 +1455,16 @@ renderFeedbacks();
     setTimeout(()=>document.body.classList.remove('intro'),250)},1250);
 })();
 
+/* ===== no widows (fallback for browsers without text-wrap:pretty) ===== */
+function noWidows(root){
+  (root||document).querySelectorAll('p,h1,h2,h3,h4,blockquote,figcaption,li,.pn-q,.rl>span,.sub span,.lead').forEach(el=>{
+    const w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);let last=null;
+    while(w.nextNode()){if(w.currentNode.nodeValue.trim())last=w.currentNode}
+    if(!last)return;const t=last.nodeValue;const m=t.match(/^([\s\S]*\S)\s+(\S{1,14})(\s*)$/);
+    if(m&&(el.textContent.trim().split(/\s+/).length>=4))last.nodeValue=m[1]+'\u00a0'+m[2]+m[3];
+  });
+}
+noWidows();
 /* ===== micro-interactions ===== */
 (function(){
   document.querySelectorAll('.card .thumb img').forEach(i=>{const on=()=>i.classList.add('ld');if(i.complete&&i.naturalWidth)on();else{i.addEventListener('load',on);i.addEventListener('error',on)}});
