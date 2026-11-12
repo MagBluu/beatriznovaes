@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Beatriz Novaes — Design & Palavra / Design & Word</title>
-<meta name="description" content="Beatriz Novaes — designer gráfico e escritora brasileira, com clientes no Brasil e nos EUA. Identidade visual, branding, e-commerce, Amazon A+ e design editorial.">
+<meta name="description" content="Beatriz Novaes — designer gráfico e escritora brasileira, com clientes no Brasil, nos EUA e no Reino Unido. Identidade visual, branding, e-commerce, Amazon A+ e design editorial.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Special+Elite&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -104,6 +104,11 @@ section{padding:100px 5vw;position:relative}
 /* ---- about (scrapbook page) ---- */
 .about{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:flex-start}
 .about-text p{font-size:1.08rem;line-height:1.78;color:var(--ink-soft);margin-bottom:20px;max-width:54ch}
+.poet-note{position:relative;display:inline-flex;flex-direction:column;gap:6px;margin-top:10px;background:var(--card);padding:20px 24px 16px;box-shadow:3px 6px 14px var(--shadow);text-decoration:none;color:var(--ink);transform:rotate(-1deg);transition:transform .35s cubic-bezier(.2,1.3,.4,1),box-shadow .3s;max-width:380px}
+.poet-note:hover{transform:rotate(0) translateY(-4px);box-shadow:6px 12px 22px var(--shadow)}
+.poet-note .pn-k{font-family:'Special Elite',monospace;font-size:.68rem;letter-spacing:.1em;color:var(--label-text)}
+.poet-note .pn-q{font-family:'Caveat',cursive;font-size:1.65rem;line-height:1.1;color:var(--lilac-deep)}
+.poet-note .pn-l{font-family:'Special Elite',monospace;font-size:.76rem;border-top:1px dashed rgba(43,39,34,.25);padding-top:8px;margin-top:4px}
 .about-text strong{color:var(--ink);font-weight:700;background:var(--tape);padding:1px 5px}
 .photo-stack{position:relative;padding-top:24px}
 .photo-stack .frame{background:var(--card);padding:14px 14px 46px;box-shadow:4px 8px 20px var(--shadow);transform:rotate(-2.5deg);position:relative}
@@ -558,7 +563,6 @@ button:active,.copy:active,.arr:active{transform:scale(.96)}
       <li><a href="#servicos"><span data-pt>Serviços</span><span data-en>Services</span></a></li>
       <li><a href="#trabalho"><span data-pt>Trabalho</span><span data-en>Work</span></a></li>
       <li><a href="#feedbacks">Feedbacks</a></li>
-      <li><a href="#palavra"><span data-pt>Palavra</span><span data-en>Word</span></a></li>
       <li><a href="#contato"><span data-pt>Contato</span><span data-en>Contact</span></a></li>
     </ul>
     <div class="lang">
@@ -609,13 +613,19 @@ button:active,.copy:active,.arr:active{transform:scale(.96)}
       <p class="sec-label"><span data-pt>Prazer,</span><span data-en>Hi,</span></p>
       <h2 class="sec-title"><span data-pt>Designer que também <em>escreve</em>.</span><span data-en>A designer who also <em>writes</em>.</span></h2>
       <p>
-        <span data-pt>Sou a <strong>Beatriz</strong>, designer brasileira, trabalhando com marcas do Brasil e dos Estados Unidos. Já desenhei a marca de uma empresa de cestas artesanais e as imagens de produtos que vendem para milhares de pessoas na Amazon. Gosto dos dois extremos.</span>
-        <span data-en>I'm <strong>Beatriz</strong>, a Brazilian designer working with brands in Brazil and the United States. I've designed the brand for a small handmade gift-basket business and the images for products selling to thousands of people on Amazon. I like both ends.</span>
+        <span data-pt>Sou a <strong>Beatriz</strong>, designer brasileira, trabalhando com marcas do Brasil, Estados Unidos e Reino Unido. Já desenhei a marca de uma empresa de cestas artesanais e as imagens de produtos que vendem para milhares de pessoas na Amazon. Gosto dos dois extremos.</span>
+        <span data-en>I'm <strong>Beatriz</strong>, a Brazilian designer working with brands in Brazil, the United States and the United Kingdom. I've designed the brand for a small handmade gift-basket business and the images for products selling to thousands of people on Amazon. I like both ends.</span>
       </p>
       <p>
         <span data-pt>Fora do expediente escrevo poesia, e já publiquei três livros. Escrever me ensinou a <strong>cortar o que sobra</strong>. No design eu tento fazer a mesma coisa, e quando dá, eu testo para ter certeza (como no <a href="#" onclick="openDetail('sculpt');return false" style="color:var(--lilac-deep)">teste A/B da Lifepro</a>).</span>
         <span data-en>After hours I write poetry, and I've published three books. Writing taught me to <strong>cut what's extra</strong>. I try to do the same in design, and when I can, I test it to be sure (like the <a href="#" onclick="openDetail('sculpt');return false" style="color:var(--lilac-deep)">Lifepro A/B test</a>).</span>
       </p>
+      <a class="poet-note" id="palavra" href="https://www.instagram.com/bnpoesia/" target="_blank" rel="noopener">
+        <span class="tape" style="top:-12px;left:28px;transform:rotate(-4deg)"></span>
+        <span class="pn-k"><span data-pt>a outra metade</span><span data-en>the other half</span></span>
+        <span class="pn-q"><span data-pt>Designer de dia, poeta nas entrelinhas.</span><span data-en>Designer by day, poet between the lines.</span></span>
+        <span class="pn-l"><span data-pt>leia minha poesia</span><span data-en>read my poetry</span> · @bnpoesia ↗</span>
+      </a>
     </div>
     <div class="photo-stack reveal">
       <span class="clip"></span>
@@ -647,7 +657,7 @@ button:active,.copy:active,.arr:active{transform:scale(.96)}
 
 <section id="trabalho">
   <p class="sec-label"><span data-pt>Portfólio</span><span data-en>Work</span></p>
-  <h2 class="sec-title one"><span data-pt>Projetos que eu faria <em>de novo</em>.</span><span data-en>Projects I'd do <em>all over again</em>.</span></h2>
+  <h2 class="sec-title one"><span data-pt>Meus projetos <em>favoritos</em>.</span><span data-en>My <em>favorite</em> projects.</span></h2>
   <div class="work-grid">
     <div class="card book c-lg reveal" onclick="openDetail('livro')">
       <span class="ribbon"></span>
@@ -705,17 +715,6 @@ button:active,.copy:active,.arr:active{transform:scale(.96)}
     <button data-f="work"><span data-pt>Sobre meu trabalho</span><span data-en>On my work</span></button>
   </div>
   <div class="fb-grid" id="fb-grid"></div>
-</section>
-
-<section id="palavra" class="writer" data-nav="ink">
-  <p class="sec-label"><span data-pt>A outra metade</span><span data-en>The other half</span></p>
-  <blockquote>
-    <span data-pt>Designer de dia, <span>poeta nas entrelinhas</span>. Escrevo sobre tudo que habita em mim.</span>
-    <span data-en>Designer by day, <span>poet between the lines</span>. I write about everything that lives in me.</span>
-  </blockquote>
-  <p class="attr"><span data-pt>— leia minha poesia no Instagram</span><span data-en>— read my poetry on Instagram</span></p>
-  <br>
-  <a class="ig" href="https://www.instagram.com/bnpoesia/" target="_blank" rel="noopener">@bnpoesia ↗</a>
 </section>
 
 <section id="contato" class="contact">
@@ -917,7 +916,7 @@ function bookHTML(p,l){
 
   <div class="bk-sec">
     <h3 class="bk-h">${T('Ilustrações do livro','The book\'s illustrations')}</h3>
-    <p class="bk-p">${T('Cada ilustração foi feita à mão, no Procreate, e depois vetorizada no Illustrator.','Each illustration was drawn by hand in Procreate and then vectorized in Illustrator.')}</p>
+    <p class="bk-p one">${T('Cada ilustração foi feita à mão, no Procreate, e depois vetorizada no Illustrator.','Each illustration was drawn by hand in Procreate and then vectorized in Illustrator.')}</p>
     <div class="bk-gifs">${p.anims.map(a=>`<figure><img src="${img(a)}" alt="${p.title}" loading="lazy"></figure>`).join('')}</div>
   </div>
 
