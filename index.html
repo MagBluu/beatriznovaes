@@ -532,7 +532,8 @@ button:active,.copy:active,.arr:active{transform:scale(.96)}
 .bk-browser .bar{display:flex;align-items:center;gap:7px;padding:10px 12px;border-bottom:1.5px solid var(--ink);background:var(--paper2)}
 .bk-browser .bar i{width:10px;height:10px;border-radius:50%;background:var(--ink);opacity:.25}
 .bk-browser .bar span{flex:1;margin-left:10px;height:20px;border-radius:10px;background:var(--card);font-family:'Special Elite',monospace;font-size:.68rem;color:var(--ink-soft);display:flex;align-items:center;padding:0 12px}
-.bk-browser .scroll{max-height:560px;overflow-y:auto}
+.bk-browser .scroll{max-height:560px;overflow-y:auto;display:flex;flex-direction:column;gap:12px;padding:12px;background:var(--paper2)}
+.bk-p.one{max-width:none}
 .bk-browser img{width:100%;display:block}
 .bk-real{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;padding:10px 0}
 .bk-real figure{width:190px;background:var(--card);padding:10px 10px 30px;box-shadow:4px 7px 16px var(--shadow);transform:rotate(var(--r));transition:transform .4s cubic-bezier(.2,1.3,.4,1),box-shadow .3s;cursor:zoom-in}
@@ -909,14 +910,14 @@ function bookHTML(p,l){
       <input type="range" min="0" max="100" value="50" aria-label="${T('comparar traço e cor','compare line and color')}">
     </div></div>
     <div>
-      <h3 class="bk-h">${T('Do traço à cor','From line to color')}</h3>
-      <p class="bk-p">${T('Cada ilustração do miolo nasce em preto e branco e só depois ganha cor. Arraste a linha para ver as duas etapas.','Every illustration inside the book starts in black and white and only then gets color. Drag the line to see both stages.')}</p>
+      <h3 class="bk-h">${T('Os primeiros rascunhos','The first sketches')}</h3>
+      <p class="bk-p">${T('A ideia surgiu na mente, passou para o Procreate, e lá ganhou duas versões: traçada e colorida. Com o esboço pronto, a capa pôde ganhar vida com a colagem.','The idea started in my head, moved to Procreate, and there it got two versions: line art and color. With the sketch ready, the cover could come to life through collage.')}</p>
     </div>
   </div>
 
   <div class="bk-sec">
-    <h3 class="bk-h">${T('Ilustrações animadas','Animated illustrations')}</h3>
-    <p class="bk-p">${T('Versões em movimento das ilustrações, feitas para as redes.','Moving versions of the illustrations, made for social media.')}</p>
+    <h3 class="bk-h">${T('Ilustrações do livro','The book\'s illustrations')}</h3>
+    <p class="bk-p">${T('Cada ilustração foi feita à mão, no Procreate, e depois vetorizada no Illustrator.','Each illustration was drawn by hand in Procreate and then vectorized in Illustrator.')}</p>
     <div class="bk-gifs">${p.anims.map(a=>`<figure><img src="${img(a)}" alt="${p.title}" loading="lazy"></figure>`).join('')}</div>
   </div>
 
@@ -929,7 +930,7 @@ function bookHTML(p,l){
 
   <div class="bk-sec">
     <h3 class="bk-h">${T('A página na Amazon','The Amazon page')}</h3>
-    <p class="bk-p">${T('Também desenhei o conteúdo A+ da página do livro. Role dentro da janela:','I also designed the A+ content for the book\'s page. Scroll inside the window:')}</p>
+    <p class="bk-p one">${T('Também desenhei o conteúdo A+ da página do livro. Role dentro da janela:','I also designed the A+ content for the book\'s page. Scroll inside the window:')}</p>
     <div class="bk-browser"><div class="bar"><i></i><i></i><i></i><span>amazon.com · Tudo que Habita em Mim</span></div>
       <div class="scroll">${p.spreads.map(s=>`<img src="${img(s)}" alt="${p.title} A+" loading="lazy">`).join('')}</div></div>
   </div>
