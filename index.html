@@ -1408,6 +1408,11 @@ const FEEDBACKS=[
   {kind:'project',project:'petcove',who:'Matt Jozwiakowski',ctx:{pt:'sobre o rebranding da Petcove · e-mail, maio de 2026',en:'on the Petcove rebrand · email, May 2026'},lang:'en',
    text:{en:['You guys, holy smokes .... crushed it!','The passion and hard work you put into this shows on every page -- from the fonts, the colors, and those friggin\' adorable icons. Let\'s get this rolling onto our websites and ads and PDPS asap!'],
          pt:['Gente, caramba... vocês arrasaram!','A paixão e o trabalho duro que vocês colocaram nisso aparecem em cada página: nas fontes, nas cores e nesses ícones fofos demais. Vamos levar isso para os nossos sites, anúncios e páginas de produto o quanto antes!']}},
+  {kind:'work',who:'Hannah Sillars',role:{pt:'diretora executiva da Dash',en:'Executive Director, Dash'},
+   ctx:{pt:'cliente · recomendação no LinkedIn, novembro de 2026',en:'client · LinkedIn recommendation, November 2026'},lang:'en',
+   link:'https://www.linkedin.com/in/beatriz-novaes19/details/recommendations/',
+   text:{en:['Bea is creative and responsive. She also happens to be fun to work with, which is a significant asset to the team.'],
+         pt:['A Bea é criativa e responde rápido. Ela também é divertida de trabalhar junto, o que faz uma diferença enorme para a equipe.']}},
   {kind:'project',project:'emi',who:'Mariza Almeida',role:{pt:'fundadora da êmi cestas',en:'founder of êmi cestas'},ctx:{pt:'sobre a identidade visual da êmi cestas',en:'on the êmi cestas visual identity'},lang:'pt',
    text:{pt:['A identidade visual da êmi cestas foi um resultado que me trouxe muita satisfação e me surpreendeu positivamente, porque eu queria uma coisa que fosse delicada e que ao mesmo tempo transmitisse essa delicadeza, essa suavidade...','Que expressasse através da logo, pelas cores, um carinho envolvido no trabalho que eu me propus a fazer, que é presentear alguém com cestas de café da manhã, de lanche... Enfim, gostei bastante do trabalho.'],
          en:['The êmi cestas visual identity was a result that brought me a lot of satisfaction and pleasantly surprised me, because I wanted something delicate that would, at the same time, convey that delicacy, that softness...','Something that would express, through the logo and the colors, the care that goes into the work I set out to do, which is gifting someone with breakfast and snack baskets... All in all, I really liked the work.']}},
@@ -1425,7 +1430,7 @@ function renderFeedbacks(){
   const l=L(),g=document.getElementById('fb-grid'),f=(document.querySelector('#fb-tabs button.on')||{}).dataset?.f||'all';
   g.innerHTML=FEEDBACKS.map(x=>{const tr=x.lang!==l;const ps=t=>t.map(p=>`<p>${p}</p>`).join('');
     const kind=x.kind==='project'?(l==='en'?'ON A PROJECT':'SOBRE UM PROJETO'):(l==='en'?'ON MY WORK':'SOBRE MEU TRABALHO');
-    const long=x.text.en.join('').length>600;
+    const long=x.text.en.join('').length>380;
     return `<figure class="fb${long?' long':''}${f!=='all'&&f!==x.kind?' hide':''}" data-k="${x.kind}"><span class="tape gold" style="top:-13px;left:34px;transform:rotate(-3deg)"></span>
       <span class="kind">${kind}</span><blockquote>${ps(x.text[l]||x.text[x.lang])}</blockquote>
       <figcaption><b>${x.who}</b>${x.role?' · '+(x.role[l]||x.role):''}<br>${x.ctx[l]}</figcaption>
