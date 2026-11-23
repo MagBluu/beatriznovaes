@@ -227,6 +227,7 @@ footer .hand{font-family:'Caveat',cursive;font-size:1.3rem;color:var(--lilac-dee
 @media(max-width:600px){.bd-process img{width:44%}.bd-pola{width:150px}}
 
 /* ---- typography: no widows ---- */
+.hero .kicker,.ab-note{text-wrap:balance}
 h1,h2,h3,h4,blockquote,.pn-q,.sec-title,.bk-h,.ab-h,figcaption,.kpi .t{text-wrap:balance}
 p,li,.lead,.bk-p,.ab-p,.ab-note,.rl>span,.fb blockquote p,.d-quote p{text-wrap:pretty}
 
@@ -699,20 +700,9 @@ button:active,.copy:active,.arr:active{transform:scale(.96)}
   <p class="sec-label"><span data-pt>Portfólio</span><span data-en>Work</span></p>
   <h2 class="sec-title one"><span data-pt>Meus projetos <em>favoritos</em>.</span><span data-en>My <em>favorite</em> projects.</span></h2>
   <div class="work-grid">
-    <div class="card book c-lg reveal" onclick="openDetail('livro')">
-      <span class="ribbon"></span>
-      <div class="thumb" style="background:#345baa"><img src="imagens/thumbs/livro-capa-900.webp" srcset="imagens/thumbs/livro-capa-600.webp 600w, imagens/thumbs/livro-capa-900.webp 900w, imagens/thumbs/livro-capa-1200.webp 1200w" sizes="(max-width:700px) 92vw, 46vw" width="1200" height="900" decoding="async" alt="Tudo que Habita em Mim" loading="lazy" style="object-position:top"></div>
-      <div class="meta"><h3><span data-pt>Tudo que Habita em Mim</span><span data-en>Tudo que Habita em Mim (book)</span></h3><p><span data-pt>LIVRO · DESIGN EDITORIAL</span><span data-en>BOOK · EDITORIAL DESIGN</span></p></div>
-    </div>
-    <div class="card c-lg reveal" onclick="openDetail('sculpt')">
-      <span class="tape gold"></span>
-      <div class="thumb" style="background:#c9bdb1"><img src="imagens/thumbs/sculpt-ab-thumb-900.webp" srcset="imagens/thumbs/sculpt-ab-thumb-600.webp 600w, imagens/thumbs/sculpt-ab-thumb-900.webp 900w, imagens/thumbs/sculpt-ab-thumb-1200.webp 1200w" sizes="(max-width:700px) 92vw, 46vw" width="1200" height="900" decoding="async" alt="Lifepro SculptTrainer — teste A/B quadrada vs vertical" loading="lazy">
-        <span class="badge"><b>+32,6%</b> <span data-pt>conversão</span><span data-en>conversion</span></span></div>
-      <div class="meta"><h3><span data-pt>Lifepro SculptTrainer — Teste A/B</span><span data-en>Lifepro SculptTrainer — A/B Test</span></h3><p><span data-pt>AMAZON · QUADRADA VS VERTICAL · RESULTADOS</span><span data-en>AMAZON · SQUARE VS VERTICAL · RESULTS</span></p></div>
-    </div>
     <div class="card c-xl reveal" onclick="openDetail('spin')">
       <span class="tape" style="left:46%"></span>
-      <div class="thumb" style="background:#d0bda8"><img src="imagens/thumbs/spin-thumb-900.webp" srcset="imagens/thumbs/spin-thumb-600.webp 600w, imagens/thumbs/spin-thumb-900.webp 900w, imagens/thumbs/spin-thumb-1200.webp 1200w" sizes="(max-width:900px) 92vw, 55vw" width="1200" height="900" decoding="async" alt="Lifepro Spinergy — antes e depois" loading="lazy">
+      <div class="thumb" style="background:#d0bda8"><img src="imagens/thumbs/spin-thumb-900.webp" srcset="imagens/thumbs/spin-thumb-600.webp 600w, imagens/thumbs/spin-thumb-900.webp 900w, imagens/thumbs/spin-thumb-1200.webp 1200w, imagens/thumbs/spin-thumb-1800.webp 1800w" sizes="(max-width:900px) 92vw, 55vw" width="1200" height="900" decoding="async" alt="Lifepro Spinergy — antes e depois" loading="lazy">
         <span class="badge"><b>+73%</b> <span data-pt>conversão</span><span data-en>conversion</span></span></div>
       <div class="meta">
         <p class="xl-k"><span data-pt>LIDERANÇA DE DESIGN · AMAZON · TESTE A/B</span><span data-en>DESIGN LEADERSHIP · AMAZON · A/B TEST</span></p>
@@ -720,6 +710,32 @@ button:active,.copy:active,.arr:active{transform:scale(.96)}
         <p class="xl-d"><span data-pt>Criei o template e liderei a equipe na otimização das imagens da massageadora. O set novo converteu 73% a mais.</span><span data-en>I built the template and led the team through the massage gun's image optimization. The new set converted 73% better.</span></p>
         <span class="xl-go"><span data-pt>ver o case →</span><span data-en>see the case →</span></span>
       </div>
+    </div>
+    <div class="card c-lg reveal" onclick="openDetail('sculpt')">
+      <span class="tape gold"></span>
+      <div class="thumb" style="background:#c9bdb1"><img src="imagens/thumbs/sculpt-ab-thumb-900.webp" srcset="imagens/thumbs/sculpt-ab-thumb-600.webp 600w, imagens/thumbs/sculpt-ab-thumb-900.webp 900w, imagens/thumbs/sculpt-ab-thumb-1200.webp 1200w" sizes="(max-width:700px) 92vw, 46vw" width="1200" height="900" decoding="async" alt="Lifepro SculptTrainer — teste A/B quadrada vs vertical" loading="lazy">
+        <span class="badge"><b>+32,6%</b> <span data-pt>conversão</span><span data-en>conversion</span></span></div>
+      <div class="meta"><h3><span data-pt>Lifepro SculptTrainer — Teste A/B</span><span data-en>Lifepro SculptTrainer — A/B Test</span></h3><p><span data-pt>AMAZON · QUADRADA VS VERTICAL · RESULTADOS</span><span data-en>AMAZON · SQUARE VS VERTICAL · RESULTS</span></p></div>
+    </div>
+    <div class="card c-lg reveal" onclick="openDetail('mighty')">
+      <span class="tape"></span>
+      <div class="thumb" style="background:#81886e"><img src="imagens/thumbs/mighty-02-900.webp" srcset="imagens/thumbs/mighty-02-600.webp 600w, imagens/thumbs/mighty-02-900.webp 900w, imagens/thumbs/mighty-02-1200.webp 1200w" sizes="(max-width:700px) 92vw, 46vw" width="1200" height="900" decoding="async" alt="Mighty Bounce" loading="lazy"><span class="badge"><b>+34%</b> <span data-pt>conversão</span><span data-en>conversion</span></span></div>
+      <div class="meta"><h3>Joyberri — Mighty Bounce</h3><p><span data-pt>LISTING UPDATE · RESULTADOS</span><span data-en>LISTING UPDATE · RESULTS</span></p></div>
+    </div>
+    <div class="card c-md reveal" onclick="openDetail('upsurge')">
+      <span class="tape gold"></span>
+      <div class="thumb" style="background:#b6b39a"><img src="imagens/thumbs/upsurge-01-900.webp" srcset="imagens/thumbs/upsurge-01-600.webp 600w, imagens/thumbs/upsurge-01-900.webp 900w, imagens/thumbs/upsurge-01-1200.webp 1200w" sizes="(max-width:700px) 92vw, (max-width:1000px) 46vw, 30vw" width="1200" height="900" decoding="async" alt="Upsurge" loading="lazy"></div>
+      <div class="meta"><h3>Joyberri — Upsurge</h3><p>E-COMMERCE · AMAZON A+</p></div>
+    </div>
+    <div class="card c-md reveal" onclick="openDetail('lifepro')">
+      <span class="tape"></span>
+      <div class="thumb" style="background:#bea993"><img src="imagens/thumbs/lifepro-01-900.webp" srcset="imagens/thumbs/lifepro-01-600.webp 600w, imagens/thumbs/lifepro-01-900.webp 900w, imagens/thumbs/lifepro-01-1200.webp 1200w" sizes="(max-width:700px) 92vw, (max-width:1000px) 46vw, 30vw" width="1200" height="900" decoding="async" alt="Lifepro" loading="lazy"></div>
+      <div class="meta"><h3>Lifepro — Fitness Listings</h3><p><span data-pt>E-COMMERCE · REDESIGN</span><span data-en>E-COMMERCE · REDESIGN</span></p></div>
+    </div>
+    <div class="card book c-md reveal" onclick="openDetail('livro')">
+      <span class="ribbon"></span>
+      <div class="thumb" style="background:#345baa"><img src="imagens/thumbs/livro-capa-900.webp" srcset="imagens/thumbs/livro-capa-600.webp 600w, imagens/thumbs/livro-capa-900.webp 900w, imagens/thumbs/livro-capa-1200.webp 1200w" sizes="(max-width:700px) 92vw, (max-width:1000px) 46vw, 30vw" width="1200" height="900" decoding="async" alt="Tudo que Habita em Mim" loading="lazy" style="object-position:top"></div>
+      <div class="meta"><h3><span data-pt>Tudo que Habita em Mim</span><span data-en>Tudo que Habita em Mim (book)</span></h3><p><span data-pt>LIVRO · DESIGN EDITORIAL</span><span data-en>BOOK · EDITORIAL DESIGN</span></p></div>
     </div>
     <div class="card c-md reveal" onclick="openDetail('emi')">
       <span class="tape"></span>
@@ -735,21 +751,6 @@ button:active,.copy:active,.arr:active{transform:scale(.96)}
       <span class="tape"></span>
       <div class="thumb" style="background:#ab8a77"><img src="imagens/thumbs/petcove-01-900.webp" srcset="imagens/thumbs/petcove-01-600.webp 600w, imagens/thumbs/petcove-01-900.webp 900w, imagens/thumbs/petcove-01-1200.webp 1200w" sizes="(max-width:700px) 92vw, (max-width:1000px) 46vw, 30vw" width="1200" height="900" decoding="async" alt="Petcove" loading="lazy"></div>
       <div class="meta"><h3>Petcove</h3><p><span data-pt>ESTRATÉGIA DE MARCA</span><span data-en>BRAND STRATEGY</span></p></div>
-    </div>
-    <div class="card c-md reveal" onclick="openDetail('mighty')">
-      <span class="tape"></span>
-      <div class="thumb" style="background:#81886e"><img src="imagens/thumbs/mighty-02-900.webp" srcset="imagens/thumbs/mighty-02-600.webp 600w, imagens/thumbs/mighty-02-900.webp 900w, imagens/thumbs/mighty-02-1200.webp 1200w" sizes="(max-width:700px) 92vw, (max-width:1000px) 46vw, 30vw" width="1200" height="900" decoding="async" alt="Mighty Bounce" loading="lazy"><span class="badge"><b>+34%</b> <span data-pt>conversão</span><span data-en>conversion</span></span></div>
-      <div class="meta"><h3>Joyberri — Mighty Bounce</h3><p><span data-pt>LISTING UPDATE · RESULTADOS</span><span data-en>LISTING UPDATE · RESULTS</span></p></div>
-    </div>
-    <div class="card c-md reveal" onclick="openDetail('upsurge')">
-      <span class="tape gold"></span>
-      <div class="thumb" style="background:#b6b39a"><img src="imagens/thumbs/upsurge-01-900.webp" srcset="imagens/thumbs/upsurge-01-600.webp 600w, imagens/thumbs/upsurge-01-900.webp 900w, imagens/thumbs/upsurge-01-1200.webp 1200w" sizes="(max-width:700px) 92vw, (max-width:1000px) 46vw, 30vw" width="1200" height="900" decoding="async" alt="Upsurge" loading="lazy"></div>
-      <div class="meta"><h3>Joyberri — Upsurge</h3><p>E-COMMERCE · AMAZON A+</p></div>
-    </div>
-    <div class="card c-md reveal" onclick="openDetail('lifepro')">
-      <span class="tape"></span>
-      <div class="thumb" style="background:#bea993"><img src="imagens/thumbs/lifepro-01-900.webp" srcset="imagens/thumbs/lifepro-01-600.webp 600w, imagens/thumbs/lifepro-01-900.webp 900w, imagens/thumbs/lifepro-01-1200.webp 1200w" sizes="(max-width:700px) 92vw, (max-width:1000px) 46vw, 30vw" width="1200" height="900" decoding="async" alt="Lifepro" loading="lazy"></div>
-      <div class="meta"><h3>Lifepro — Fitness Listings</h3><p><span data-pt>E-COMMERCE · REDESIGN</span><span data-en>E-COMMERCE · REDESIGN</span></p></div>
     </div>
     <a class="card archive strip reveal" href="https://www.behance.net/Beatriz_Novaes" target="_blank" rel="noopener">
       <span class="arch-in"><h3><span data-pt>Veja mais projetos no Behance!</span><span data-en>See more projects on Behance!</span>&nbsp;<span class="arch-arr">↗</span></h3></span>
@@ -1147,7 +1148,7 @@ function spinHTML(p,l){
       <div class="tpl-imgs">${[0,2,3,5,8,9].map(i=>`<img src="${img(p.images[i])}" alt="" loading="lazy">`).join('')}</div>
       <div class="tpl-rules">
         <div><p><b>${T('Uma ideia por imagem','One idea per image')}</b><span>${T('Título curto em caixa alta, no topo, que se lê em um segundo.','A short all-caps headline at the top, readable in a second.')}</span></p></div>
-        <div><p><b>${T('Apoio em painéis de vidro','Glass panels for support')}</b><span>${T('Detalhes e selos em painéis translúcidos, sem cobrir o produto.','Details and chips in translucent panels, without covering the product.')}</span></p></div>
+        <div><p><b>${T('Placas de vidro','Glass design')}</b><span>${T('Títulos, detalhes e selos em placas de vidro translúcidas, que organizam a informação sem esconder o produto.','Headlines, details and chips on translucent glass plates that organize the information without hiding the product.')}</span></p></div>
         <div><p><b>${T('Fotos de casa de verdade','Real-home photography')}</b><span>${T('Luz quente e pessoas usando o produto no dia a dia.','Warm light and people using the product day to day.')}</span></p></div>
         <div><p><b>${T('Um set, uma voz','One set, one voice')}</b><span>${T('A mesma estrutura em todas as imagens, para o listing parecer uma coisa só, mesmo com várias mãos.','The same structure across every image, so the listing reads as one, even with many hands on it.')}</span></p></div>
       </div>
@@ -1641,14 +1642,21 @@ renderFeedbacks();
 
 /* ===== no widows (fallback for browsers without text-wrap:pretty) ===== */
 function noWidows(root){
-  (root||document).querySelectorAll('p,h1,h2,h3,h4,blockquote,figcaption,li,.pn-q,.rl>span,.sub span,.lead').forEach(el=>{
+  (root||document).querySelectorAll('p,h1,h2,h3,h4,h5,blockquote,figcaption,li,.pn-q,.rl>span,.sub span,.lead,.kpi .s,.kpi .t,.lift,.ab-note,.cap,.tpl-rules span,.role p,.d-lead,.d-title,label,summary,.xl-d span').forEach(el=>{
+    if(el.children.length&&el.querySelector('p,h1,h2,h3,h4,blockquote,li'))return;
     const w=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);let last=null;
     while(w.nextNode()){if(w.currentNode.nodeValue.trim())last=w.currentNode}
-    if(!last)return;const t=last.nodeValue;const m=t.match(/^([\s\S]*\S)\s+(\S{1,14})(\s*)$/);
-    if(m&&(el.textContent.trim().split(/\s+/).length>=4))last.nodeValue=m[1]+'\u00a0'+m[2]+m[3];
+    if(!last||el.textContent.trim().split(/\s+/).length<4)return;
+    let t=last.nodeValue.replace(/ /g,' ');
+    const m=t.match(/^([\s\S]*?)(\s*)$/);let body=m[1],tail=m[2];
+    const words=body.split(/ +/);if(words.length<2)return;
+    let n=2;const min=words.length>=12?22:12;while(n<4&&n<words.length-1&&words.slice(-n).join(' ').length<min)n++;
+    const keep=words.slice(0,-n).join(' '),glued=words.slice(-n).join(' ');
+    last.nodeValue=(keep?keep+' ':'')+glued+tail;
   });
 }
 noWidows();
+(function(){const d=document.getElementById('detail');let t;new MutationObserver(()=>{clearTimeout(t);t=setTimeout(()=>noWidows(d),30)}).observe(d,{childList:true,subtree:true,characterData:false});})();
 /* ===== micro-interactions ===== */
 (function(){
   document.querySelectorAll('.card .thumb img').forEach(i=>{const on=()=>i.classList.add('ld');if(i.complete&&i.naturalWidth)on();else{i.addEventListener('load',on);i.addEventListener('error',on)}});
