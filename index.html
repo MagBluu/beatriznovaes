@@ -77,7 +77,7 @@ nav a:hover::after{width:100%}
 .hero h1 .line>span{display:block;transform:translateY(110%);animation:slideUp .9s cubic-bezier(.2,.8,.2,1) forwards}
 .hero h1 .line:nth-child(2)>span{animation-delay:.12s}
 .hero h1 .nm2{color:var(--lilac-deep);font-style:normal}
-.hero .sub{margin-top:0;max-width:46ch;font-size:1.06rem;line-height:1.65;color:var(--ink-soft);opacity:0;animation:fadeUp .8s .8s forwards;position:relative;z-index:3}
+.hero .sub{margin-top:26px;max-width:46ch;font-size:1.06rem;line-height:1.65;color:var(--ink-soft);opacity:0;animation:fadeUp .8s .8s forwards;position:relative;z-index:3}
 .hero .sub b{color:var(--lilac-deep);font-weight:700}
 .hero .poem{font-family:'Caveat',cursive;font-size:1.85rem;color:var(--lilac-deep);transform:rotate(-3deg);margin-top:14px;display:inline-block;align-self:flex-start;width:fit-content;position:relative;z-index:3}
 .hero .avail{display:none}
@@ -511,6 +511,29 @@ nav a.cur::after{width:100%}
 @media(max-width:700px){.ab-cmp{grid-template-columns:1fr}}
 
 @keyframes slideUp{to{transform:translateY(0)}}
+/* ===== hero desk ===== */
+.desk{position:relative;width:100%;aspect-ratio:1/1;max-width:620px;justify-self:end;align-items:stretch}
+.dk{position:absolute;left:var(--x);top:var(--y);width:var(--w);background:var(--card);padding:10px 10px 30px;box-shadow:4px 9px 20px var(--shadow);transform:rotate(var(--r));cursor:grab;touch-action:pan-y;user-select:none;opacity:0;animation:dkDrop .7s var(--d) cubic-bezier(.2,1.3,.4,1) forwards;transition:box-shadow .3s}
+.dk img{display:block;width:100%;pointer-events:none}
+.dk .tape{position:absolute;top:-11px;left:50%;width:76px;height:22px;margin-left:-38px;background:var(--tape);transform:rotate(-4deg);z-index:2}
+.dk .tape.gold{background:rgba(224,166,74,.55)}
+.dk:hover{box-shadow:8px 16px 30px var(--shadow)}
+.dk.drag{cursor:grabbing;box-shadow:12px 22px 38px var(--shadow);transition:none}
+@keyframes dkDrop{from{opacity:0;transform:translateY(-60px) rotate(calc(var(--r) * -3)) scale(1.08)}to{opacity:1;transform:rotate(var(--r))}}
+.dk-stat{position:absolute;left:5%;top:41%;z-index:30;background:var(--lilac-deep);color:var(--card);font-family:'Special Elite',monospace;font-size:.85rem;padding:8px 14px;box-shadow:3px 3px 0 var(--ink);transform:rotate(-4deg);opacity:0;animation:pop .5s var(--d) cubic-bezier(.3,1.6,.5,1) forwards;pointer-events:none}
+.dk-stat b{font-family:'Caveat',cursive;font-size:1.9rem;font-weight:700;line-height:1}
+.dk-note{position:absolute;right:-3%;top:47%;z-index:31;width:clamp(150px,34%,210px);background:#fbf6c9;padding:12px 14px;font-family:'Caveat',cursive;font-size:1.35rem;line-height:1.1;box-shadow:3px 6px 14px var(--shadow);transform:rotate(5deg);opacity:0;animation:pop .5s var(--d) cubic-bezier(.3,1.6,.5,1) forwards;pointer-events:none}
+.dk-note .nk{font-family:'Special Elite',monospace;font-size:.7rem;letter-spacing:.08em;color:var(--label-text);display:block;margin-bottom:3px}
+.dk-hint{position:absolute;left:0;right:0;bottom:-6px;text-align:center;font-family:'Caveat',cursive;font-size:1.15rem;color:var(--ink-soft);opacity:0;animation:fadeUp .6s 1.6s forwards}
+@keyframes pop{from{opacity:0;transform:scale(.4) rotate(0)}to{opacity:1}}
+.dk-stat{animation-name:popS}.dk-note{animation-name:popN}
+@keyframes popS{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:rotate(-4deg)}}
+@keyframes popN{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:rotate(5deg)}}
+body.intro .dk,body.intro .dk-stat,body.intro .dk-note,body.intro .dk-hint{animation-play-state:paused}
+@media(max-width:900px){.desk{justify-self:center;max-width:460px;margin-top:10px}.dk-note{right:0;font-size:1.1rem;width:44%}}
+@media(hover:none){.dk-hint .dsk{display:none}}@media(hover:hover){.dk-hint .tch{display:none}}
+@media (prefers-reduced-motion:reduce){.dk,.dk-stat,.dk-note,.dk-hint{animation:none;opacity:1}}
+
 /* ===== intro + page transitions ===== */
 body.intro .hero h1 .line>span,body.intro .hero .kicker,body.intro .hero-right{animation-play-state:paused}
 .intro-ov{position:fixed;inset:0;z-index:300;background:var(--paper);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px}
@@ -628,8 +651,6 @@ button:active,.copy:active,.arr:active{transform:scale(.96)}
         <span class="line"><span>Beatriz</span></span>
         <span class="line"><span class="nm2">Novaes</span></span>
       </h1>
-    </div>
-    <div class="hero-right">
       <p class="sub">
         <span data-pt>Sou designer e escrevo poesia. Faço marcas, imagens para Amazon e livros, e levo as duas coisas para o mesmo trabalho: <b>a imagem precisa dizer alguma coisa, e o texto precisa caber nela</b>.</span>
         <span data-en>I'm a designer and I write poetry. I make brands, Amazon images and books, and I bring both crafts to the same job: <b>the image has to say something, and the words have to fit in it</b>.</span>
@@ -640,6 +661,15 @@ button:active,.copy:active,.arr:active{transform:scale(.96)}
         <span data-pt>3 livros publicados</span><span data-en>3 published books</span>
         <span data-pt>Português · English</span><span data-en>English · Português</span>
       </div>
+    </div>
+    <div class="hero-right desk" id="desk" aria-label="Mesa de trabalho">
+      <figure class="dk" data-p="spin" style="--x:4%;--y:2%;--w:47%;--r:-5deg;--d:.35s"><span class="tape"></span><img src="imagens/web/spin-new-03.webp" alt="Lifepro Spinergy" draggable="false"></figure>
+      <figure class="dk" data-p="livro" style="--x:58%;--y:3%;--w:34%;--r:4deg;--d:.5s"><span class="tape gold"></span><img src="imagens/web/livro-capa.webp" alt="Tudo que Habita em Mim" draggable="false"></figure>
+      <figure class="dk" data-p="emi" style="--x:10%;--y:54%;--w:44%;--r:3deg;--d:.65s"><img src="imagens/thumbs/emi-01-600.webp" alt="êmi cestas" draggable="false"></figure>
+      <figure class="dk" data-p="mighty" style="--x:57%;--y:57%;--w:38%;--r:-3deg;--d:.8s"><span class="tape"></span><img src="imagens/thumbs/mighty-02-600.webp" alt="Mighty Bounce" draggable="false"></figure>
+      <span class="dk-stat" style="--d:1.05s"><b>+73%</b> <span data-pt>conversão</span><span data-en>conversion</span></span>
+      <span class="dk-note" style="--d:1.2s"><span class="nk"><span data-pt>agora:</span><span data-en>now:</span></span><span data-pt>liderando um time de design na Chai Vision</span><span data-en>leading a design team at Chai Vision</span></span>
+      <span class="dk-hint"><span class="dsk"><span data-pt>arraste as fotos · clique para abrir</span><span data-en>drag the photos · click to open</span></span><span class="tch"><span data-pt>toque numa foto para abrir</span><span data-en>tap a photo to open</span></span></span>
     </div>
   </div>
   <a class="scroll-cue" href="#trabalho"><span data-pt>ver trabalhos</span><span data-en>see work</span> <span class="arrow">↓</span></a>
@@ -1666,6 +1696,21 @@ window.addEventListener('load',()=>typeset());if(document.fonts)document.fonts.r
 noWidows();
 (function(){const d=document.getElementById('detail');let t;new MutationObserver(ms=>{if(ms.every(m=>m.target.nodeType===1&&m.target.closest&&m.target.closest('.kpi .n,.car-count,.val,#sim-v,#sim-a,#sim-b,#sim-d')))return;clearTimeout(t);t=setTimeout(()=>typeset(d),60)}).observe(d,{childList:true,subtree:true});
 let rt;window.addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>typeset(),150)});})();
+/* ===== hero desk: drag & open ===== */
+(function(){
+  const desk=document.getElementById('desk');if(!desk)return;let z=20;
+  desk.querySelectorAll('.dk').forEach(f=>{
+    let sx,sy,ox=0,oy=0,moved=0,down=false;
+    f.addEventListener('click',e=>{if(f._touch){openDetail(f.dataset.p)}});
+    f.addEventListener('pointerdown',e=>{f._touch=e.pointerType!=='mouse';if(f._touch)return;down=true;moved=0;sx=e.clientX;sy=e.clientY;f.setPointerCapture(e.pointerId);f.style.zIndex=++z;f.classList.add('drag');f.style.animation='none';f.style.opacity=1});
+    f.addEventListener('pointermove',e=>{if(!down)return;const dx=e.clientX-sx,dy=e.clientY-sy;moved=Math.max(moved,Math.hypot(dx,dy));
+      f.style.transform=`translate(${ox+dx}px,${oy+dy}px) rotate(calc(var(--r) * .3)) scale(1.04)`});
+    const up=e=>{if(!down)return;down=false;f.classList.remove('drag');
+      if(moved<6){f.style.transform=`translate(${ox}px,${oy}px) rotate(var(--r))`;openDetail(f.dataset.p);return}
+      ox+=e.clientX-sx;oy+=e.clientY-sy;f.style.transform=`translate(${ox}px,${oy}px) rotate(var(--r))`};
+    f.addEventListener('pointerup',up);f.addEventListener('pointercancel',up);
+  });
+})();
 /* ===== micro-interactions ===== */
 (function(){
   document.querySelectorAll('.card .thumb img').forEach(i=>{const on=()=>i.classList.add('ld');if(i.complete&&i.naturalWidth)on();else{i.addEventListener('load',on);i.addEventListener('error',on)}});
