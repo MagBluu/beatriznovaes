@@ -513,6 +513,8 @@ nav a.cur::after{width:100%}
 @keyframes slideUp{to{transform:translateY(0)}}
 /* ===== trajetória & ferramentas ===== */
 .tj-sec{padding-top:60px}
+.sec-title.tj-t{font-size:min(4.6rem,4.3vw)}
+@media(max-width:700px){.sec-title.tj-t{white-space:normal;font-size:clamp(2.2rem,9vw,3rem)}.sec-title.tj-t .br{display:block}}
 .tj-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:start;margin-top:40px}
 @media(max-width:900px){.tj-grid{grid-template-columns:1fr;gap:44px}}
 .tj-list{list-style:none;position:relative;padding-left:0}
@@ -550,11 +552,12 @@ nav a.cur::after{width:100%}
 .dk .tape{position:absolute;top:-11px;left:50%;width:76px;height:22px;margin-left:-38px;background:var(--tape);transform:rotate(-4deg);z-index:2}
 .dk .tape.gold{background:rgba(224,166,74,.55)}
 .dk:hover{box-shadow:8px 16px 30px var(--shadow)}
+.dkm.drag{cursor:grabbing;box-shadow:6px 12px 22px var(--shadow)}
 .dk.drag{cursor:grabbing;box-shadow:12px 22px 38px var(--shadow);transition:none}
 @keyframes dkDrop{from{opacity:0;transform:translateY(-60px) rotate(calc(var(--r) * -3)) scale(1.08)}to{opacity:1;transform:rotate(var(--r))}}
-.dk-stat{position:absolute;left:5%;top:41%;z-index:30;background:var(--lilac-deep);color:var(--card);font-family:'Special Elite',monospace;font-size:.85rem;padding:8px 14px;box-shadow:3px 3px 0 var(--ink);transform:rotate(-4deg);opacity:0;animation:pop .5s var(--d) cubic-bezier(.3,1.6,.5,1) forwards;pointer-events:none}
+.dk-stat{position:absolute;left:5%;top:41%;z-index:30;background:var(--lilac-deep);color:var(--card);font-family:'Special Elite',monospace;font-size:.85rem;padding:8px 14px;box-shadow:3px 3px 0 var(--ink);transform:rotate(-4deg);opacity:0;animation:pop .5s var(--d) cubic-bezier(.3,1.6,.5,1) forwards;cursor:grab;touch-action:pan-y;user-select:none}
 .dk-stat b{font-family:'Caveat',cursive;font-size:1.9rem;font-weight:700;line-height:1}
-.dk-note{position:absolute;right:-3%;top:47%;z-index:31;width:clamp(150px,34%,210px);background:#fbf6c9;padding:12px 14px;font-family:'Caveat',cursive;font-size:1.35rem;line-height:1.1;box-shadow:3px 6px 14px var(--shadow);transform:rotate(5deg);opacity:0;animation:pop .5s var(--d) cubic-bezier(.3,1.6,.5,1) forwards;pointer-events:none}
+.dk-note{position:absolute;right:-3%;top:47%;z-index:31;width:clamp(150px,34%,210px);background:#fbf6c9;padding:12px 14px;font-family:'Caveat',cursive;font-size:1.35rem;line-height:1.1;box-shadow:3px 6px 14px var(--shadow);transform:rotate(5deg);opacity:0;animation:pop .5s var(--d) cubic-bezier(.3,1.6,.5,1) forwards;cursor:grab;touch-action:pan-y;user-select:none}
 .dk-note .nk{font-family:'Special Elite',monospace;font-size:.7rem;letter-spacing:.08em;color:var(--label-text);display:block;margin-bottom:3px}
 .dk-hint{position:absolute;left:0;right:0;bottom:-6px;text-align:center;font-family:'Caveat',cursive;font-size:1.15rem;color:var(--ink-soft);opacity:0;animation:fadeUp .6s 1.6s forwards}
 @keyframes pop{from{opacity:0;transform:scale(.4) rotate(0)}to{opacity:1}}
@@ -698,10 +701,10 @@ button:active,.copy:active,.arr:active{transform:scale(.96)}
     <div class="hero-right desk" id="desk" aria-label="Mesa de trabalho">
       <figure class="dk" data-p="spin" style="--x:4%;--y:2%;--w:47%;--r:-5deg;--d:.35s"><span class="tape"></span><img src="imagens/web/spin-new-03.webp" alt="Lifepro Spinergy" draggable="false"></figure>
       <figure class="dk" data-p="livro" style="--x:58%;--y:3%;--w:34%;--r:4deg;--d:.5s"><span class="tape gold"></span><img src="imagens/web/livro-capa.webp" alt="Tudo que Habita em Mim" draggable="false"></figure>
-      <figure class="dk" data-p="petcove" style="--x:10%;--y:54%;--w:44%;--r:3deg;--d:.65s"><img src="imagens/thumbs/petcove-01-600.webp" alt="Petcove" draggable="false"></figure>
+      <figure class="dk" data-p="petcove" style="--x:10%;--y:54%;--w:44%;--r:3deg;--d:.65s"><span class="tape gold"></span><img src="imagens/thumbs/petcove-01-600.webp" alt="Petcove" draggable="false"></figure>
       <figure class="dk" data-p="sculpt" style="--x:57%;--y:57%;--w:38%;--r:-3deg;--d:.8s"><span class="tape"></span><img src="imagens/thumbs/sculpt-ab-thumb-600.webp" alt="Lifepro SculptTrainer" draggable="false"></figure>
-      <span class="dk-stat" style="--d:1.05s"><b>+73%</b> <span data-pt>conversão</span><span data-en>conversion</span></span>
-      <span class="dk-note" style="--d:1.2s"><span class="nk"><span data-pt>agora:</span><span data-en>now:</span></span><span data-pt>liderando um time de design na Chai Vision</span><span data-en>leading a design team at Chai Vision</span></span>
+      <span class="dk-stat dkm" style="--d:1.05s;--r:-4deg"><b>+73%</b> <span data-pt>conversão</span><span data-en>conversion</span></span>
+      <span class="dk-note dkm" style="--d:1.2s;--r:5deg"><span class="nk"><span data-pt>agora:</span><span data-en>now:</span></span><span data-pt>liderando um time de design na Chai Vision</span><span data-en>leading a design team at Chai Vision</span></span>
       <span class="dk-hint"><span class="dsk"><span data-pt>arraste as fotos · clique para abrir</span><span data-en>drag the photos · click to open</span></span><span class="tch"><span data-pt>toque numa foto para abrir</span><span data-en>tap a photo to open</span></span></span>
     </div>
   </div>
@@ -745,7 +748,7 @@ button:active,.copy:active,.arr:active{transform:scale(.96)}
 
 <section id="trajetoria" class="tj-sec">
   <p class="sec-label"><span data-pt>Trajetória</span><span data-en>Journey</span></p>
-  <h2 class="sec-title"><span data-pt>Cinco anos de <em>Amazon</em>, marcas e livros.</span><span data-en>Five years of <em>Amazon</em>, brands and books.</span></h2>
+  <h2 class="sec-title one tj-t"><span data-pt>Cinco anos de <em>Amazon</em>,<span class="br"></span> marcas e livros.</span><span data-en>Five years of <em>Amazon</em>,<span class="br"></span> brands and books.</span></h2>
   <div class="tj-grid">
     <ol class="tj-list reveal"><li class="tj now"><span class="tj-when">2026 — <span data-pt>hoje</span><span data-en>now</span></span><div class="tj-card"><h4>Senior Designer &amp; Team Lead</h4><p class="tj-co">Chai Vision</p><p><span data-pt>Lidero um time de designers, equilibrando demandas, qualidade e prazos. Cuido da produção criativa de Lifepro, Petcove, Joyberri, OAKTIV e Culvani na Amazon, Shopify, Walmart, TikTok Shop e Chewy.</span><span data-en>I lead a team of designers, balancing workloads, quality and deadlines. I run creative production for Lifepro, Petcove, Joyberri, OAKTIV and Culvani across Amazon, Shopify, Walmart, TikTok Shop and Chewy.</span></p></div></li><li class="tj"><span class="tj-when">2024 — 2026</span><div class="tj-card"><h4>Amazon Creative Specialist</h4><p class="tj-co">Chai Vision</p><p><span data-pt>Imagens de listing, A+ e testes A/B para as marcas da casa.</span><span data-en>Listing images, A+ content and A/B tests for the company's brands.</span></p></div></li><li class="tj"><span class="tj-when">2023 — 2024</span><div class="tj-card"><h4>Creative Design Strategist</h4><p class="tj-co">Retail Ready</p><p><span data-pt>Mão na massa no Seller Central: infográficos, A+, brand stories e storefronts. Também embalagem, site, ilustração e branding para ReadyWise, Pillow Fight, Kalifano e Iron Lion Soap, entre outras.</span><span data-en>Hands-on in Seller Central: infographics, A+, brand stories and storefronts. Also packaging, a website, illustration and branding for ReadyWise, Pillow Fight, Kalifano and Iron Lion Soap, among others.</span></p></div></li><li class="tj"><span class="tj-when">2021 — 2023</span><div class="tj-card"><h4>Graphic Designer</h4><p class="tj-co">Buy Box Experts</p><p><span data-pt>Manipulação de imagem, infográficos, A+, storefronts e anúncios para marcas como Kangol, Lion Brand Yarn, Balanced Body e TRX.</span><span data-en>Photo manipulation, infographics, A+, storefronts and ads for brands such as Kangol, Lion Brand Yarn, Balanced Body and TRX.</span></p></div></li><li class="tj"><span class="tj-when"><span data-pt>10 meses</span><span data-en>10 months</span></span><div class="tj-card"><h4><span data-pt>Estágio em Social Media</span><span data-en>Social Media Intern</span></h4><p class="tj-co">Redlike</p><p><span data-pt>Conteúdo estático e em movimento para pequenos negócios locais.</span><span data-en>Static and motion content for small local businesses.</span></p></div></li></ol>
     <div class="tools reveal">
@@ -1753,14 +1756,14 @@ let rt;window.addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>
 /* ===== hero desk: drag & open ===== */
 (function(){
   const desk=document.getElementById('desk');if(!desk)return;let z=20;
-  desk.querySelectorAll('.dk').forEach(f=>{
+  desk.querySelectorAll('.dk,.dkm').forEach(f=>{const opens=f.classList.contains('dk');
     let sx,sy,ox=0,oy=0,moved=0,down=false;
-    f.addEventListener('click',e=>{if(f._touch){openDetail(f.dataset.p)}});
+    f.addEventListener('click',e=>{if(f._touch&&opens){openDetail(f.dataset.p)}});
     f.addEventListener('pointerdown',e=>{f._touch=e.pointerType!=='mouse';if(f._touch)return;down=true;moved=0;sx=e.clientX;sy=e.clientY;f.setPointerCapture(e.pointerId);f.style.zIndex=++z;f.classList.add('drag');f.style.animation='none';f.style.opacity=1});
     f.addEventListener('pointermove',e=>{if(!down)return;const dx=e.clientX-sx,dy=e.clientY-sy;moved=Math.max(moved,Math.hypot(dx,dy));
       f.style.transform=`translate(${ox+dx}px,${oy+dy}px) rotate(calc(var(--r) * .3)) scale(1.04)`});
     const up=e=>{if(!down)return;down=false;f.classList.remove('drag');
-      if(moved<6){f.style.transform=`translate(${ox}px,${oy}px) rotate(var(--r))`;openDetail(f.dataset.p);return}
+      if(moved<6){f.style.transform=`translate(${ox}px,${oy}px) rotate(var(--r))`;if(opens)openDetail(f.dataset.p);return}
       ox+=e.clientX-sx;oy+=e.clientY-sy;f.style.transform=`translate(${ox}px,${oy}px) rotate(var(--r))`};
     f.addEventListener('pointerup',up);f.addEventListener('pointercancel',up);
   });
