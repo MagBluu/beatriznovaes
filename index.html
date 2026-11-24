@@ -352,11 +352,15 @@ nav a.cur::after{width:100%}
 .role::before{content:"";position:absolute;left:6%;right:6%;top:27px;height:2px;background:repeating-linear-gradient(90deg,var(--ink) 0 6px,transparent 6px 12px);opacity:.35}
 .role .st{position:relative;padding:0 14px;cursor:default}
 .role .dot{width:56px;height:56px;border-radius:50%;background:var(--card);border:2px solid var(--ink);display:flex;align-items:center;justify-content:center;font-family:'Caveat',cursive;font-weight:700;font-size:1.7rem;position:relative;z-index:1;transition:background .3s,color .3s,transform .35s cubic-bezier(.3,1.5,.5,1)}
-.role .st.hands .dot{background:var(--lilac-deep);color:var(--card);border-color:var(--lilac-deep)}
+.role .st{cursor:pointer}
+.role .st .dot,.role .tg{transition:background .3s,color .3s,border-color .3s,transform .35s cubic-bezier(.3,1.5,.5,1)}
+.role .st.on .dot{background:var(--lilac-deep);color:var(--card);border-color:var(--lilac-deep);transform:scale(1.12)}
+.role .st h4{transition:color .3s}.role .st.on h4{color:var(--lilac-deep)}
+.role .st:not(.on):hover .dot{background:var(--lilac);color:var(--card);border-color:var(--lilac)}
 .role .st:hover .dot{transform:scale(1.12) rotate(-6deg)}
 .role .tg{display:inline-block;margin:14px 0 8px;font-family:'Special Elite',monospace;font-size:.66rem;letter-spacing:.08em;padding:3px 8px;background:var(--tape)}
 .role .tg{justify-self:start}
-.role .st.hands .tg{background:var(--lilac-deep);color:var(--card)}
+.role .st.on .tg{background:var(--lilac-deep);color:var(--card)}
 .role h4{font-family:'Special Elite',monospace;font-weight:400;font-size:1rem;margin-bottom:6px}
 .role p{font-size:.9rem;color:var(--ink-soft);line-height:1.55}
 .role .st{opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s}
@@ -514,6 +518,7 @@ nav a.cur::after{width:100%}
 /* ===== trajetória & ferramentas ===== */
 .tj-sec{padding-top:60px}
 .sec-title.tj-t{font-size:min(4.6rem,4.3vw)}
+.sec-title .num{font-style:normal;font-family:'Caveat',cursive;font-size:1.35em;line-height:.6;color:var(--lilac-deep);display:inline-block;transform:rotate(-6deg);margin-right:.08em}
 @media(max-width:700px){.sec-title.tj-t{white-space:normal;font-size:clamp(2.2rem,9vw,3rem)}.sec-title.tj-t .br{display:block}}
 .tj-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:start;margin-top:40px}
 @media(max-width:900px){.tj-grid{grid-template-columns:1fr;gap:44px}}
@@ -521,11 +526,16 @@ nav a.cur::after{width:100%}
 .tj-list::before{content:"";position:absolute;left:96px;top:8px;bottom:8px;width:2px;background:repeating-linear-gradient(180deg,var(--ink) 0 6px,transparent 6px 12px);opacity:.3}
 .tj{display:grid;grid-template-columns:96px 1fr;gap:0 26px;margin-bottom:22px;position:relative}
 .tj::after{content:"";position:absolute;left:90px;top:10px;width:14px;height:14px;border-radius:50%;background:var(--paper);border:2px solid var(--ink)}
-.tj.now::after{background:var(--lilac-deep);border-color:var(--lilac-deep);box-shadow:0 0 0 5px rgba(106,79,163,.18)}
+.tj{cursor:pointer}.tj::after{transition:background .3s,border-color .3s,box-shadow .3s,transform .35s cubic-bezier(.3,1.5,.5,1)}
+.tj.on::after{background:var(--lilac-deep);border-color:var(--lilac-deep);box-shadow:0 0 0 5px rgba(106,79,163,.18);transform:scale(1.15)}
+.tj:not(.on):hover::after{background:var(--lilac);border-color:var(--lilac)}
+.tj-card{border-left:4px solid transparent;transition:transform .3s cubic-bezier(.2,1.3,.4,1),border-color .3s,box-shadow .3s}
+.tj.on .tj-card{border-left-color:var(--lilac-deep);box-shadow:5px 10px 22px var(--shadow)}
+.tj.on .tj-when{color:var(--lilac-deep)}
 .tj-when{font-family:'Special Elite',monospace;font-size:.74rem;color:var(--ink-soft);padding-top:8px;letter-spacing:.03em}
 .tj-card{background:var(--card);padding:16px 20px;box-shadow:3px 6px 14px var(--shadow);margin-left:14px;transition:transform .3s cubic-bezier(.2,1.3,.4,1)}
 .tj-card:hover{transform:translateX(6px) rotate(-.4deg)}
-.tj.now .tj-card{border-left:4px solid var(--lilac-deep)}
+
 .tj-card h4{font-family:'Special Elite',monospace;font-weight:400;font-size:1rem}
 .tj-co{font-family:'Caveat',cursive;font-size:1.35rem;color:var(--lilac-deep);line-height:1.1;margin:2px 0 6px}
 .tj-card p:last-child{color:var(--ink-soft);font-size:.92rem;line-height:1.55}
@@ -748,9 +758,9 @@ button:active,.copy:active,.arr:active{transform:scale(.96)}
 
 <section id="trajetoria" class="tj-sec">
   <p class="sec-label"><span data-pt>Trajetória</span><span data-en>Journey</span></p>
-  <h2 class="sec-title one tj-t"><span data-pt>Cinco anos de <em>Amazon</em>,<span class="br"></span> marcas e livros.</span><span data-en>Five years of <em>Amazon</em>,<span class="br"></span> brands and books.</span></h2>
+  <h2 class="sec-title one tj-t"><span data-pt><em class="num">5</em> anos de <em>Amazon</em>,<span class="br"></span> marcas e livros.</span><span data-en><em class="num">5</em> years of <em>Amazon</em>,<span class="br"></span> brands and books.</span></h2>
   <div class="tj-grid">
-    <ol class="tj-list reveal"><li class="tj now"><span class="tj-when">2026 — <span data-pt>hoje</span><span data-en>now</span></span><div class="tj-card"><h4>Senior Designer &amp; Team Lead</h4><p class="tj-co">Chai Vision</p><p><span data-pt>Lidero um time de designers, equilibrando demandas, qualidade e prazos. Cuido da produção criativa de Lifepro, Petcove, Joyberri, OAKTIV e Culvani na Amazon, Shopify, Walmart, TikTok Shop e Chewy.</span><span data-en>I lead a team of designers, balancing workloads, quality and deadlines. I run creative production for Lifepro, Petcove, Joyberri, OAKTIV and Culvani across Amazon, Shopify, Walmart, TikTok Shop and Chewy.</span></p></div></li><li class="tj"><span class="tj-when">2024 — 2026</span><div class="tj-card"><h4>Amazon Creative Specialist</h4><p class="tj-co">Chai Vision</p><p><span data-pt>Imagens de listing, A+ e testes A/B para as marcas da casa.</span><span data-en>Listing images, A+ content and A/B tests for the company's brands.</span></p></div></li><li class="tj"><span class="tj-when">2023 — 2024</span><div class="tj-card"><h4>Creative Design Strategist</h4><p class="tj-co">Retail Ready</p><p><span data-pt>Mão na massa no Seller Central: infográficos, A+, brand stories e storefronts. Também embalagem, site, ilustração e branding para ReadyWise, Pillow Fight, Kalifano e Iron Lion Soap, entre outras.</span><span data-en>Hands-on in Seller Central: infographics, A+, brand stories and storefronts. Also packaging, a website, illustration and branding for ReadyWise, Pillow Fight, Kalifano and Iron Lion Soap, among others.</span></p></div></li><li class="tj"><span class="tj-when">2021 — 2023</span><div class="tj-card"><h4>Graphic Designer</h4><p class="tj-co">Buy Box Experts</p><p><span data-pt>Manipulação de imagem, infográficos, A+, storefronts e anúncios para marcas como Kangol, Lion Brand Yarn, Balanced Body e TRX.</span><span data-en>Photo manipulation, infographics, A+, storefronts and ads for brands such as Kangol, Lion Brand Yarn, Balanced Body and TRX.</span></p></div></li><li class="tj"><span class="tj-when"><span data-pt>10 meses</span><span data-en>10 months</span></span><div class="tj-card"><h4><span data-pt>Estágio em Social Media</span><span data-en>Social Media Intern</span></h4><p class="tj-co">Redlike</p><p><span data-pt>Conteúdo estático e em movimento para pequenos negócios locais.</span><span data-en>Static and motion content for small local businesses.</span></p></div></li></ol>
+    <ol class="tj-list reveal"><li class="tj now on" tabindex="0" role="button"><span class="tj-when">2026 — <span data-pt>hoje</span><span data-en>now</span></span><div class="tj-card"><h4>Senior Designer &amp; Team Lead</h4><p class="tj-co">Chai Vision</p><p><span data-pt>Lidero um time de designers, equilibrando demandas, qualidade e prazos. Cuido da produção criativa de Lifepro, Petcove, Joyberri, OAKTIV e Culvani na Amazon, Shopify, Walmart, TikTok Shop e Chewy.</span><span data-en>I lead a team of designers, balancing workloads, quality and deadlines. I run creative production for Lifepro, Petcove, Joyberri, OAKTIV and Culvani across Amazon, Shopify, Walmart, TikTok Shop and Chewy.</span></p></div></li><li class="tj" tabindex="0" role="button"><span class="tj-when">2024 — 2026</span><div class="tj-card"><h4>Amazon Creative Specialist</h4><p class="tj-co">Chai Vision</p><p><span data-pt>Imagens de listing, A+ e testes A/B para as marcas da casa.</span><span data-en>Listing images, A+ content and A/B tests for the company's brands.</span></p></div></li><li class="tj" tabindex="0" role="button"><span class="tj-when">2023 — 2024</span><div class="tj-card"><h4>Creative Design Strategist</h4><p class="tj-co">Retail Ready</p><p><span data-pt>Mão na massa no Seller Central: infográficos, A+, brand stories e storefronts. Também embalagem, site, ilustração e branding para ReadyWise, Pillow Fight, Kalifano e Iron Lion Soap, entre outras.</span><span data-en>Hands-on in Seller Central: infographics, A+, brand stories and storefronts. Also packaging, a website, illustration and branding for ReadyWise, Pillow Fight, Kalifano and Iron Lion Soap, among others.</span></p></div></li><li class="tj" tabindex="0" role="button"><span class="tj-when">2021 — 2023</span><div class="tj-card"><h4>Graphic Designer</h4><p class="tj-co">Buy Box Experts</p><p><span data-pt>Manipulação de imagem, infográficos, A+, storefronts e anúncios para marcas como Kangol, Lion Brand Yarn, Balanced Body e TRX.</span><span data-en>Photo manipulation, infographics, A+, storefronts and ads for brands such as Kangol, Lion Brand Yarn, Balanced Body and TRX.</span></p></div></li><li class="tj" tabindex="0" role="button"><span class="tj-when"><span data-pt>10 meses</span><span data-en>10 months</span></span><div class="tj-card"><h4><span data-pt>Estágio em Social Media</span><span data-en>Social Media Intern</span></h4><p class="tj-co">Redlike</p><p><span data-pt>Conteúdo estático e em movimento para pequenos negócios locais.</span><span data-en>Static and motion content for small local businesses.</span></p></div></li></ol>
     <div class="tools reveal">
       <div class="tl-box"><h4><span data-pt>Design</span><span data-en>Design</span></h4><div class="chips"><span class="chip">Photoshop</span><span class="chip">Illustrator</span><span class="chip">InDesign</span><span class="chip">Figma</span><span class="chip">Premiere Pro</span><span class="chip">After Effects</span></div></div>
       <div class="tl-box ai"><span class="tape" style="top:-12px;left:30px;transform:rotate(-4deg)"></span><h4><span data-pt>Inteligência artificial</span><span data-en>Artificial intelligence</span></h4>
@@ -1223,10 +1233,10 @@ function spinHTML(p,l){
     <h3 class="ab-h">${T('Meu papel','My role')}</h3>
     <p class="ab-p">${T('Neste projeto eu não desenhei cada imagem. Eu desenhei o sistema e conduzi a equipe até o resultado.','On this project I didn\'t design every image. I designed the system and led the team to the result.')}</p>
     <div class="ab-box"><div class="role" id="sp-role">
-      <div class="st hands"><span class="dot">1</span><span class="tg">${T('MÃO NA MASSA','HANDS-ON')}</span><h4>${T('Criei o template','Built the template')}</h4><p>${T('Defini a estrutura que todas as imagens seguiriam: hierarquia, tipografia, selos e tipo de foto.','Defined the structure every image would follow: hierarchy, type, chips and photo style.')}</p></div>
-      <div class="st"><span class="dot">2</span><span class="tg">${T('LIDERANÇA','LEADERSHIP')}</span><h4>${T('Direcionei a equipe','Directed the team')}</h4><p>${T('Distribuí as imagens e orientei os designers a partir do template.','Assigned the images and guided the designers from the template.')}</p></div>
-      <div class="st"><span class="dot">3</span><span class="tg">${T('LIDERANÇA','LEADERSHIP')}</span><h4>${T('Revisei e aprovei','Reviewed and approved')}</h4><p>${T('Acompanhei cada peça até a aprovação, mantendo o set coerente do começo ao fim.','Followed each piece through to approval, keeping the set consistent end to end.')}</p></div>
-      <div class="st"><span class="dot">4</span><span class="tg">${T('RESULTADO','RESULT')}</span><h4>${T('Testamos na Amazon','Tested on Amazon')}</h4><p>${T('O set novo competiu com o de 2025 num teste A/B com cerca de 34 mil visitantes.','The new set went head to head with the 2025 one in an A/B test with about 34k visitors.')}</p></div>
+      <div class="st hands on" tabindex="0" role="button"><span class="dot">1</span><span class="tg">${T('MÃO NA MASSA','HANDS-ON')}</span><h4>${T('Criei o template','Built the template')}</h4><p>${T('Defini a estrutura que todas as imagens seguiriam: hierarquia, tipografia, selos e tipo de foto.','Defined the structure every image would follow: hierarchy, type, chips and photo style.')}</p></div>
+      <div class="st" tabindex="0" role="button"><span class="dot">2</span><span class="tg">${T('LIDERANÇA','LEADERSHIP')}</span><h4>${T('Direcionei a equipe','Directed the team')}</h4><p>${T('Distribuí as imagens e orientei os designers a partir do template.','Assigned the images and guided the designers from the template.')}</p></div>
+      <div class="st" tabindex="0" role="button"><span class="dot">3</span><span class="tg">${T('LIDERANÇA','LEADERSHIP')}</span><h4>${T('Revisei e aprovei','Reviewed and approved')}</h4><p>${T('Acompanhei cada peça até a aprovação, mantendo o set coerente do começo ao fim.','Followed each piece through to approval, keeping the set consistent end to end.')}</p></div>
+      <div class="st" tabindex="0" role="button"><span class="dot">4</span><span class="tg">${T('RESULTADO','RESULT')}</span><h4>${T('Testamos na Amazon','Tested on Amazon')}</h4><p>${T('O set novo competiu com o de 2025 num teste A/B com cerca de 34 mil visitantes.','The new set went head to head with the 2025 one in an A/B test with about 34k visitors.')}</p></div>
     </div></div>
   </div>
 
@@ -1294,6 +1304,8 @@ function initSpin(p,l){
     const step=t=>{const k=Math.min(1,(t-t0)/D),e=1-Math.pow(1-k,3);el.textContent='+'+pre+nf(to*e,l,dec)+suf;if(k<1)requestAnimationFrame(step)};requestAnimationFrame(step);
   }));
   const role=document.getElementById('sp-role');inView(role,()=>role.classList.add('in'));
+  const sts=[...role.querySelectorAll('.st')];const pick=st=>sts.forEach(x=>x.classList.toggle('on',x===st));
+  sts.forEach(st=>{st.addEventListener('click',()=>pick(st));st.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();pick(st)}})});
   const mb=document.getElementById('sp-mb'),fa=mb.querySelector('.fill.a'),fb=mb.querySelector('.fill.b'),lf=document.getElementById('sp-lift');let mi=0,on=false;
   const draw=()=>{const m=SP.metrics[mi],max=m.b*1.15;fa.style.width=on?(m.a/max*100)+'%':'0';fb.style.width=on?(m.b/max*100)+'%':'0';
     fa.querySelector('.val').textContent=fv(m.a,m.type,l);fb.querySelector('.val').textContent=fv(m.b,m.type,l);
@@ -1753,6 +1765,9 @@ window.addEventListener('load',()=>typeset());if(document.fonts)document.fonts.r
 noWidows();
 (function(){const d=document.getElementById('detail');let t;new MutationObserver(ms=>{if(ms.every(m=>m.target.nodeType===1&&m.target.closest&&m.target.closest('.kpi .n,.car-count,.val,#sim-v,#sim-a,#sim-b,#sim-d')))return;clearTimeout(t);t=setTimeout(()=>typeset(d),60)}).observe(d,{childList:true,subtree:true});
 let rt;window.addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>typeset(),150)});})();
+/* ===== trajetória: selectable ===== */
+(function(){const li=[...document.querySelectorAll('.tj')];const pick=x=>li.forEach(y=>y.classList.toggle('on',y===x));
+  li.forEach(x=>{x.addEventListener('click',()=>pick(x));x.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();pick(x)}})})})();
 /* ===== hero desk: drag & open ===== */
 (function(){
   const desk=document.getElementById('desk');if(!desk)return;let z=20;
